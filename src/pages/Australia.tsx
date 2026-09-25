@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import FAQAccordion from '../components/shared/FAQAccordion';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, FreeMode, Mousewheel } from 'swiper/modules';
+import { Navigation, FreeMode } from 'swiper/modules';
 import { useReveal } from '../hooks/useReveal';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -76,9 +76,9 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
   }, [delay]);
 
   let baseClass = 'opacity-0 transition-all ease-cinematic ';
-  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
-  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
-  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
+  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[800ms]';
+  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1000ms]';
+  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[800ms]';
 
   return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
@@ -162,7 +162,7 @@ export default function Australia() {
       </section>
 
       {/* Why Australia — Editorial Layout */}
-      <section ref={revealWhy} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealWhy} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-4 tracking-tight">Why Australia?</h2>
@@ -188,7 +188,7 @@ export default function Australia() {
                 <RevealItem key={title} delay={0} type="fade-up" className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16 lg:py-20 py-12 border-b border-bdr last:border-0`}>
                   <div className="w-full lg:w-1/2">
                     <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm group">
-                      <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                      <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
                       <div className="absolute inset-0 bg-[#064E3B]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700" />
                     </div>
                   </div>
@@ -207,7 +207,7 @@ export default function Australia() {
       </section>
 
       {/* Universities — Horizontal Showcase */}
-      <section ref={revealUni} className="py-32 bg-[#064E3B] overflow-hidden opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out text-white">
+      <section ref={revealUni} className="py-32 bg-[#064E3B] overflow-hidden opacity-0 translate-y-10 transition-all duration-[800ms] ease-out text-white">
         <div className="max-w-[1400px] mx-auto px-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs mb-3 block">Premium Institutions</span>
@@ -218,11 +218,10 @@ export default function Australia() {
         
         <div className="ml-6 md:ml-[calc((100vw-1400px)/2+24px)] pr-6">
           <Swiper 
-            modules={[Navigation, FreeMode, Mousewheel]} 
+            modules={[Navigation, FreeMode]} 
             slidesPerView="auto" 
             spaceBetween={32} 
             freeMode={{ enabled: true, sticky: true, momentumRatio: 0.1 }}
-            mousewheel={{ forceToAxis: true, sensitivity: 0.3 }}
             grabCursor={true}
             className="!overflow-visible"
           >
@@ -230,7 +229,7 @@ export default function Australia() {
               <SwiperSlide key={name} className="!w-[300px] md:!w-[500px]">
                 <RevealItem delay={i * 200} type="slide-left" className="group cursor-pointer">
                   <div className="relative h-[400px] md:h-[600px] rounded-xl overflow-hidden mb-6">
-                    <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                    <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700 ease-cinematic" />
                     <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 text-white font-poppins font-bold text-xs px-4 py-2 rounded-full">
                       {rank}
@@ -249,7 +248,7 @@ export default function Australia() {
       </section>
 
       {/* Courses — Visual Gallery */}
-      <section ref={revealCourses} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealCourses} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="mb-16">
             <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-4 tracking-tight">Discover Your Discipline</h2>
@@ -265,7 +264,7 @@ export default function Australia() {
               
               return (
                 <RevealItem key={name} delay={i * 150} type="fade-in" className={`${spanClass} relative rounded-xl overflow-hidden group`}>
-                  <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                  <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 ease-cinematic" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <h3 className="font-poppins font-bold text-xl text-white tracking-wide">{name}</h3>
@@ -278,7 +277,7 @@ export default function Australia() {
       </section>
 
       {/* Costs — Image & Typography Led */}
-      <section ref={revealCosts} className="py-32 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealCosts} className="py-32 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           <div className="lg:col-span-5 w-full h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl">
@@ -317,7 +316,7 @@ export default function Australia() {
       </section>
 
       {/* Scholarships — Structured List */}
-      <section ref={revealSchol} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealSchol} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
             <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-6 tracking-tight">Funding Your Journey</h2>
@@ -343,7 +342,7 @@ export default function Australia() {
       </section>
 
       {/* Visa — Visual Process */}
-      <section ref={revealVisa} className="py-24 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out relative">
+      <section ref={revealVisa} className="py-24 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[800ms] ease-out relative">
         <div className="absolute inset-0 bg-[url('/images/bg-pattern.webp')] opacity-10 mix-blend-overlay pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
@@ -356,7 +355,7 @@ export default function Australia() {
             {/* Sticky Visual Anchor */}
             <div className="hidden lg:block">
               <div className="sticky top-32 rounded-2xl overflow-hidden shadow-2xl h-[600px] w-full">
-                <img src="/images/student-5.webp" alt="Student Visa Process" className="w-full h-full object-cover transition-transform duration-[10000ms] hover:scale-110" />
+                <img src="/images/student-5.webp" alt="Student Visa Process" className="w-full h-full object-cover transition-transform duration-[1200ms] hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B] via-transparent to-transparent opacity-60" />
               </div>
             </div>
@@ -389,7 +388,7 @@ export default function Australia() {
       </section>
 
       {/* FAQ — Keep Component */}
-      <section ref={revealFaq} className="py-24 bg-[#FAF9F6] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealFaq} className="py-24 bg-[#FAF9F6] opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-4 tracking-tight">Common Questions</h2>

@@ -34,10 +34,10 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
   }, [delay]);
 
   let baseClass = 'opacity-0 transition-all ease-cinematic ';
-  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
-  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
-  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
-  if (type === 'slide-right') baseClass += 'translate-x-12 duration-[1000ms]';
+  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[800ms]';
+  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1000ms]';
+  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[800ms]';
+  if (type === 'slide-right') baseClass += 'translate-x-12 duration-[800ms]';
 
   return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
@@ -153,7 +153,7 @@ export default function Coaching() {
       </section>
 
       {/* Score Visuals & Journey */}
-      <section ref={revealScore} className="py-24 bg-[#FAF9F6] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealScore} className="py-24 bg-[#FAF9F6] opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             
@@ -226,7 +226,7 @@ export default function Coaching() {
       </section>
 
       {/* Methodology Journey */}
-      <section id="methodology" ref={revealProg} className="py-24 lg:py-32 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section id="methodology" ref={revealProg} className="py-24 lg:py-32 bg-white opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="text-center mb-24">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs mb-3 block">Our Methodology</span>
@@ -242,7 +242,7 @@ export default function Coaching() {
                 {/* Visual side */}
                 <RevealItem delay={0} type={i % 2 === 0 ? 'slide-left' : 'slide-right'} className="w-full md:w-1/2 relative z-10">
                   <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg relative group">
-                    <img src={prog.img} alt={prog.h3} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                    <img src={prog.img} alt={prog.h3} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-700 ease-cinematic" />
                   </div>
                 </RevealItem>
@@ -284,7 +284,7 @@ export default function Coaching() {
       </section>
 
       {/* Additional Services — Editorial List */}
-      <section ref={revealExtra} className="py-24 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealExtra} className="py-24 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-16 items-start">
             <div className="lg:sticky lg:top-32">
@@ -321,7 +321,7 @@ export default function Coaching() {
       </section>
 
       {/* Conversion Section */}
-      <section id="assessment" ref={revealForm} className="py-0 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section id="assessment" ref={revealForm} className="py-0 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[800px]">
           
           <div className="relative p-12 lg:p-24 flex flex-col justify-center overflow-hidden">

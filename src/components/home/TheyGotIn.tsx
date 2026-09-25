@@ -33,7 +33,7 @@ export default function TheyGotIn() {
           {cards.map(({ uni, name, major, img }) => (
             <SwiperSlide key={name}>
               <div className="relative rounded-2xl overflow-hidden h-[450px] group cursor-pointer shadow-md">
-                <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[2000ms] ease-cinematic-slow group-hover:scale-105" />
+                <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[1400ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,30,20,0.95)] via-[rgba(6,30,20,0.4)] to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
                   <div className="translate-y-6 group-hover:translate-y-0 transition-transform duration-700 ease-cinematic">

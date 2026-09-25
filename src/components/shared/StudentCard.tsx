@@ -34,14 +34,14 @@ export default function StudentCard({ name, university, course, imageSrc, badge,
     <div
       ref={ref}
       className="bg-white border border-bdr rounded-xl overflow-hidden shadow-sm
-                 opacity-0 translate-y-10 transition-all duration-[1000ms] ease-cinematic
+                 opacity-0 translate-y-10 transition-all duration-[800ms] ease-cinematic
                  hover:-translate-y-1 hover:shadow-md"
     >
       <div className="h-48 overflow-hidden">
         <img
           src={imageSrc}
           alt={name}
-          className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow hover:scale-105"
         />
       </div>
       <div className="p-4">

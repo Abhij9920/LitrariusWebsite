@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: auto; }
   body {
     @apply font-inter text-charcoal antialiased;
     font-size: 16px;

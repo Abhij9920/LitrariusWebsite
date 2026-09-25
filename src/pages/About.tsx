@@ -42,9 +42,9 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
   }, [delay]);
 
   let baseClass = 'opacity-0 transition-all ease-cinematic ';
-  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
-  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
-  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
+  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[800ms]';
+  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1000ms]';
+  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[800ms]';
 
   return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
@@ -148,7 +148,7 @@ export default function About() {
       </section>
 
       {/* Mission Statement — Generous Whitespace */}
-      <section ref={revealMission} className="py-32 lg:py-48 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealMission} className="py-32 lg:py-48 bg-white opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-12 block">Why We Exist</span>
           <h2 className="font-playfair text-[32px] md:text-[48px] lg:text-[64px] text-[#064E3B] leading-[1.2] max-w-5xl mx-auto mb-16 font-normal">
@@ -171,7 +171,7 @@ export default function About() {
       </section>
 
       {/* Our Story — Sticky Scroll Journey */}
-      <section ref={revealTimeline} className="py-32 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out relative">
+      <section ref={revealTimeline} className="py-32 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[800ms] ease-out relative">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
           
           {/* Sticky Left Column */}
@@ -195,7 +195,7 @@ export default function About() {
       </section>
 
       {/* Our Foundation — Visual Proof */}
-      <section ref={revealTeam} className="py-32 bg-[#064E3B] text-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out overflow-hidden">
+      <section ref={revealTeam} className="py-32 bg-[#064E3B] text-white opacity-0 translate-y-10 transition-all duration-[800ms] ease-out overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="mb-20">
             <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs font-bold mb-4 block">Our Results</span>
@@ -222,19 +222,19 @@ export default function About() {
             {/* Image Gallery overlapping */}
             <div className="relative h-[400px] md:h-[500px] w-full py-4">
               <RevealItem delay={200} type="slide-left" className="absolute top-4 right-0 w-[55%] h-[45%] z-10 shadow-2xl rounded-2xl group overflow-hidden">
-                <img src={teamStudents[0].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                <img src={teamStudents[0].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute top-4 right-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold z-20">
                   {teamStudents[0].name}
                 </div>
               </RevealItem>
               <RevealItem delay={400} type="fade-in" className="absolute bottom-4 left-0 w-[50%] h-[55%] z-30 shadow-2xl rounded-2xl group overflow-hidden">
-                <img src={teamStudents[1].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                <img src={teamStudents[1].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold z-20">
                   {teamStudents[1].name}
                 </div>
               </RevealItem>
               <RevealItem delay={600} type="slide-left" className="absolute bottom-12 right-8 w-[45%] h-[45%] z-20 shadow-2xl rounded-2xl group overflow-hidden">
-                <img src={teamStudents[2].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                <img src={teamStudents[2].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute bottom-4 right-4 bg-emerald-500 text-white px-3 py-1.5 text-xs font-poppins font-bold z-20">
                   Scholarship
                 </div>
@@ -246,7 +246,7 @@ export default function About() {
       </section>
 
       {/* Why Students Trust Us — Clean Editorial Sequence */}
-      <section ref={revealWhy} className="py-32 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealWhy} className="py-32 bg-white opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-24">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Why Literarius</span>

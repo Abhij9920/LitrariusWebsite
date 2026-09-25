@@ -71,10 +71,10 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
   }, [delay]);
 
   let baseClass = 'opacity-0 transition-all ease-cinematic ';
-  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
-  if (type === 'fade-in') baseClass += 'duration-[1200ms]';
-  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
-  if (type === 'slide-right') baseClass += 'translate-x-12 duration-[1000ms]';
+  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[800ms]';
+  if (type === 'fade-in') baseClass += 'duration-[1000ms]';
+  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[800ms]';
+  if (type === 'slide-right') baseClass += 'translate-x-12 duration-[800ms]';
 
   return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
@@ -113,7 +113,7 @@ export default function Contact() {
           <RevealItem type="slide-right" className="lg:col-span-4 lg:col-start-9 flex flex-col gap-12 lg:pt-4">
             
             <div className="rounded-xl overflow-hidden shadow-sm h-48 group">
-              <img src="/images/student-group.webp" alt="Consultation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+              <img src="/images/student-group.webp" alt="Consultation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
             </div>
 
             <div className="flex flex-col gap-8">

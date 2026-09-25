@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { articles } from '../data/articles';
@@ -7,26 +7,35 @@ export default function BlogPost() {
   const { slug } = useParams();
   const navigate = useNavigate();
   
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  // Find article by slug
+  const progressBarRef = useRef<HTMLDivElement>(null);
   const article = articles.find(a => a.slug === slug);
 
-  // Scroll to top and reset progress on mount
+  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
-    setScrollProgress(0);
+    if (progressBarRef.current) {
+      progressBarRef.current.style.width = '0%';
+    }
   }, [slug]);
 
-  // Track scroll progress
+  // Track scroll progress without triggering React re-renders
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollTop;
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scroll = `${totalScroll / windowHeight}`;
-      setScrollProgress(Number(scroll));
-    }
-    window.addEventListener('scroll', handleScroll);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (progressBarRef.current) {
+            const totalScroll = document.documentElement.scrollTop;
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scroll = (totalScroll / windowHeight) * 100;
+            progressBarRef.current.style.width = `${scroll}%`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -48,8 +57,9 @@ export default function BlogPost() {
       
       {/* Scroll Progress Bar */}
       <div 
+        ref={progressBarRef}
         className="fixed top-0 left-0 h-1 bg-emerald-500 z-50 transition-all duration-150 ease-out"
-        style={{ width: `${scrollProgress * 100}%` }}
+        style={{ width: '0%' }}
       />
 
       {/* Editorial Article Hero */}
@@ -130,7 +140,7 @@ export default function BlogPost() {
             {related.map(rel => (
               <Link key={rel.slug} to={`/blog/${rel.slug}`} className="group flex gap-6 items-center bg-white p-4 rounded-xl border border-bdr hover:shadow-md transition-shadow">
                 <div className="w-1/3 aspect-square rounded-lg overflow-hidden flex-shrink-0">
-                  <img src={rel.img} alt={rel.title} className="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105" />
+                  <img src={rel.img} alt={rel.title} className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
                 </div>
                 <div>
                   <div className="text-[10px] font-poppins font-bold uppercase tracking-widest text-muted mb-2">

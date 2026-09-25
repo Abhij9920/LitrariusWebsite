@@ -41,9 +41,9 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
   }, [delay]);
 
   let baseClass = 'opacity-0 transition-all ease-cinematic ';
-  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
-  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
-  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
+  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[800ms]';
+  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1000ms]';
+  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[800ms]';
 
   return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
@@ -86,7 +86,7 @@ export default function AllInOnePlace() {
               <RevealItem delay={300} type="fade-up">
                 <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 bg-white group">
                   <div className="relative overflow-hidden aspect-[4/5]">
-                    <img src="/images/student-3.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+                    <img src="/images/student-3.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
                     <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Priya Sharma</h4>
@@ -98,7 +98,7 @@ export default function AllInOnePlace() {
               <RevealItem delay={600} type="fade-up">
                 <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 bg-white group">
                   <div className="relative overflow-hidden aspect-square">
-                    <img src="/images/student-5.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+                    <img src="/images/student-5.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
                     <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Rohit Verma</h4>
@@ -112,7 +112,7 @@ export default function AllInOnePlace() {
               <RevealItem delay={450} type="fade-up">
                 <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 bg-white group">
                   <div className="relative overflow-hidden aspect-square">
-                    <img src="/images/student-2.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+                    <img src="/images/student-2.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
                     <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Arjun Patel</h4>
@@ -127,7 +127,7 @@ export default function AllInOnePlace() {
                     Scholarship
                   </div>
                   <div className="relative overflow-hidden aspect-[4/5]">
-                    <img src="/images/student-1.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+                    <img src="/images/student-1.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
                     <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Meera Iyer</h4>

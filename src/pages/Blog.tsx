@@ -44,7 +44,7 @@ export default function Blog() {
           <Link to={`/blog/${featuredArticle.slug}`} className="group block">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div className="rounded-2xl overflow-hidden shadow-md aspect-video lg:aspect-[4/3] relative">
-                <img src={featuredArticle.img} alt={featuredArticle.title} className="w-full h-full object-cover transition-transform duration-[2000ms] ease-cinematic-slow group-hover:scale-105" />
+                <img src={featuredArticle.img} alt={featuredArticle.title} className="w-full h-full object-cover transition-transform duration-[1400ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 text-xs font-poppins font-bold uppercase tracking-widest text-[#064E3B]">
                   {featuredArticle.category}
                 </div>
@@ -117,7 +117,7 @@ export default function Blog() {
                 style={{ animationDelay: `${500 + i * 150}ms` }}
               >
                 <div className="rounded-2xl overflow-hidden aspect-[4/3] mb-8 shadow-sm relative">
-                  <img src={article.img} alt={article.title} className="w-full h-full object-cover transition-transform duration-[2000ms] ease-cinematic-slow group-hover:scale-105" />
+                  <img src={article.img} alt={article.title} className="w-full h-full object-cover transition-transform duration-[1400ms] ease-cinematic-slow group-hover:scale-105" />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 text-[10px] font-poppins font-bold uppercase tracking-widest text-[#064E3B] rounded-sm shadow-sm">
                     {article.category}
                   </div>
