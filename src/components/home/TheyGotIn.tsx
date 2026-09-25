@@ -1,9 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
 const cards = [
   { uni: 'University of Melbourne',    name: 'Priya Sharma',  major: 'Masters in Business Administration', img: '/images/student-3.webp' },
@@ -22,13 +21,12 @@ export default function TheyGotIn() {
           <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-6 tracking-tight">You Can Too.</h2>
         </div>
         <Swiper
-          modules={[Autoplay, Navigation, Pagination]}
+          modules={[Autoplay, Pagination]}
           slidesPerView={1}
           spaceBetween={24}
           loop={true}
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
-          navigation={true}
           breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
           className="pb-16"
         >

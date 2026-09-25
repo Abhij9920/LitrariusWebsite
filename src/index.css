@@ -75,10 +75,3 @@
 /* Swiper overrides */
 .swiper-pagination-bullet { background: rgba(6,78,59,0.3) !important; }
 .swiper-pagination-bullet-active { background: #064e3b !important; }
-.swiper-button-prev, .swiper-button-next {
-  background: #064e3b !important;
-  color: white !important;
-  width: 42px !important; height: 42px !important;
-  border-radius: 50% !important;
-}
-.swiper-button-prev::after, .swiper-button-next::after { font-size: 14px !important; }
