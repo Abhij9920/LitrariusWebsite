@@ -4,9 +4,9 @@ import StudentCard from '../shared/StudentCard';
 
 const students = [
   { name: 'Priya Sharma',  university: 'Admitted to University of Melbourne', course: 'MBA · Class of 2025',              img: '/images/student-3.webp' },
-  { name: 'Arjun Patel',   university: 'Admitted to UNSW Sydney',             course: 'Computer Science · Class of 2025',  img: '/images/student-4.webp' },
-  { name: 'Meera Iyer',    university: 'Admitted to Monash University',        course: 'Business Management',               img: '/images/student-5.webp', badge: 'Scholarship Recipient' },
-  { name: 'Rohit Verma',   university: 'Admitted to University of Queensland', course: 'Engineering · Class of 2025',        img: '/images/student-1.webp' },
+  { name: 'Arjun Patel',   university: 'Admitted to UNSW Sydney',             course: 'Computer Science · Class of 2025',  img: '/images/student-2.webp' },
+  { name: 'Meera Iyer',    university: 'Admitted to Monash University',        course: 'Business Management',               img: '/images/student-1.webp', badge: 'Scholarship Recipient' },
+  { name: 'Rohit Verma',   university: 'Admitted to University of Queensland', course: 'Engineering · Class of 2025',        img: '/images/student-5.webp' },
 ];
 
 const subs = [
@@ -32,15 +32,15 @@ export default function AllInOnePlace() {
           {/* LEFT — sticky */}
           <div className="lg:sticky lg:top-20">
             <span className="eyebrow-italic">Everything You Need.</span>
-            <h2 className="mb-4">All in One Place.</h2>
-            <p className="text-[16px] text-charcoal leading-relaxed mb-9">
+            <h2 className="font-playfair text-[32px] md:text-[44px] text-[#064E3B] mb-6 tracking-tight">All in One Place.</h2>
+            <p className="text-lg text-muted leading-relaxed mb-10">
               We guide students through every step — from university selection to visa approval.
               Trusted by 1,000+ Indian students at Australia's top universities.
             </p>
             {subs.map(({ h3, body }) => (
-              <div key={h3} className="mb-7">
-                <h3 className="text-[18px] mb-2">{h3}</h3>
-                <p className="text-sm text-muted leading-relaxed">{body}</p>
+              <div key={h3} className="mb-8">
+                <h3 className="font-poppins font-bold text-xl text-[#064E3B] mb-2">{h3}</h3>
+                <p className="text-base text-muted leading-relaxed">{body}</p>
               </div>
             ))}
             <Link to="/contact" className="btn btn-coral mt-2">Book Free Consultation</Link>

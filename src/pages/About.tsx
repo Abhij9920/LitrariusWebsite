@@ -90,7 +90,7 @@ export default function About() {
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <RevealItem delay={0} type="fade-up">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-6 block">Who We Are</span>
-            <h1 className="font-playfair text-[50px] md:text-[72px] lg:text-[90px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-5xl mx-auto">
+            <h1 className="font-playfair text-[56px] md:text-[76px] lg:text-[96px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-5xl mx-auto">
               India's Most Trusted<br />
               <span className="italic text-charcoal/80">Australian Partner.</span>
             </h1>
@@ -136,7 +136,7 @@ export default function About() {
           {/* Sticky Left Column */}
           <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Our Journey</span>
-            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-6">Building a Legacy</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-6 tracking-tight">Building a Legacy</h2>
             <p className="text-muted leading-relaxed">
               From our humble beginnings in Mumbai to placing over a thousand students, every milestone represents another student's dream fulfilled.
             </p>
@@ -173,7 +173,7 @@ export default function About() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="mb-20">
             <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs font-bold mb-4 block">Our Results</span>
-            <h2 className="font-playfair text-4xl lg:text-5xl text-white">The Foundation of Trust</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-white tracking-tight">The Foundation of Trust</h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -224,7 +224,7 @@ export default function About() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-24">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Why Literarius</span>
-            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B]">Why Students Trust Us</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] tracking-tight">Why Students Trust Us</h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -247,7 +247,7 @@ export default function About() {
       {/* Team CTA */}
       <section className="relative py-32 bg-[#FAF9F6] border-t border-bdr text-center">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-6">Speak With Our Experts</h2>
+          <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-6 tracking-tight">Speak With Our Experts</h2>
           <p className="text-lg text-muted mb-10 leading-relaxed">
             Our certified counsellors are ready to guide you through every step of your Australian education journey. Let's make it happen.
           </p>

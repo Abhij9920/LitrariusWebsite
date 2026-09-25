@@ -128,7 +128,7 @@ export default function Australia() {
           <div className="lg:col-span-5 z-10 relative">
             <RevealItem delay={0} type="slide-left">
               <span className="font-poppins font-bold tracking-widest uppercase text-green-em text-xs mb-4 block">The Ultimate Destination</span>
-              <h1 className="font-playfair text-[56px] lg:text-[76px] leading-[1.05] text-[#064E3B] mb-6 tracking-tight">
+              <h1 className="font-playfair text-[56px] md:text-[76px] lg:text-[96px] leading-[1.05] text-[#064E3B] mb-6 tracking-tight">
                 Study in<br /><span className="italic text-green-em">Australia.</span>
               </h1>
               <p className="text-lg text-charcoal/80 mb-10 max-w-md leading-relaxed">
@@ -165,7 +165,7 @@ export default function Australia() {
       <section ref={revealWhy} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-4">Why Australia?</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-4 tracking-tight">Why Australia?</h2>
             <p className="text-muted max-w-2xl mx-auto">The world's #3 destination for international students, combining rigorous academics with unparalleled lifestyle.</p>
           </div>
           
@@ -196,7 +196,7 @@ export default function Australia() {
         <div className="max-w-[1400px] mx-auto px-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs mb-3 block">Premium Institutions</span>
-            <h2 className="font-playfair text-4xl lg:text-5xl text-white">Where Ambition Meets Excellence</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-white tracking-tight">Where Ambition Meets Excellence</h2>
           </div>
           <p className="text-white/70 max-w-sm text-sm">We partner with Australia's most prestigious universities to give you access to world-class faculty and facilities.</p>
         </div>
@@ -237,7 +237,7 @@ export default function Australia() {
       <section ref={revealCourses} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="mb-16">
-            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-4">Discover Your Discipline</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-4 tracking-tight">Discover Your Discipline</h2>
             <p className="text-muted">Explore fields where Australian institutions globally lead.</p>
           </div>
           
@@ -269,7 +269,7 @@ export default function Australia() {
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="text-center mb-24">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs mb-3 block">Investment</span>
-            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B]">The Cost of Excellence</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] tracking-tight">The Cost of Excellence</h2>
           </div>
           
           <div className="flex flex-col md:flex-row justify-between items-center gap-16 md:gap-8 mb-24">
@@ -299,7 +299,7 @@ export default function Australia() {
       <section ref={revealSchol} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-6">Funding Your Journey</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-6 tracking-tight">Funding Your Journey</h2>
             <p className="text-lg text-muted mb-8 leading-relaxed">
               Australia offers extensive funding for international students. Through government and university partnerships, financial barriers can be significantly reduced.
             </p>
@@ -326,7 +326,7 @@ export default function Australia() {
         <div className="absolute inset-0 bg-[url('/images/bg-pattern.webp')] opacity-10 mix-blend-overlay" />
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="font-playfair text-4xl lg:text-5xl text-white mb-4">The Visa Pathway</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-white mb-4 tracking-tight">The Visa Pathway</h2>
             <p className="text-white/60">A structured, secure process to your Australian Student Visa.</p>
           </div>
           
@@ -355,7 +355,7 @@ export default function Australia() {
       <section ref={revealFaq} className="py-24 bg-[#FAF9F6] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-4">Common Questions</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-4 tracking-tight">Common Questions</h2>
           </div>
           <FAQAccordion faqs={faqs} />
         </div>
@@ -365,7 +365,7 @@ export default function Australia() {
       <section className="relative py-32 bg-[#064E3B] overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[url('/images/bg-pattern.webp')] bg-cover bg-center mix-blend-overlay" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white">
-          <h2 className="font-playfair text-5xl lg:text-6xl mb-6">Begin Your Application</h2>
+          <h2 className="font-playfair text-[44px] md:text-[56px] mb-6 tracking-tight">Begin Your Application</h2>
           <p className="text-lg text-white/80 mb-10">Our expert counsellors are ready to design your roadmap to Australia.</p>
           <Link to="/contact" className="btn bg-white text-[#064E3B] hover:bg-gray-100 px-8 py-4">
             Book Free Consultation

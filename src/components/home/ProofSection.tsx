@@ -32,7 +32,7 @@ export default function ProofSection() {
       <div className="max-w-content mx-auto px-6">
         <div className="mb-12">
           <span className="eyebrow-italic">Numbers Don't Lie.</span>
-          <h2>Proven Success. Unmatched Results.</h2>
+          <h2 className="font-playfair text-[32px] md:text-[44px] text-[#064E3B] mb-6 tracking-tight">Proven Success. Unmatched Results.</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">

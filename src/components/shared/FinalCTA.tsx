@@ -23,13 +23,13 @@ export default function FinalCTA({
         <div className="absolute inset-0 bg-[rgba(6,30,20,0.80)]" />
       </div>
       <div className="relative z-10 text-center px-6 py-16">
-        <h2 className="font-poppins font-bold text-white text-[clamp(28px,5vw,52px)] leading-[1.2] mb-4">
+        <h2 className="font-playfair text-[36px] md:text-[56px] text-white leading-[1.1] tracking-tight mb-4">
           {heading}
         </h2>
         <p className="font-playfair italic text-[22px] text-white/70 mb-7">{italic}</p>
         {children}
         {!children && (
-          <Link to={btnTo} className="btn btn-coral btn-lg">{btnLabel}</Link>
+          <Link to={btnTo} className="btn bg-coral text-white hover:bg-orange-600 px-8 py-4 font-bold tracking-wide uppercase text-sm">{btnLabel}</Link>
         )}
       </div>
     </section>

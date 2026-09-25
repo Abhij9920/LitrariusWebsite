@@ -9,8 +9,8 @@ const cards = [
   { uni: 'University of Melbourne',    name: 'Priya Sharma',  major: 'Masters in Business Administration', img: '/images/student-1.webp' },
   { uni: 'UNSW Sydney',                name: 'Arjun Patel',   major: 'Computer Science',                    img: '/images/student-2.webp' },
   { uni: 'Monash University',          name: 'Meera Iyer',    major: 'Business Management',                 img: '/images/student-3.webp' },
-  { uni: 'University of Queensland',   name: 'Rohit Verma',   major: 'Engineering',                         img: '/images/student-4.webp' },
-  { uni: 'Australian National University', name: 'Sneha Kapoor', major: 'International Relations',         img: '/images/student-5.webp' },
+  { uni: 'University of Queensland',   name: 'Rohit Verma',   major: 'Engineering',                         img: '/images/campus-uq.webp' },
+  { uni: 'Australian National University', name: 'Sneha Kapoor', major: 'International Relations',         img: '/images/campus-anu.webp' },
 ];
 
 export default function TheyGotIn() {
@@ -19,7 +19,7 @@ export default function TheyGotIn() {
       <div className="max-w-content mx-auto px-6">
         <div className="text-center mb-12">
           <span className="eyebrow-italic">They Got In.</span>
-          <h2>You Can Too.</h2>
+          <h2 className="font-playfair text-[32px] md:text-[44px] text-[#064E3B] mb-6 tracking-tight">You Can Too.</h2>
         </div>
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}

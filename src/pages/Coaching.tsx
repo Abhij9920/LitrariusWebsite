@@ -110,7 +110,7 @@ export default function Coaching() {
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <RevealItem delay={0} type="fade-up">
             <span className="font-poppins uppercase tracking-widest text-coral text-xs lg:text-sm font-bold mb-6 block">Premium Test Preparation</span>
-            <h1 className="font-playfair text-[50px] md:text-[64px] lg:text-[80px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-4xl mx-auto">
+            <h1 className="font-playfair text-[56px] md:text-[76px] lg:text-[96px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-4xl mx-auto">
               Master IELTS & PTE.<br />
               <span className="italic text-charcoal/80">Unlock Your Future.</span>
             </h1>
@@ -198,7 +198,7 @@ export default function Coaching() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-6">Know Your Target. Hit Your Score.</h2>
+              <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-6 tracking-tight">Know Your Target. Hit Your Score.</h2>
               <p className="text-lg text-muted mb-8 leading-relaxed">
                 Whether you choose the human-examined IELTS or the AI-scored PTE, our methodology breaks down the scoring criteria so you know exactly how to earn points in every module.
               </p>
@@ -230,7 +230,7 @@ export default function Coaching() {
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="text-center mb-24">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs mb-3 block">Our Methodology</span>
-            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B]">The Four-Stage Learning Journey</h2>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] tracking-tight">The Four-Stage Learning Journey</h2>
           </div>
           
           <div className="flex flex-col gap-24 lg:gap-32 relative">
@@ -257,7 +257,7 @@ export default function Coaching() {
                   <div className={`font-poppins font-black text-6xl opacity-10 absolute -top-8 -left-4 pointer-events-none ${prog.accent}`}>
                     0{i+1}
                   </div>
-                  <h3 className="font-playfair text-3xl text-[#064E3B] mb-4 relative z-10">{prog.h3}</h3>
+                  <h3 className="font-playfair text-[32px] md:text-[40px] text-[#064E3B] mb-4 relative z-10">{prog.h3}</h3>
                   <p className="text-muted leading-relaxed mb-6 relative z-10">{prog.desc}</p>
                   <ul className="flex flex-col gap-2.5 relative z-10">
                     {prog.points.map(p => (
@@ -280,7 +280,7 @@ export default function Coaching() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-16 items-start">
             <div className="lg:sticky lg:top-32">
-              <h2 className="font-playfair text-4xl text-[#064E3B] mb-6">Targeted Interventions</h2>
+              <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-6 tracking-tight">Targeted Interventions</h2>
               <p className="text-lg text-muted leading-relaxed mb-8">
                 Struggling with a specific module? Our targeted interventions isolate your weaknesses and turn them into strengths before test day.
               </p>
@@ -294,7 +294,7 @@ export default function Coaching() {
               {extras.map((extra, i) => (
                 <RevealItem key={extra.h} delay={i * 100} type="fade-up">
                   <div className="font-poppins font-bold text-sm tracking-widest uppercase text-emerald-500 mb-3">Module Support</div>
-                  <h3 className="font-playfair text-2xl text-[#064E3B] mb-3">{extra.h}</h3>
+                  <h3 className="font-playfair text-[28px] md:text-[32px] text-[#064E3B] mb-3 tracking-tight">{extra.h}</h3>
                   <p className="text-muted text-sm leading-relaxed">{extra.body}</p>
                 </RevealItem>
               ))}
@@ -314,7 +314,7 @@ export default function Coaching() {
             </div>
             <div className="relative z-10">
               <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs mb-4 block">Take The First Step</span>
-              <h2 className="font-playfair text-4xl lg:text-5xl text-white mb-6">Book Your Free Assessment Call</h2>
+              <h2 className="font-playfair text-[44px] md:text-[56px] text-white mb-6 tracking-tight">Book Your Free Assessment Call</h2>
               <p className="text-lg text-white/70 leading-relaxed mb-12 max-w-md">
                 Discuss your study abroad goals, test history, and target scores with a certified expert. We'll outline a realistic timeline and recommend the exact programme you need.
               </p>

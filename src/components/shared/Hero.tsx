@@ -47,17 +47,17 @@ export default function Hero({
 
       {/* Content — bottom-left */}
       <div className="relative z-10 flex-1 flex flex-col justify-end">
-        <div className={`pb-16 px-8 md:px-20 max-w-2xl ${short ? 'pb-12' : 'pb-20'}`}>
-          <p className="font-playfair italic text-xl text-white/75 mb-2.5">{italicLine}</p>
-          <h1 className="text-white leading-[1.12] mb-4">{heading}</h1>
+        <div className={`pb-16 px-8 md:px-20 max-w-4xl ${short ? 'pb-12' : 'pb-20'}`}>
+          <p className="font-playfair italic text-xl md:text-2xl text-white/80 mb-4">{italicLine}</p>
+          <h1 className="font-playfair text-[52px] md:text-[68px] lg:text-[88px] text-white leading-[1.05] mb-6 tracking-tight">{heading}</h1>
           {subText && (
-            <p className="text-[17px] text-white/65 max-w-xl mb-7 leading-relaxed">{subText}</p>
+            <p className="text-lg md:text-[20px] text-white/80 max-w-2xl mb-10 leading-relaxed">{subText}</p>
           )}
           {ctaLabel && ctaTo && (
-            <div className="flex items-center gap-5 flex-wrap">
-              <Link to={ctaTo} className="btn btn-coral btn-lg">{ctaLabel}</Link>
+            <div className="flex items-center gap-6 flex-wrap">
+              <Link to={ctaTo} className="btn bg-coral text-white hover:bg-orange-600 px-8 py-4 font-bold tracking-wide uppercase text-sm">{ctaLabel}</Link>
               {secondaryLabel && secondaryTo && (
-                <Link to={secondaryTo} className="text-white text-sm underline underline-offset-2 opacity-85 hover:opacity-100">
+                <Link to={secondaryTo} className="text-white text-[15px] font-medium underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity">
                   {secondaryLabel} ↓
                 </Link>
               )}
