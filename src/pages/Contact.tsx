@@ -3,37 +3,6 @@ import Hero from '../components/shared/Hero';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { useReveal } from '../hooks/useReveal';
 
-const details = [
-  { icon: '📞', h: 'Phone Numbers',  body: '+91 9607621025\n+91 8600068599' },
-  { icon: '✉️', h: 'Email Address',  body: 'info@theexpatlives.com' },
-  { icon: '📍', h: 'Office Address', body: '245, Ijmima Building, Mindspace,\nMalad West, Mumbai 400064' },
-  { icon: '🕐', h: 'Office Hours',   body: 'Monday–Saturday\n9 AM – 7 PM IST' },
-];
-
-const trust = [
-  { stat: '24h', color: 'text-green-em', h: 'Quick Response',   body: 'We reply to all enquiries within 24 hours — Monday to Saturday, 9 AM to 7 PM IST.' },
-  { stat: '15+', color: 'text-green-em', h: 'Expert Guidance',  body: 'Certified counsellors with 15+ years of experience in Australian admissions and IELTS/PTE coaching.' },
-  { stat: 'Free', color: 'text-coral', h: 'Free Consultation', body: 'Your first consultation is completely free. Get a personalised roadmap at no cost.' },
-];
-
-function RevealItem({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        el.style.transitionDelay = `${delay}ms`;
-        el.classList.add('opacity-100', '!translate-y-0');
-        obs.unobserve(el);
-      }
-    }, { threshold: 0.15 });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [delay]);
-  return <div ref={ref} className={`opacity-0 translate-y-8 transition-all duration-700 ease-out ${className}`}>{children}</div>;
-}
-
 function ContactForm() {
   const [success, setSuccess] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
@@ -55,7 +24,7 @@ function ContactForm() {
         </select>
       </div>
       <div className="mb-4"><label className="form-label">Country of Residence *</label><input className="form-input" placeholder="India" required /></div>
-      <div className="mb-5"><label className="form-label">Your Message *</label><textarea className="form-input min-h-[120px] resize-y" placeholder="Tell us about your goals and how we can help..." required /></div>
+      <div className="mb-6"><label className="form-label">Your Message *</label><textarea className="form-input min-h-[120px] resize-y" placeholder="Tell us about your goals and how we can help..." required /></div>
       <button type="submit" className="btn btn-coral w-full justify-center text-base py-3.5">Send Message</button>
       {success && <div className="mt-4 bg-emerald-50 border border-green-em text-emerald-700 font-medium text-sm rounded-lg px-4 py-3">✓ Thank you! We will get back to you within 24 hours.</div>}
     </form>
@@ -73,59 +42,79 @@ export default function Contact() {
         imageAlt="Australian cityscape"
         italicLine="We Are Here for You."
         heading={<>Get in Touch<br />with Our Experts.</>}
-        subText="Questions about studying in Australia or need IELTS/PTE coaching? We respond within 24 hours."
-        ctaLabel="Call Us Now"
-        ctaTo="#contact-section"
+        subText="We respond within 24 hours. Monday–Saturday, 9 AM to 7 PM IST."
+        ctaLabel=""
+        ctaTo=""
         short
       />
 
-      {/* Contact form + details — white */}
-      <section ref={revealContact} id="contact-section" className="py-20 bg-white opacity-0 translate-y-8 transition-all duration-700 ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left — form */}
-            <div>
+      {/* Contact Split — white */}
+      <section ref={revealContact} id="contact-section" className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl border border-bdr">
+            
+            {/* Left Form Panel */}
+            <div className="bg-white p-10 md:p-14 lg:p-16">
               <span className="eyebrow-italic">Send a Message.</span>
-              <h2 className="text-3xl mb-7">Let's Talk</h2>
+              <h2 className="font-poppins font-bold text-3xl mb-8">Let's Talk</h2>
               <ContactForm />
             </div>
-            {/* Right — details */}
-            <div>
-              <span className="eyebrow-italic">Find Us.</span>
-              <h2 className="text-3xl mb-6">Our Details</h2>
-              <div className="flex flex-col gap-3 mb-4">
-                {details.map(({ icon, h, body }, i) => (
-                  <RevealItem key={h} delay={i * 120} className="flex gap-3 p-4 border border-bdr rounded-xl bg-white shadow-sm hover:border-green-em hover:translate-x-1 transition-all">
-                    <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center text-lg flex-shrink-0">{icon}</div>
-                    <div>
-                      <h4 className="font-semibold text-sm text-ink mb-0.5">{h}</h4>
-                      <p className="text-xs text-muted whitespace-pre-line">{body}</p>
-                    </div>
-                  </RevealItem>
-                ))}
+            
+            {/* Right Dark Panel */}
+            <div className="bg-dark-section p-10 md:p-14 lg:p-16 flex flex-col h-full text-white">
+              <div className="font-poppins font-bold text-xl mb-12 flex items-center gap-2">🌿 Literarius</div>
+              
+              <div className="flex flex-col gap-6 flex-1">
+                <div className="border-b border-white/10 pb-6">
+                  <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1.5">Phone</div>
+                  <div className="text-[14px] leading-relaxed">+91 9607621025<br />+91 8600068599</div>
+                </div>
+                
+                <div className="border-b border-white/10 pb-6">
+                  <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1.5">Email</div>
+                  <div className="text-[14px]">info@theexpatlives.com</div>
+                </div>
+                
+                <div className="border-b border-white/10 pb-6">
+                  <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1.5">Address</div>
+                  <div className="text-[14px] leading-relaxed">245, Ijmima Building, Mindspace,<br />Malad West, Mumbai 400064</div>
+                </div>
+                
+                <div className="border-b border-white/10 pb-6">
+                  <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1.5">Hours</div>
+                  <div className="text-[14px] leading-relaxed">Monday–Saturday<br />9 AM – 7 PM IST</div>
+                </div>
               </div>
-              <RevealItem delay={details.length * 120} className="h-40 bg-gray-100 border-2 border-dashed border-bdr rounded-xl flex flex-col items-center justify-center text-muted gap-1.5">
-                <span className="text-3xl">🗺️</span>
-                <span className="font-semibold text-sm">Map Coming Soon</span>
-                <span className="text-xs">245 Ijmima Building, Mindspace, Malad West</span>
-              </RevealItem>
+
+              <div className="mt-12 font-playfair italic text-white/70 text-[16px] leading-relaxed border-l-2 border-green-em pl-4">
+                "We have helped 1,000+ students begin their Australian journey. Yours could be next."
+              </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Trust cards — cream */}
-      <section ref={revealTrust} className="py-20 bg-cream opacity-0 translate-y-8 transition-all duration-700 ease-out">
+      {/* Trust Indicators — cream */}
+      <section ref={revealTrust} className="py-16 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
         <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-12"><span className="eyebrow-italic">What to Expect.</span><h2>Why Contact Us?</h2></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {trust.map(({ stat, color, h, body }, i) => (
-              <RevealItem key={h} delay={i * 120} className="card-base p-6 text-center hover:border-coral h-full flex flex-col">
-                <div className={`font-poppins font-black text-[40px] leading-none mb-3 ${color}`}>{stat}</div>
-                <h3 className="text-[16px] mb-2">{h}</h3>
-                <p className="text-[13.5px] text-muted">{body}</p>
-              </RevealItem>
-            ))}
+          <div className="bg-gray-100 rounded-xl py-10 px-6 flex flex-col md:flex-row items-center justify-center divide-y md:divide-y-0 md:divide-x divide-bdr text-center">
+            
+            <div className="w-full md:w-1/3 py-4 md:py-0 md:px-8">
+              <div className="font-poppins font-bold text-[36px] text-green-em leading-none mb-1.5">24h</div>
+              <div className="font-inter text-[12px] text-muted uppercase tracking-wider">Response</div>
+            </div>
+            
+            <div className="w-full md:w-1/3 py-4 md:py-0 md:px-8">
+              <div className="font-poppins font-bold text-[36px] text-green-em leading-none mb-1.5">15+</div>
+              <div className="font-inter text-[12px] text-muted uppercase tracking-wider">Years Experience</div>
+            </div>
+            
+            <div className="w-full md:w-1/3 py-4 md:py-0 md:px-8">
+              <div className="font-poppins font-bold text-[36px] text-green-em leading-none mb-1.5">Free</div>
+              <div className="font-inter text-[12px] text-muted uppercase tracking-wider">First Consultation</div>
+            </div>
+
           </div>
         </div>
       </section>

@@ -5,29 +5,31 @@ import FAQAccordion from '../components/shared/FAQAccordion';
 import FinalCTA from '../components/shared/FinalCTA';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { useReveal } from '../hooks/useReveal';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const whyCards = [
-  { icon: '🏆', title: 'Global Academic Excellence',     body: '9 universities in the global top 100. Rigorous standards, cutting-edge research, and internationally recognised qualifications.' },
-  { icon: '🌍', title: 'Diverse Academic Landscape',     body: '4,000+ accredited institutions offering specialised programs in marine biology, renewable energy, and indigenous studies.' },
-  { icon: '💼', title: 'Work While You Study',           body: 'Work 20 hours/week during term and full-time during breaks. Gain real-world experience while covering living costs.' },
-  { icon: '💰', title: 'Comprehensive Scholarships',     body: 'Australia Awards and Endeavour Scholarships provide substantial assistance to international students.' },
-  { icon: '🔬', title: 'Innovation & Research Hub',      body: 'Global leader in climate science, AI, medical research, and sustainable technologies with world-class facilities.' },
-  { icon: '📋', title: 'Post-Study Work Visa',           body: 'Stay up to 4 years after graduation on a Temporary Graduate visa — a clear pathway to permanent residency.' },
+  { title: 'Global Academic Excellence',     body: '9 universities in the global top 100. Rigorous standards, cutting-edge research, and internationally recognised qualifications.' },
+  { title: 'Diverse Academic Landscape',     body: '4,000+ accredited institutions offering specialised programs in marine biology, renewable energy, and indigenous studies.' },
+  { title: 'Work While You Study',           body: 'Work 20 hours/week during term and full-time during breaks. Gain real-world experience while covering living costs.' },
+  { title: 'Comprehensive Scholarships',     body: 'Australia Awards and Endeavour Scholarships provide substantial assistance to international students.' },
+  { title: 'Innovation & Research Hub',      body: 'Global leader in climate science, AI, medical research, and sustainable technologies with world-class facilities.' },
+  { title: 'Post-Study Work Visa',           body: 'Stay up to 4 years after graduation on a Temporary Graduate visa — a clear pathway to permanent residency.' },
 ];
 
 const universities = [
-  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs." },
-  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines." },
-  { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.' },
-  { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.' },
-  { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.' },
-  { rank: 'QS #40',  name: 'University of Queensland',     body: 'Leader in research commercialisation and health sciences — beautiful Brisbane campus.' },
-  { rank: 'QS #82',  name: 'University of Western Australia', body: 'Perth-based research university known for mining, agriculture, and medical sciences.' },
-  { rank: 'QS #113', name: 'University of Technology Sydney', body: 'Practice-oriented, renowned for design, IT, and business innovation in the heart of Sydney.' },
+  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80' },
+  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: 'https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=600&q=80' },
+  { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.', img: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80' },
+  { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.', img: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=600&q=80' },
+  { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80' },
+  { rank: 'QS #40',  name: 'University of Queensland',     body: 'Leader in research commercialisation and health sciences — beautiful Brisbane campus.', img: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80' },
+  { rank: 'QS #82',  name: 'University of Western Australia', body: 'Perth-based research university known for mining, agriculture, and medical sciences.', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80' },
+  { rank: 'QS #89',  name: 'University of Adelaide',       body: 'Rich history of excellence in research and education, located in a vibrant city.', img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80' },
+  { rank: 'QS #113', name: 'University of Technology Sydney', body: 'Practice-oriented, renowned for design, IT, and business innovation in the heart of Sydney.', img: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80' },
 ];
 
 const courses = [
@@ -73,10 +75,10 @@ function RevealItem({ children, delay = 0, className = '' }: { children: React.R
     obs.observe(el);
     return () => obs.disconnect();
   }, [delay]);
-  return <div ref={ref} className={`opacity-0 translate-y-8 transition-all duration-700 ease-out ${className}`}>{children}</div>;
+  return <div ref={ref} className={`opacity-0 translate-y-10 transition-all duration-[900ms] ease-out ${className}`}>{children}</div>;
 }
 
-function AnimatedNumber({ value, prefix = '', suffix = '' }: { value: number; prefix?: string; suffix?: string }) {
+function AnimatedNumber({ value, prefix = '', suffix = '', className = "font-poppins font-black text-[48px] text-green-em leading-none" }: { value: number; prefix?: string; suffix?: string; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
 
@@ -86,8 +88,7 @@ function AnimatedNumber({ value, prefix = '', suffix = '' }: { value: number; pr
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) {
         obs.unobserve(el);
-        let start = 0;
-        const duration = 1500;
+        const duration = 2000;
         const startTime = performance.now();
         const animate = (time: number) => {
           const progress = Math.min((time - startTime) / duration, 1);
@@ -102,7 +103,7 @@ function AnimatedNumber({ value, prefix = '', suffix = '' }: { value: number; pr
     return () => obs.disconnect();
   }, [value]);
 
-  return <div ref={ref} className="font-poppins font-black text-[50px] text-green-em leading-none">{prefix}{current.toLocaleString()}{suffix}</div>;
+  return <div ref={ref} className={className}>{prefix}{current.toLocaleString()}{suffix}</div>;
 }
 
 export default function Australia() {
@@ -118,6 +119,7 @@ export default function Australia() {
     <>
       <Hero
         imageSrc="/Uploads/australia.jpg"
+        videoSrc="https://videos.pexels.com/video-files/3737970/3737970-uhd_2732_1440_25fps.mp4"
         imageAlt="Australian university campus"
         italicLine="Your Australian Education Journey Starts Here."
         heading={<>World-Class Australian Universities.<br />Personalised Guidance.</>}
@@ -125,25 +127,42 @@ export default function Australia() {
         ctaLabel="Get Free Consultation"
         ctaTo="/contact"
         short
-      />
+      >
+        <div className="px-8 md:px-20 pb-12 w-full mt-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 divide-x divide-white/20 border-t border-white/20 pt-8">
+            {[
+              ['42+', 'Universities'],
+              ['AUD 20–45k', 'Avg Fees'],
+              ['700k+', 'Intl Students'],
+              ['4yr', 'Post-Study Visa']
+            ].map(([val, label], i) => (
+              <div key={label} className={i !== 0 ? 'pl-6' : ''}>
+                <div className="font-poppins font-black text-2xl text-white">{val}</div>
+                <div className="text-xs text-white/60 uppercase tracking-wider mt-1">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Hero>
 
       {/* Why Australia — cream */}
-      <section ref={revealWhy} className="py-20 bg-cream opacity-0 translate-y-8 transition-all duration-700 ease-out">
+      <section ref={revealWhy} className="py-20 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-12 lg:gap-20 items-start">
             <div className="lg:sticky lg:top-24">
               <span className="eyebrow-italic">Why Australia?</span>
               <h2>Why Study in Australia?</h2>
-              <p className="mt-4 text-muted leading-relaxed">The world's #3 destination for international students — combining world-class education with an incredible lifestyle.</p>
+              <p className="mt-4 text-muted leading-relaxed mb-6">The world's #3 destination for international students — combining world-class education with an incredible lifestyle.</p>
+              <Link to="/contact" className="btn btn-coral">Book Free Consultation</Link>
             </div>
             <div className="flex flex-col">
               {whyCards.map(({ title, body }, i) => (
-                <RevealItem key={title} delay={i * 120} className="border-b border-bdr last:border-b-0 py-6 first:pt-0 last:pb-0">
+                <RevealItem key={title} delay={i * 180} className="border-b border-bdr last:border-b-0 py-6 first:pt-0 last:pb-0">
                   <div className="flex items-start gap-5">
-                    <div className="font-poppins font-black text-[48px] text-green-em leading-none mt-0.5 tracking-tighter">0{i + 1}</div>
+                    <div className="font-poppins font-black text-[44px] text-green-em leading-none mt-0.5 tracking-tighter">0{i + 1}</div>
                     <div>
-                      <h3 className="text-[19px] mb-2">{title}</h3>
-                      <p className="text-[14.5px] text-muted">{body}</p>
+                      <h3 className="font-poppins font-semibold text-[19px] mb-2">{title}</h3>
+                      <p className="font-inter text-[14.5px] text-muted">{body}</p>
                     </div>
                   </div>
                 </RevealItem>
@@ -154,19 +173,25 @@ export default function Australia() {
       </section>
 
       {/* Universities carousel — white */}
-      <section ref={revealUni} className="py-20 bg-white opacity-0 translate-y-8 transition-all duration-700 ease-out">
+      <section ref={revealUni} className="py-20 bg-white opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-10">
             <span className="eyebrow-italic">Our Partner Universities.</span>
             <h2>Top Australian Universities</h2>
           </div>
-          <Swiper modules={[Pagination, Autoplay]} slidesPerView={1} spaceBetween={20} loop autoplay={{ delay: 3500 }} pagination={{ clickable: true }} breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }} className="pb-12">
-            {universities.map(({ rank, name, body }, i) => (
+          <Swiper modules={[Pagination, Autoplay, Navigation]} slidesPerView={1} spaceBetween={20} loop autoplay={{ delay: 4500 }} navigation pagination={{ clickable: true }} breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }} className="pb-12">
+            {universities.map(({ rank, name, body, img }, i) => (
               <SwiperSlide key={name}>
-                <RevealItem delay={i * 120} className="bg-white border border-bdr rounded-xl p-5 shadow-sm h-full">
-                  <span className="inline-flex bg-green-em text-white text-[10.5px] font-semibold px-3 py-1 rounded-full mb-3">{rank}</span>
-                  <h3 className="text-[16px] mb-2">{name}</h3>
-                  <p className="text-[13px] text-muted">{body}</p>
+                <RevealItem delay={i * 180} className="bg-white border border-bdr rounded-xl overflow-hidden shadow-sm h-full group">
+                  <div className="relative h-[200px] overflow-hidden">
+                    <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.08]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-transparent pointer-events-none" />
+                    <span className="absolute top-4 right-4 inline-flex bg-black/60 backdrop-blur-sm text-white text-[10.5px] font-semibold px-3 py-1 rounded-full z-10">{rank}</span>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-poppins font-semibold text-[15px] mb-2">{name}</h3>
+                    <p className="font-inter text-[13px] text-muted">{body}</p>
+                  </div>
                 </RevealItem>
               </SwiperSlide>
             ))}
@@ -174,14 +199,18 @@ export default function Australia() {
         </div>
       </section>
 
-      {/* Courses — cream */}
-      <section ref={revealCourses} className="py-20 bg-cream opacity-0 translate-y-8 transition-all duration-700 ease-out">
+      {/* Courses — dark green */}
+      <section ref={revealCourses} className="py-20 bg-dark-section opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
         <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-10"><span className="eyebrow-italic">Top Programs.</span><h2>Popular Courses in Australia</h2></div>
+          <div className="text-center mb-10">
+            <span className="font-playfair italic text-lg text-emerald-300 block mb-2">Top Programs.</span>
+            <h2 className="text-white mb-3">Popular Courses in Australia</h2>
+            <p className="text-white/60">Studying in Australia provides excellent career opportunities.</p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {courses.map(({ name, img }, i) => (
-              <RevealItem key={name} delay={i * 120} className="relative h-60 rounded-xl overflow-hidden cursor-pointer group">
-                <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105" />
+              <RevealItem key={name} delay={i * 180} className="relative h-60 rounded-xl overflow-hidden cursor-pointer group">
+                <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,78,59,0.88)] via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 font-poppins font-bold text-sm tracking-widest uppercase text-white">{name}</div>
               </RevealItem>
@@ -190,13 +219,32 @@ export default function Australia() {
         </div>
       </section>
 
-      {/* Costs — white */}
-      <section ref={revealCosts} className="py-20 bg-white opacity-0 translate-y-8 transition-all duration-700 ease-out">
+      {/* Costs — cream */}
+      <section ref={revealCosts} className="py-20 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
         <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-10"><span className="eyebrow-italic">The Investment.</span><h2>Cost of Studying in Australia</h2></div>
+          <div className="text-center mb-16">
+            <span className="eyebrow-italic">The Investment.</span>
+            <h2>Cost of Studying in Australia</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-center">
+            <RevealItem delay={0}>
+              <AnimatedNumber value={45} prefix="AUD 12–" suffix="k" />
+              <div className="text-[13px] text-muted mt-2 uppercase tracking-wide">Annual Tuition</div>
+            </RevealItem>
+            <RevealItem delay={180}>
+              <AnimatedNumber value={16000} prefix="AUD " />
+              <div className="text-[13px] text-muted mt-2 uppercase tracking-wide">Avg Annual Living Cost</div>
+            </RevealItem>
+            <RevealItem delay={360}>
+              <AnimatedNumber value={1500} prefix="AUD 500–" />
+              <div className="text-[13px] text-muted mt-2 uppercase tracking-wide">Monthly Accommodation</div>
+            </RevealItem>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div>
-              <h3 className="mb-4">Tuition Fees</h3>
+              <h3 className="mb-4">Tuition Fees Breakdown</h3>
               <table className="w-full rounded-xl overflow-hidden shadow-md">
                 <thead><tr className="bg-blue-acc text-white"><th className="p-3 text-left text-xs tracking-wide">Degree Level</th><th className="p-3 text-left text-xs tracking-wide">Annual Tuition</th></tr></thead>
                 <tbody>
@@ -207,21 +255,21 @@ export default function Australia() {
               </table>
             </div>
             <div>
-              <h3 className="mb-3">Living Expenses</h3>
-              <AnimatedNumber value={16000} prefix="AUD " />
-              <p className="text-sm text-muted mb-5">Average annual living cost for international students</p>
-              {[['On-Campus','AUD 800–900/month'],['Off-Campus','AUD 500–1,500/month'],['Homestay','AUD 1,000–1,200/month']].map(([l,v]) => (
-                <div key={l} className="flex justify-between items-center px-4 py-3 border border-bdr rounded-lg mb-2.5 bg-white">
-                  <span className="font-semibold text-sm">{l}</span><span className="text-blue-acc font-semibold text-sm">{v}</span>
-                </div>
-              ))}
+              <h3 className="mb-4">Living Expenses Breakdown</h3>
+              <div className="flex flex-col gap-2.5">
+                {[['On-Campus','AUD 800–900/month'],['Off-Campus','AUD 500–1,500/month'],['Homestay','AUD 1,000–1,200/month']].map(([l,v]) => (
+                  <div key={l} className="flex justify-between items-center px-4 py-3 border border-bdr rounded-lg bg-white shadow-sm">
+                    <span className="font-semibold text-sm">{l}</span><span className="text-blue-acc font-semibold text-sm">{v}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Scholarships — cream */}
-      <section ref={revealSchol} className="py-20 bg-cream opacity-0 translate-y-8 transition-all duration-700 ease-out">
+      {/* Scholarships — white */}
+      <section ref={revealSchol} className="py-20 bg-white opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-10"><span className="eyebrow-italic">Financial Support.</span><h2>Scholarships in Australia</h2></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -231,20 +279,22 @@ export default function Australia() {
               <p className="mb-7 text-[14.5px]">Australia Awards and Endeavour Scholarships provide substantial financial assistance to international students.</p>
               <Link to="/contact" className="btn btn-coral">Check Scholarship Eligibility</Link>
             </div>
-            <div className="flex flex-wrap gap-2.5">
-              <div className="w-full mb-1"><h3 className="mb-1">Available Scholarships</h3></div>
-              {pills.map((p, i) => (
-                <RevealItem key={p} delay={i * 80} className="inline-block">
-                  <span className="bg-emerald-50 text-green-em border border-green-em text-xs font-medium px-3.5 py-1.5 rounded-full block">{p}</span>
-                </RevealItem>
-              ))}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-playfair italic text-[20px] text-green-em leading-tight">"Australia offers extensive funding for international students"</h3>
+              <div className="flex flex-wrap gap-2.5 mt-2">
+                {pills.map((p, i) => (
+                  <RevealItem key={p} delay={i * 180} className="inline-block">
+                    <span className="bg-emerald-50 text-green-em border border-green-em text-xs font-medium px-3.5 py-1.5 rounded-full block">{p}</span>
+                  </RevealItem>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Visa — dark green */}
-      <section ref={revealVisa} className="py-20 bg-dark-section opacity-0 translate-y-8 transition-all duration-700 ease-out">
+      <section ref={revealVisa} className="py-20 bg-dark-section opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-12">
             <span className="font-playfair italic text-lg text-emerald-300 block mb-2">Your Pathway to Australia.</span>
@@ -255,10 +305,10 @@ export default function Australia() {
               <h3 className="text-white text-[19px] mb-3">Documents Required</h3>
               <p className="text-white/55 text-sm mb-4">When applying as an international student, you typically need:</p>
               <div className="flex flex-col gap-2.5 mb-7">
-                {visa_docs.map(d => (
-                  <div key={d} className="flex items-center gap-3 text-white/85 text-sm">
+                {visa_docs.map((d, i) => (
+                  <RevealItem key={d} delay={i * 180} className="flex items-center gap-3 text-white/85 text-sm">
                     <span className="w-5 h-5 bg-green-em rounded-full flex items-center justify-center text-[9px] font-bold text-white flex-shrink-0">✓</span>{d}
-                  </div>
+                  </RevealItem>
                 ))}
               </div>
               <Link to="/contact" className="btn btn-coral">Get Free Visa Guidance</Link>
@@ -268,14 +318,14 @@ export default function Australia() {
               <p className="text-white/55 text-sm mb-5">We provide comprehensive visa guidance — bank statements, latest updates, and mock interviews.</p>
               <div className="flex flex-col">
                 {timeline.map(([h, b], i) => (
-                  <div key={h} className="flex gap-3.5 relative">
+                  <RevealItem key={h} delay={i * 180} className="flex gap-3.5 relative">
                     {i < timeline.length - 1 && <div className="absolute left-4 top-8 w-0.5 h-full bg-white/10" />}
                     <div className="w-8 h-8 bg-coral rounded-full flex items-center justify-center font-poppins font-bold text-white text-[12.5px] flex-shrink-0 z-10">{i+1}</div>
                     <div className="pb-6">
                       <h4 className="text-white text-sm font-semibold">{h}</h4>
                       <p className="text-white/50 text-xs mt-0.5">{b}</p>
                     </div>
-                  </div>
+                  </RevealItem>
                 ))}
               </div>
             </div>
@@ -283,10 +333,14 @@ export default function Australia() {
         </div>
       </section>
 
-      {/* FAQ — white */}
-      <section ref={revealFaq} className="py-20 bg-white opacity-0 translate-y-8 transition-all duration-700 ease-out">
+      {/* FAQ — cream */}
+      <section ref={revealFaq} className="py-20 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
         <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-12"><span className="eyebrow-italic">Your Questions, Answered.</span><h2>Frequently Asked Questions</h2></div>
+          <div className="text-center mb-12">
+            <span className="eyebrow-italic">Your Questions, Answered.</span>
+            <h2>Frequently Asked Questions</h2>
+            <div className="mt-4 mb-6 font-playfair italic text-[22px] text-green-em">"Every question answered. Every step supported."</div>
+          </div>
           <FAQAccordion faqs={faqs} />
         </div>
       </section>
