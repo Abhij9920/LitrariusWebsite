@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/shared/Hero';
 import FAQAccordion from '../components/shared/FAQAccordion';
@@ -6,6 +6,7 @@ import FinalCTA from '../components/shared/FinalCTA';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
+import { useReveal } from '../hooks/useReveal';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -57,7 +58,62 @@ const timeline = [
   ['Await Visa Decision', 'Processing: 2–6 weeks. We track every step.'],
 ];
 
+function RevealItem({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        el.style.transitionDelay = `${delay}ms`;
+        el.classList.add('opacity-100', '!translate-y-0');
+        obs.unobserve(el);
+      }
+    }, { threshold: 0.15 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [delay]);
+  return <div ref={ref} className={`opacity-0 translate-y-8 transition-all duration-700 ease-out ${className}`}>{children}</div>;
+}
+
+function AnimatedNumber({ value, prefix = '', suffix = '' }: { value: number; prefix?: string; suffix?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        obs.unobserve(el);
+        let start = 0;
+        const duration = 1500;
+        const startTime = performance.now();
+        const animate = (time: number) => {
+          const progress = Math.min((time - startTime) / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          setCurrent(Math.floor(easeOut * value));
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+      }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [value]);
+
+  return <div ref={ref} className="font-poppins font-black text-[50px] text-green-em leading-none">{prefix}{current.toLocaleString()}{suffix}</div>;
+}
+
 export default function Australia() {
+  const revealWhy = useReveal();
+  const revealUni = useReveal();
+  const revealCourses = useReveal();
+  const revealCosts = useReveal();
+  const revealSchol = useReveal();
+  const revealVisa = useReveal();
+  const revealFaq = useReveal();
+
   return (
     <>
       <Hero
@@ -72,40 +128,46 @@ export default function Australia() {
       />
 
       {/* Why Australia — cream */}
-      <section className="py-20 bg-cream">
+      <section ref={revealWhy} className="py-20 bg-cream opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-12">
-            <span className="eyebrow-italic">Why Australia?</span>
-            <h2>Why Study in Australia?</h2>
-            <p className="max-w-xl mx-auto mt-3 text-muted">The world's #3 destination for international students — combining world-class education with an incredible lifestyle.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {whyCards.map(({ icon, title, body }) => (
-              <div key={title} className="card-base p-6 hover:border-green-em">
-                <div className="text-3xl mb-3">{icon}</div>
-                <div className="font-poppins font-bold text-sm uppercase tracking-wide text-ink mb-2">{title}</div>
-                <p className="text-[13.5px] text-muted">{body}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-12 lg:gap-20 items-start">
+            <div className="lg:sticky lg:top-24">
+              <span className="eyebrow-italic">Why Australia?</span>
+              <h2>Why Study in Australia?</h2>
+              <p className="mt-4 text-muted leading-relaxed">The world's #3 destination for international students — combining world-class education with an incredible lifestyle.</p>
+            </div>
+            <div className="flex flex-col">
+              {whyCards.map(({ title, body }, i) => (
+                <RevealItem key={title} delay={i * 120} className="border-b border-bdr last:border-b-0 py-6 first:pt-0 last:pb-0">
+                  <div className="flex items-start gap-5">
+                    <div className="font-poppins font-black text-[48px] text-green-em leading-none mt-0.5 tracking-tighter">0{i + 1}</div>
+                    <div>
+                      <h3 className="text-[19px] mb-2">{title}</h3>
+                      <p className="text-[14.5px] text-muted">{body}</p>
+                    </div>
+                  </div>
+                </RevealItem>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Universities carousel — white */}
-      <section className="py-20 bg-white">
+      <section ref={revealUni} className="py-20 bg-white opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-10">
             <span className="eyebrow-italic">Our Partner Universities.</span>
             <h2>Top Australian Universities</h2>
           </div>
           <Swiper modules={[Pagination, Autoplay]} slidesPerView={1} spaceBetween={20} loop autoplay={{ delay: 3500 }} pagination={{ clickable: true }} breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }} className="pb-12">
-            {universities.map(({ rank, name, body }) => (
+            {universities.map(({ rank, name, body }, i) => (
               <SwiperSlide key={name}>
-                <div className="bg-white border border-bdr rounded-xl p-5 shadow-sm h-full">
+                <RevealItem delay={i * 120} className="bg-white border border-bdr rounded-xl p-5 shadow-sm h-full">
                   <span className="inline-flex bg-green-em text-white text-[10.5px] font-semibold px-3 py-1 rounded-full mb-3">{rank}</span>
                   <h3 className="text-[16px] mb-2">{name}</h3>
                   <p className="text-[13px] text-muted">{body}</p>
-                </div>
+                </RevealItem>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -113,23 +175,23 @@ export default function Australia() {
       </section>
 
       {/* Courses — cream */}
-      <section className="py-20 bg-cream">
+      <section ref={revealCourses} className="py-20 bg-cream opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-10"><span className="eyebrow-italic">Top Programs.</span><h2>Popular Courses in Australia</h2></div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {courses.map(({ name, img }) => (
-              <div key={name} className="relative h-60 rounded-xl overflow-hidden cursor-pointer group">
+            {courses.map(({ name, img }, i) => (
+              <RevealItem key={name} delay={i * 120} className="relative h-60 rounded-xl overflow-hidden cursor-pointer group">
                 <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,78,59,0.88)] via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 font-poppins font-bold text-sm tracking-widest uppercase text-white">{name}</div>
-              </div>
+              </RevealItem>
             ))}
           </div>
         </div>
       </section>
 
       {/* Costs — white */}
-      <section className="py-20 bg-white">
+      <section ref={revealCosts} className="py-20 bg-white opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-10"><span className="eyebrow-italic">The Investment.</span><h2>Cost of Studying in Australia</h2></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -146,7 +208,7 @@ export default function Australia() {
             </div>
             <div>
               <h3 className="mb-3">Living Expenses</h3>
-              <div className="font-poppins font-black text-[50px] text-green-em leading-none">AUD 16,000</div>
+              <AnimatedNumber value={16000} prefix="AUD " />
               <p className="text-sm text-muted mb-5">Average annual living cost for international students</p>
               {[['On-Campus','AUD 800–900/month'],['Off-Campus','AUD 500–1,500/month'],['Homestay','AUD 1,000–1,200/month']].map(([l,v]) => (
                 <div key={l} className="flex justify-between items-center px-4 py-3 border border-bdr rounded-lg mb-2.5 bg-white">
@@ -159,7 +221,7 @@ export default function Australia() {
       </section>
 
       {/* Scholarships — cream */}
-      <section className="py-20 bg-cream">
+      <section ref={revealSchol} className="py-20 bg-cream opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-10"><span className="eyebrow-italic">Financial Support.</span><h2>Scholarships in Australia</h2></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -169,18 +231,20 @@ export default function Australia() {
               <p className="mb-7 text-[14.5px]">Australia Awards and Endeavour Scholarships provide substantial financial assistance to international students.</p>
               <Link to="/contact" className="btn btn-coral">Check Scholarship Eligibility</Link>
             </div>
-            <div>
-              <h3 className="mb-4">Available Scholarships</h3>
-              <div className="flex flex-wrap gap-2.5">
-                {pills.map(p => <span key={p} className="bg-blue-acc text-white text-xs font-medium px-3.5 py-1.5 rounded-full">{p}</span>)}
-              </div>
+            <div className="flex flex-wrap gap-2.5">
+              <div className="w-full mb-1"><h3 className="mb-1">Available Scholarships</h3></div>
+              {pills.map((p, i) => (
+                <RevealItem key={p} delay={i * 80} className="inline-block">
+                  <span className="bg-emerald-50 text-green-em border border-green-em text-xs font-medium px-3.5 py-1.5 rounded-full block">{p}</span>
+                </RevealItem>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Visa — dark green */}
-      <section className="py-20 bg-dark-section">
+      <section ref={revealVisa} className="py-20 bg-dark-section opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-12">
             <span className="font-playfair italic text-lg text-emerald-300 block mb-2">Your Pathway to Australia.</span>
@@ -220,7 +284,7 @@ export default function Australia() {
       </section>
 
       {/* FAQ — white */}
-      <section className="py-20 bg-white">
+      <section ref={revealFaq} className="py-20 bg-white opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-12"><span className="eyebrow-italic">Your Questions, Answered.</span><h2>Frequently Asked Questions</h2></div>
           <FAQAccordion faqs={faqs} />

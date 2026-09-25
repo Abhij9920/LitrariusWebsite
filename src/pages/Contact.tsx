@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Hero from '../components/shared/Hero';
 import MiniCTABar from '../components/shared/MiniCTABar';
+import { useReveal } from '../hooks/useReveal';
 
 const details = [
   { icon: '📞', h: 'Phone Numbers',  body: '+91 9607621025\n+91 8600068599' },
@@ -10,10 +11,28 @@ const details = [
 ];
 
 const trust = [
-  { icon: '⚡', h: 'Quick Response',   body: 'We reply to all enquiries within 24 hours — Monday to Saturday, 9 AM to 7 PM IST.' },
-  { icon: '🎓', h: 'Expert Guidance',  body: 'Certified counsellors with 15+ years of experience in Australian admissions and IELTS/PTE coaching.' },
-  { icon: '🆓', h: 'Free Consultation', body: 'Your first consultation is completely free. Get a personalised roadmap at no cost.' },
+  { stat: '24h', color: 'text-green-em', h: 'Quick Response',   body: 'We reply to all enquiries within 24 hours — Monday to Saturday, 9 AM to 7 PM IST.' },
+  { stat: '15+', color: 'text-green-em', h: 'Expert Guidance',  body: 'Certified counsellors with 15+ years of experience in Australian admissions and IELTS/PTE coaching.' },
+  { stat: 'Free', color: 'text-coral', h: 'Free Consultation', body: 'Your first consultation is completely free. Get a personalised roadmap at no cost.' },
 ];
+
+function RevealItem({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        el.style.transitionDelay = `${delay}ms`;
+        el.classList.add('opacity-100', '!translate-y-0');
+        obs.unobserve(el);
+      }
+    }, { threshold: 0.15 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [delay]);
+  return <div ref={ref} className={`opacity-0 translate-y-8 transition-all duration-700 ease-out ${className}`}>{children}</div>;
+}
 
 function ContactForm() {
   const [success, setSuccess] = useState(false);
@@ -44,6 +63,9 @@ function ContactForm() {
 }
 
 export default function Contact() {
+  const revealContact = useReveal();
+  const revealTrust = useReveal();
+
   return (
     <>
       <Hero
@@ -58,7 +80,7 @@ export default function Contact() {
       />
 
       {/* Contact form + details — white */}
-      <section id="contact-section" className="py-20 bg-white">
+      <section ref={revealContact} id="contact-section" className="py-20 bg-white opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left — form */}
@@ -72,37 +94,37 @@ export default function Contact() {
               <span className="eyebrow-italic">Find Us.</span>
               <h2 className="text-3xl mb-6">Our Details</h2>
               <div className="flex flex-col gap-3 mb-4">
-                {details.map(({ icon, h, body }) => (
-                  <div key={h} className="flex gap-3 p-4 border border-bdr rounded-xl bg-white shadow-sm hover:border-green-em hover:translate-x-1 transition-all">
+                {details.map(({ icon, h, body }, i) => (
+                  <RevealItem key={h} delay={i * 120} className="flex gap-3 p-4 border border-bdr rounded-xl bg-white shadow-sm hover:border-green-em hover:translate-x-1 transition-all">
                     <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center text-lg flex-shrink-0">{icon}</div>
                     <div>
                       <h4 className="font-semibold text-sm text-ink mb-0.5">{h}</h4>
                       <p className="text-xs text-muted whitespace-pre-line">{body}</p>
                     </div>
-                  </div>
+                  </RevealItem>
                 ))}
               </div>
-              <div className="h-40 bg-gray-100 border-2 border-dashed border-bdr rounded-xl flex flex-col items-center justify-center text-muted gap-1.5">
+              <RevealItem delay={details.length * 120} className="h-40 bg-gray-100 border-2 border-dashed border-bdr rounded-xl flex flex-col items-center justify-center text-muted gap-1.5">
                 <span className="text-3xl">🗺️</span>
                 <span className="font-semibold text-sm">Map Coming Soon</span>
                 <span className="text-xs">245 Ijmima Building, Mindspace, Malad West</span>
-              </div>
+              </RevealItem>
             </div>
           </div>
         </div>
       </section>
 
       {/* Trust cards — cream */}
-      <section className="py-20 bg-cream">
+      <section ref={revealTrust} className="py-20 bg-cream opacity-0 translate-y-8 transition-all duration-700 ease-out">
         <div className="max-w-content mx-auto px-6">
           <div className="text-center mb-12"><span className="eyebrow-italic">What to Expect.</span><h2>Why Contact Us?</h2></div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {trust.map(({ icon, h, body }) => (
-              <div key={h} className="card-base p-6 text-center hover:border-coral">
-                <div className="text-4xl mb-3">{icon}</div>
+            {trust.map(({ stat, color, h, body }, i) => (
+              <RevealItem key={h} delay={i * 120} className="card-base p-6 text-center hover:border-coral h-full flex flex-col">
+                <div className={`font-poppins font-black text-[40px] leading-none mb-3 ${color}`}>{stat}</div>
                 <h3 className="text-[16px] mb-2">{h}</h3>
                 <p className="text-[13.5px] text-muted">{body}</p>
-              </div>
+              </RevealItem>
             ))}
           </div>
         </div>
