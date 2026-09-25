@@ -5,8 +5,8 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/australia', label: 'Study in Australia' },
   { to: '/coaching', label: 'Coaching' },
+  { to: '/blog', label: 'Blog' },
   { to: '/about', label: 'About Us' },
-  { to: '/contact', label: 'Contact Us' },
 ];
 
 export default function Header() {
@@ -42,7 +42,7 @@ export default function Header() {
               <li key={to}>
                 <Link
                   to={to}
-                  className={`font-inter font-medium text-sm relative pb-1 transition-colors duration-200
+                  className={`font-inter font-medium text-[15px] relative pb-1 transition-colors duration-200
                     after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-green-em after:rounded-full
                     after:transition-all after:duration-300
                     ${active
@@ -58,7 +58,7 @@ export default function Header() {
         </ul>
 
         {/* Desktop CTA */}
-        <Link to="/contact" className="hidden lg:inline-flex btn btn-coral btn-sm">
+        <Link to="/contact" className="hidden lg:inline-flex btn bg-coral text-white hover:bg-orange-600 px-6 py-2.5 font-bold tracking-wide uppercase text-[14px] rounded-md transition-all hover:-translate-y-0.5">
           Book Free Consultation
         </Link>
 

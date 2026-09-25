@@ -38,7 +38,7 @@ export default function ProofSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
           {/* Col 1 — student photo card */}
           <div className="rounded-xl overflow-hidden relative h-80">
-            <img src="/images/student-2.webp" alt="Priya Sharma" className="w-full h-full object-cover" />
+            <img src="/images/student-3.webp" alt="Priya Sharma" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,30,20,0.88)] via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4">
               <div className="font-poppins font-semibold text-[15px] text-white">Priya S.</div>

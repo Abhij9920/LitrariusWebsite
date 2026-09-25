@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Australia from './pages/Australia';
 import Coaching from './pages/Coaching';
 import About from './pages/About';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 
 function ScrollToTop() {
@@ -26,6 +28,8 @@ function Layout() {
           <Route path="/australia" element={<Australia />} />
           <Route path="/coaching"  element={<Coaching />} />
           <Route path="/about"     element={<About />} />
+          <Route path="/blog"      element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact"   element={<Contact />} />
         </Routes>
       </main>

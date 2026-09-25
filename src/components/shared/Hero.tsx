@@ -42,14 +42,14 @@ export default function Hero({
         ) : (
           <img src={imageSrc} alt={imageAlt} className="w-full h-full object-cover" />
         )}
-        <div className="absolute inset-0 bg-[rgba(6,30,20,0.72)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(6,30,20,0.85)] via-[rgba(6,30,20,0.65)] to-[rgba(6,30,20,0.2)]" />
       </div>
 
       {/* Content — bottom-left */}
       <div className="relative z-10 flex-1 flex flex-col justify-end">
-        <div className={`pb-16 px-8 md:px-20 max-w-4xl ${short ? 'pb-12' : 'pb-20'}`}>
-          <p className="font-playfair italic text-xl md:text-2xl text-white/80 mb-4">{italicLine}</p>
-          <h1 className="font-playfair text-[52px] md:text-[68px] lg:text-[88px] text-white leading-[1.05] mb-6 tracking-tight">{heading}</h1>
+        <div className={`pb-16 px-8 md:px-20 max-w-[800px] ${short ? 'pb-12' : 'pb-20'}`}>
+          <p className="font-playfair italic text-xl md:text-2xl text-white/90 mb-4">{italicLine}</p>
+          <h1 className="font-playfair text-[42px] md:text-[60px] lg:text-[76px] text-white leading-[1.05] mb-6 tracking-tight drop-shadow-sm">{heading}</h1>
           {subText && (
             <p className="text-lg md:text-[20px] text-white/80 max-w-2xl mb-10 leading-relaxed">{subText}</p>
           )}

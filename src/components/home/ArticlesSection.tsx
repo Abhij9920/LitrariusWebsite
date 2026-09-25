@@ -13,7 +13,7 @@ export default function ArticlesSection() {
       <div className="max-w-content mx-auto px-6">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-white text-[32px] md:text-[44px] font-playfair tracking-tight mb-4 lg:mb-0">Study Australia: Resources &amp; Guides</h2>
-          <Link to="/australia" className="btn btn-outline-white btn-sm">View All Resources</Link>
+          <Link to="/blog" className="btn btn-outline-white btn-sm">View All Resources</Link>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-[55%_1fr] gap-5">
           {/* Featured */}

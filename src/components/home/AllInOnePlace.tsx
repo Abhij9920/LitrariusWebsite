@@ -46,19 +46,52 @@ export default function AllInOnePlace() {
             <Link to="/contact" className="btn btn-coral mt-2">Book Free Consultation</Link>
           </div>
 
-          {/* RIGHT — staggered student cards */}
-          <div className="flex flex-col gap-5 pt-8">
-            {students.map(({ name, university, course, img, badge }, i) => (
-              <StudentCard
-                key={name}
-                name={name}
-                university={university}
-                course={course}
-                imageSrc={img}
-                badge={badge}
-                delay={i * 120}
-              />
-            ))}
+          {/* RIGHT — staggered student collage */}
+          <div className="grid grid-cols-2 gap-4 md:gap-8 relative lg:mt-8">
+            <div className="flex flex-col gap-4 md:gap-8 mt-12 md:mt-20">
+              <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 bg-white group">
+                <div className="relative overflow-hidden aspect-[4/5]">
+                  <img src="/images/student-3.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+                </div>
+                <div className="p-5 md:p-6 border-t border-bdr">
+                  <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Priya Sharma</h4>
+                  <p className="text-xs uppercase tracking-widest text-muted font-semibold">University of Melbourne</p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 bg-white group">
+                <div className="relative overflow-hidden aspect-square">
+                  <img src="/images/student-5.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+                </div>
+                <div className="p-5 md:p-6 border-t border-bdr">
+                  <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Rohit Verma</h4>
+                  <p className="text-xs uppercase tracking-widest text-muted font-semibold">University of Queensland</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col gap-4 md:gap-8">
+              <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 bg-white group">
+                <div className="relative overflow-hidden aspect-square">
+                  <img src="/images/student-2.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+                </div>
+                <div className="p-5 md:p-6 border-t border-bdr">
+                  <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Arjun Patel</h4>
+                  <p className="text-xs uppercase tracking-widest text-muted font-semibold">UNSW Sydney</p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 bg-white group relative">
+                <div className="absolute top-4 right-4 bg-emerald-500 text-white px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold z-10 shadow-sm rounded-sm">
+                  Scholarship
+                </div>
+                <div className="relative overflow-hidden aspect-[4/5]">
+                  <img src="/images/student-1.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+                </div>
+                <div className="p-5 md:p-6 border-t border-bdr">
+                  <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Meera Iyer</h4>
+                  <p className="text-xs uppercase tracking-widest text-muted font-semibold">Monash University</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
