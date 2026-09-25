@@ -221,8 +221,8 @@ export default function Australia() {
             modules={[Navigation, FreeMode, Mousewheel]} 
             slidesPerView="auto" 
             spaceBetween={32} 
-            freeMode={{ enabled: true, sticky: true, momentumRatio: 0.25 }}
-            mousewheel={{ forceToAxis: true, sensitivity: 1 }}
+            freeMode={{ enabled: true, sticky: true, momentumRatio: 0.1 }}
+            mousewheel={{ forceToAxis: true, sensitivity: 0.3 }}
             grabCursor={true}
             className="!overflow-visible"
           >
