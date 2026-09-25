@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply font-inter text-charcoal antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  h1, h2, h3, h4 { @apply font-poppins leading-tight; }
+}
+
+@layer components {
+  .eyebrow-italic {
+    @apply font-playfair italic text-green-em text-lg block mb-2;
+  }
+  .eyebrow-tag {
+    @apply font-inter font-semibold text-xs tracking-widest uppercase text-green-em block mb-2;
+  }
+  .section-pad { @apply py-20; }
+  .container-pad { @apply max-w-content mx-auto px-6; }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center gap-2 px-7 py-3 rounded-md font-poppins font-semibold text-sm
+           border-2 border-transparent transition-all duration-200 cursor-pointer whitespace-nowrap;
+  }
+  .btn-coral {
+    @apply bg-coral text-white border-coral hover:bg-coral-dk hover:border-coral-dk
+           hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(249,115,22,0.3)];
+  }
+  .btn-outline-dark {
+    @apply bg-transparent text-green-logo border-green-logo
+           hover:bg-green-logo hover:text-white;
+  }
+  .btn-outline-white {
+    @apply bg-transparent text-white border-white/70
+           hover:bg-white hover:text-green-logo;
+  }
+  .btn-sm { @apply px-5 py-2 text-xs; }
+  .btn-lg { @apply px-10 py-4 text-base; }
+
+  /* Form */
+  .form-input {
+    @apply w-full px-4 py-2.5 border-[1.5px] border-bdr rounded-lg text-charcoal bg-white
+           outline-none transition-all focus:border-green-em focus:ring-2 focus:ring-green-em/10;
+  }
+  .form-label {
+    @apply block text-xs font-semibold text-charcoal mb-1.5;
+  }
+
+  /* Cards */
+  .card-base {
+    @apply bg-white border border-bdr rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.06)]
+           transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_4px_24px_rgba(0,0,0,0.10)];
+  }
+}
+
+/* Ticker pause on hover */
+.ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+
+/* FAQ transition */
+.faq-answer { overflow: hidden; transition: max-height 0.4s ease; }
+
+/* Swiper overrides */
+.swiper-pagination-bullet { background: rgba(6,78,59,0.3) !important; }
+.swiper-pagination-bullet-active { background: #064e3b !important; }
+.swiper-button-prev, .swiper-button-next {
+  background: #064e3b !important;
+  color: white !important;
+  width: 42px !important; height: 42px !important;
+  border-radius: 50% !important;
+}
+.swiper-button-prev::after, .swiper-button-next::after { font-size: 14px !important; }
