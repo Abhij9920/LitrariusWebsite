@@ -10,17 +10,16 @@ import 'swiper/css/navigation';
 import 'swiper/css/free-mode';
 
 const whyCards = [
-  { title: 'Global Academic Excellence',     body: '9 universities in the global top 100. Rigorous standards, cutting-edge research, and internationally recognised qualifications.' },
-  { title: 'Diverse Academic Landscape',     body: '4,000+ accredited institutions offering specialised programs in marine biology, renewable energy, and indigenous studies.' },
-  { title: 'Work While You Study',           body: 'Work 20 hours/week during term and full-time during breaks. Gain real-world experience while covering living costs.' },
-  { title: 'Comprehensive Scholarships',     body: 'Australia Awards and Endeavour Scholarships provide substantial assistance to international students.' },
-  { title: 'Innovation & Research Hub',      body: 'Global leader in climate science, AI, medical research, and sustainable technologies with world-class facilities.' },
-  { title: 'Post-Study Work Visa',           body: 'Stay up to 4 years after graduation on a Temporary Graduate visa — a clear pathway to permanent residency.' },
+  { title: 'Global Academic Excellence',     body: '9 universities in the global top 100. Rigorous standards, cutting-edge research, and internationally recognised qualifications.', img: '/images/campus-monash.webp' },
+  { title: 'Diverse Academic Landscape',     body: '4,000+ accredited institutions offering specialised programs in marine biology, renewable energy, and indigenous studies.', img: '/images/campus-uq.webp' },
+  { title: 'Work While You Study',           body: 'Work up to 48 hours per fortnight during term and full-time during breaks. Gain real-world experience while covering living costs.', img: '/images/student-3.webp' },
+  { title: 'Innovation & Research Hub',      body: 'Global leader in climate science, AI, medical research, and sustainable technologies with world-class facilities.', img: '/images/campus-anu.webp' },
+  { title: 'Post-Study Work Visa',           body: 'Gain valuable post-study work experience on a Temporary Graduate visa — a clear pathway to permanent residency.', img: '/images/student-2.webp' },
 ];
 
 const universities = [
-  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: '/images/campus-melbourne.webp', location: 'Melbourne, Victoria' },
-  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: '/images/campus-sydney.webp', location: 'Sydney, NSW' },
+  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: '/images/campus-uwa.webp', location: 'Melbourne, Victoria' },
+  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: '/images/campus-monash.webp', location: 'Sydney, NSW' },
   { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.', img: '/images/campus-unsw.webp', location: 'Sydney, NSW' },
   { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.', img: '/images/campus-anu.webp', location: 'Canberra, ACT' },
   { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.', img: '/images/campus-monash.webp', location: 'Melbourne, Victoria' },
@@ -46,9 +45,9 @@ const faqs = [
 
 const scholarshipsList = [
   { name: 'Australia Awards', desc: 'Fully funded scholarships by the Australian Government covering tuition, travel, and living expenses.' },
-  { name: 'Endeavour Scholarships', desc: 'Merit-based scholarships for high-achieving international students to study or research.' },
+  { name: 'Destination Australia', desc: 'Funding for students choosing to study in regional Australia, offering up to AUD 15,000 per year.' },
   { name: 'University-Specific Grants', desc: 'Direct financial aid provided by top institutions based on academic excellence or need.' },
-  { name: 'Destination Australia', desc: 'Funding for students choosing to study in regional Australia, offering AUD 15,000 per year.' }
+  { name: 'Research Training Program (RTP)', desc: 'Block grants provided to universities to support both domestic and overseas students undertaking Research degrees.' }
 ];
 
 const timeline = [
@@ -143,8 +142,8 @@ export default function Australia() {
                   <div className="text-xs uppercase tracking-widest text-charcoal/60">Universities</div>
                 </div>
                 <div>
-                  <div className="font-poppins font-black text-3xl text-green-em mb-1">4 Yrs</div>
-                  <div className="text-xs uppercase tracking-widest text-charcoal/60">Post-Study Visa</div>
+                  <div className="font-poppins font-black text-3xl text-green-em mb-1">Post-Study</div>
+                  <div className="text-xs uppercase tracking-widest text-charcoal/60">Work Visas</div>
                 </div>
               </div>
             </RevealItem>
@@ -171,14 +170,18 @@ export default function Australia() {
           </div>
           
           <div className="flex flex-col gap-12 lg:gap-0">
-            {whyCards.map(({ title, body }, i) => (
-              <RevealItem key={title} delay={i * 150} type="fade-up" className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center lg:py-16 border-b border-bdr last:border-0`}>
-                <div className="w-full lg:w-1/2 flex items-center justify-center py-8 lg:py-0">
-                  <div className="font-playfair italic text-[140px] lg:text-[200px] text-green-em/10 leading-none select-none">
-                    0{i + 1}
+            {whyCards.map(({ title, body, img }, i) => (
+              <RevealItem key={title} delay={0} type="fade-up" className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16 lg:py-16 py-12 border-b border-bdr last:border-0`}>
+                <div className="w-full lg:w-1/2">
+                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm group">
+                    <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-[#064E3B]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700" />
                   </div>
                 </div>
-                <div className="w-full lg:w-1/2 px-4 lg:px-16 text-center lg:text-left pb-8 lg:pb-0">
+                <div className="w-full lg:w-1/2 text-center lg:text-left">
+                  <div className="font-playfair italic text-6xl text-green-em/10 mb-4 select-none">
+                    0{i + 1}
+                  </div>
                   <h3 className="font-poppins font-bold text-2xl lg:text-3xl text-charcoal mb-4">{title}</h3>
                   <p className="font-inter text-[16px] text-muted leading-relaxed">{body}</p>
                 </div>
@@ -259,8 +262,10 @@ export default function Australia() {
         </div>
       </section>
 
-      {/* Costs — Typography Led */}
-      <section ref={revealCosts} className="py-32 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      {/* Costs — Image & Typography Led */}
+      <section ref={revealCosts} className="relative py-32 border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[url('/images/campus-uwa.webp')] bg-cover bg-center mix-blend-luminosity" />
+        <div className="absolute inset-0 bg-[#FAF9F6]/80 backdrop-blur-[2px]" />
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="text-center mb-24">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs mb-3 block">Investment</span>
@@ -298,6 +303,9 @@ export default function Australia() {
             <p className="text-lg text-muted mb-8 leading-relaxed">
               Australia offers extensive funding for international students. Through government and university partnerships, financial barriers can be significantly reduced.
             </p>
+            <div className="rounded-2xl overflow-hidden aspect-video w-full mb-8 shadow-sm">
+              <img src="/images/article-scholarship.webp" alt="Scholarships in Australia" className="w-full h-full object-cover" />
+            </div>
             <Link to="/contact" className="text-coral font-poppins font-bold uppercase tracking-widest text-sm hover:text-orange-700 transition-colors flex items-center gap-2">
               Evaluate Your Eligibility <span className="text-xl">→</span>
             </Link>
@@ -314,23 +322,31 @@ export default function Australia() {
       </section>
 
       {/* Visa — Visual Process */}
-      <section ref={revealVisa} className="py-24 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section ref={revealVisa} className="py-24 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/bg-pattern.webp')] opacity-10 mix-blend-overlay" />
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <h2 className="font-playfair text-4xl lg:text-5xl text-white mb-4">The Visa Pathway</h2>
             <p className="text-white/60">A structured, secure process to your Australian Student Visa.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {timeline.map(([title, desc], i) => (
-              <RevealItem key={title} delay={i * 150} type="fade-up" className="bg-white/5 border border-white/10 p-8 rounded-xl relative overflow-hidden group hover:bg-white/10 transition-colors">
-                <div className="absolute top-0 right-0 p-6 font-playfair italic text-6xl text-white/5 group-hover:text-white/10 transition-colors">
-                  0{i+1}
-                </div>
-                <h3 className="font-poppins font-bold text-white text-lg mb-3 relative z-10">{title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed relative z-10">{desc}</p>
-              </RevealItem>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="rounded-2xl overflow-hidden shadow-2xl h-[400px] lg:h-[600px] w-full">
+              <img src="/images/student-5.webp" alt="Student Visa Process" className="w-full h-full object-cover" />
+            </div>
+            <div className="flex flex-col gap-6">
+              {timeline.map(([title, desc], i) => (
+                <RevealItem key={title} delay={i * 100} type="fade-up" className="flex gap-6 items-start group">
+                  <div className="font-playfair italic text-4xl text-white/20 group-hover:text-emerald-400 transition-colors">
+                    0{i+1}
+                  </div>
+                  <div className="flex-1 pb-6 border-b border-white/10 group-last:border-0 group-last:pb-0">
+                    <h3 className="font-poppins font-bold text-white text-lg mb-1">{title}</h3>
+                    <p className="text-white/60 text-sm leading-relaxed">{desc}</p>
+                  </div>
+                </RevealItem>
+              ))}
+            </div>
           </div>
         </div>
       </section>

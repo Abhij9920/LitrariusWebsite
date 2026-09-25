@@ -30,8 +30,8 @@ export default function Header() {
     >
       <nav className="max-w-content mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link to="/" className="font-poppins font-bold text-xl text-green-logo flex items-center gap-1.5">
-          🌿 Literarius
+        <Link to="/" className="font-playfair font-black text-2xl text-green-logo tracking-tight flex items-center gap-1.5">
+          LITERARIUS
         </Link>
 
         {/* Desktop nav links */}

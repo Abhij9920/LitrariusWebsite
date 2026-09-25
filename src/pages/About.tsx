@@ -17,12 +17,12 @@ const teamStudents = [
 ];
 
 const milestones = [
-  { year: '2008', text: 'Founded in Mumbai with a single mission: make Australia accessible.' },
+  { year: '2008', text: 'Founded in Mumbai with a single mission: make Australia accessible.', img: '/images/campus-uwa.webp' },
   { year: '2012', text: 'Reached 100+ successful student placements across Group of Eight universities.' },
-  { year: '2016', text: 'Expanded IELTS and PTE coaching programmes to provide end-to-end support.' },
+  { year: '2016', text: 'Expanded IELTS and PTE coaching programmes to provide end-to-end support.', img: '/images/coaching-intensive.webp' },
   { year: '2019', text: '500+ students placed at Australian universities, opening our second branch.' },
   { year: '2022', text: 'Launched dedicated post-landing support programme in Melbourne and Sydney.' },
-  { year: '2024', text: '1,000+ placements milestone achieved with an unparalleled 95% visa success rate.' },
+  { year: '2024', text: '1,000+ placements milestone achieved with an unparalleled 95% visa success rate.', img: '/images/student-group.webp' },
 ];
 
 function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: { children: React.ReactNode, delay?: number, className?: string, type?: 'fade-up' | 'fade-in' | 'slide-left' }) {
@@ -147,13 +147,18 @@ export default function About() {
             {milestones.map((m, i) => (
               <RevealItem key={m.year} delay={100} type="fade-up" className="relative">
                 <div className="flex flex-col md:flex-row items-start gap-8">
-                  <div className="font-poppins font-black text-6xl md:text-7xl lg:text-8xl text-emerald-100 leading-none">
+                  <div className="font-poppins font-black text-6xl md:text-7xl lg:text-8xl text-emerald-100 leading-none min-w-[140px]">
                     {m.year}
                   </div>
-                  <div className="md:pt-4">
-                    <p className="text-xl md:text-2xl font-playfair text-[#064E3B] leading-relaxed">
+                  <div className="md:pt-4 w-full">
+                    <p className="text-xl md:text-2xl font-playfair text-[#064E3B] leading-relaxed mb-6">
                       {m.text}
                     </p>
+                    {m.img && (
+                      <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-sm">
+                        <img src={m.img} alt={`Literarius ${m.year}`} className="w-full h-full object-cover" />
+                      </div>
+                    )}
                   </div>
                 </div>
               </RevealItem>
@@ -189,22 +194,22 @@ export default function About() {
             </div>
             
             {/* Image Gallery overlapping */}
-            <div className="relative h-[500px] md:h-[600px] w-full">
-              <RevealItem delay={200} type="slide-left" className="absolute top-0 right-0 w-[60%] h-[50%] z-10 shadow-2xl group overflow-hidden">
+            <div className="relative h-[400px] md:h-[500px] w-full py-4">
+              <RevealItem delay={200} type="slide-left" className="absolute top-4 right-0 w-[55%] h-[45%] z-10 shadow-2xl rounded-2xl group overflow-hidden">
                 <img src={teamStudents[0].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
-                <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold">
+                <div className="absolute top-4 right-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold z-20">
                   {teamStudents[0].name}
                 </div>
               </RevealItem>
-              <RevealItem delay={400} type="fade-in" className="absolute bottom-12 left-0 w-[55%] h-[60%] z-20 shadow-2xl group overflow-hidden">
+              <RevealItem delay={400} type="fade-in" className="absolute bottom-4 left-0 w-[50%] h-[55%] z-30 shadow-2xl rounded-2xl group overflow-hidden">
                 <img src={teamStudents[1].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
-                <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold">
+                <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold z-20">
                   {teamStudents[1].name}
                 </div>
               </RevealItem>
-              <RevealItem delay={600} type="slide-left" className="absolute bottom-0 right-12 w-[45%] h-[40%] z-30 shadow-2xl group overflow-hidden">
+              <RevealItem delay={600} type="slide-left" className="absolute bottom-12 right-8 w-[45%] h-[45%] z-20 shadow-2xl rounded-2xl group overflow-hidden">
                 <img src={teamStudents[2].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
-                <div className="absolute bottom-4 left-4 bg-emerald-500 text-white px-3 py-1.5 text-xs font-poppins font-bold">
+                <div className="absolute bottom-4 right-4 bg-emerald-500 text-white px-3 py-1.5 text-xs font-poppins font-bold z-20">
                   Scholarship
                 </div>
               </RevealItem>
@@ -216,23 +221,25 @@ export default function About() {
 
       {/* Why Students Trust Us — Clean Editorial Sequence */}
       <section ref={revealWhy} className="py-32 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
-        <div className="max-w-[1000px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-24">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Why Literarius</span>
             <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B]">Why Students Trust Us</h2>
           </div>
           
-          <div className="flex flex-col gap-12">
-            {whyUs.map(({ title, body }, i) => (
-              <RevealItem key={title} delay={i * 150} type="fade-up" className="flex flex-col md:flex-row gap-6 md:gap-16 border-t border-bdr pt-12">
-                <div className="md:w-1/3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div className="rounded-2xl overflow-hidden shadow-2xl h-[400px] lg:h-[700px] w-full lg:sticky lg:top-32">
+              <img src="/images/coaching-foundation.webp" alt="Why Literarius" className="w-full h-full object-cover" />
+            </div>
+            
+            <div className="flex flex-col gap-12">
+              {whyUs.map(({ title, body }, i) => (
+                <RevealItem key={title} delay={i * 150} type="fade-up" className="flex flex-col gap-4 border-b border-bdr pb-12 last:border-0">
                   <h3 className="font-poppins font-bold text-2xl text-[#064E3B]">{title}</h3>
-                </div>
-                <div className="md:w-2/3">
                   <p className="text-lg text-muted leading-relaxed">{body}</p>
-                </div>
-              </RevealItem>
-            ))}
+                </RevealItem>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -17,7 +17,8 @@ export default function AnnouncementBar() {
 
   return (
     <div className="bg-green-em text-white h-10 flex items-center justify-center relative px-12 text-sm font-medium">
-      🇦🇺 1,000+ Successful Australian University Placements —{' '}
+      <span className="font-poppins font-bold tracking-widest text-[10px] uppercase opacity-70 mr-3 hidden sm:inline-block">Update</span>
+      1,000+ Successful Australian University Placements —{' '}
       <Link to="/australia" className="text-white underline font-semibold ml-1 hover:opacity-80">
         View Our Student Results
       </Link>

@@ -123,7 +123,7 @@ export default function Contact() {
               
               <div>
                 <div className="font-poppins font-bold text-[10px] text-charcoal/40 uppercase tracking-widest mb-2">Email</div>
-                <div className="font-playfair text-xl text-[#064E3B]">info@theexpatlives.com</div>
+                <div className="font-playfair text-xl text-[#064E3B]">hello@literarius.com</div>
               </div>
               
               <div>

@@ -202,6 +202,9 @@ export default function Coaching() {
               <p className="text-lg text-muted mb-8 leading-relaxed">
                 Whether you choose the human-examined IELTS or the AI-scored PTE, our methodology breaks down the scoring criteria so you know exactly how to earn points in every module.
               </p>
+              <div className="rounded-2xl overflow-hidden aspect-video shadow-sm mb-8">
+                <img src="/images/coaching-mock.webp" alt="Test Preparation" className="w-full h-full object-cover" />
+              </div>
               <div className="flex flex-col gap-4">
                 <div className="flex items-start gap-4">
                   <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 mt-1">✓</div>
@@ -281,6 +284,9 @@ export default function Coaching() {
               <p className="text-lg text-muted leading-relaxed mb-8">
                 Struggling with a specific module? Our targeted interventions isolate your weaknesses and turn them into strengths before test day.
               </p>
+              <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-sm mb-8 hidden lg:block">
+                <img src="/images/coaching-foundation.webp" alt="Coaching Interventions" className="w-full h-full object-cover" />
+              </div>
               <div className="hidden lg:block w-16 h-px bg-green-em" />
             </div>
             
@@ -301,8 +307,11 @@ export default function Coaching() {
       <section id="assessment" ref={revealForm} className="py-0 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[800px]">
           
-          <div className="relative p-12 lg:p-24 flex flex-col justify-center">
-            <div className="absolute inset-0 bg-[url('/images/coaching-intensive.webp')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+          <div className="relative p-12 lg:p-24 flex flex-col justify-center overflow-hidden">
+            <div className="absolute inset-0">
+               <img src="/images/coaching-final.webp" alt="Consultation" className="w-full h-full object-cover" />
+               <div className="absolute inset-0 bg-[#064E3B]/90 mix-blend-multiply" />
+            </div>
             <div className="relative z-10">
               <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs mb-4 block">Take The First Step</span>
               <h2 className="font-playfair text-4xl lg:text-5xl text-white mb-6">Book Your Free Assessment Call</h2>

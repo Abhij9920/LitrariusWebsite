@@ -5,7 +5,7 @@ const items = [
   { num: '1,000+',     lbl: 'Students Placed' },
   { num: '700,000+',   lbl: 'Intl Students in AU' },
   { num: '95%',        lbl: 'Visa Success Rate' },
-  { num: '4 Years',    lbl: 'Post-Study Work Visa' },
+  { num: 'Extended',    lbl: 'Post-Study Work Visa' },
   { num: 'AUD 20–45k', lbl: 'Annual Tuition Range' },
 ];
 
