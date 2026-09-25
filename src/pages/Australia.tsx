@@ -170,23 +170,38 @@ export default function Australia() {
           </div>
           
           <div className="flex flex-col gap-12 lg:gap-0">
-            {whyCards.map(({ title, body, img }, i) => (
-              <RevealItem key={title} delay={0} type="fade-up" className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16 lg:py-16 py-12 border-b border-bdr last:border-0`}>
-                <div className="w-full lg:w-1/2">
-                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm group">
-                    <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-[#064E3B]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700" />
+            {whyCards.map(({ title, body, img }, i) => {
+              // Decide if this item gets an image (3-4 images total). Let's skip images for indices 1 and 3.
+              const showImg = i === 0 || i === 2 || i === 4;
+              
+              if (!showImg) {
+                return (
+                  <RevealItem key={title} delay={0} type="fade-up" className="lg:py-20 py-12 border-b border-bdr last:border-0 text-center max-w-4xl mx-auto">
+                    <div className="font-playfair italic text-6xl text-green-em/10 mb-6 select-none">0{i + 1}</div>
+                    <h3 className="font-playfair text-[32px] md:text-[40px] text-[#064E3B] mb-6">{title}</h3>
+                    <p className="text-xl text-muted leading-relaxed">{body}</p>
+                  </RevealItem>
+                );
+              }
+
+              return (
+                <RevealItem key={title} delay={0} type="fade-up" className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16 lg:py-20 py-12 border-b border-bdr last:border-0`}>
+                  <div className="w-full lg:w-1/2">
+                    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm group">
+                      <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-[#064E3B]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700" />
+                    </div>
                   </div>
-                </div>
-                <div className="w-full lg:w-1/2 text-center lg:text-left">
-                  <div className="font-playfair italic text-6xl text-green-em/10 mb-4 select-none">
-                    0{i + 1}
+                  <div className="w-full lg:w-1/2 text-center lg:text-left">
+                    <div className="font-playfair italic text-6xl text-green-em/10 mb-4 select-none">
+                      0{i + 1}
+                    </div>
+                    <h3 className="font-poppins font-bold text-2xl lg:text-3xl text-charcoal mb-4">{title}</h3>
+                    <p className="font-inter text-[16px] text-muted leading-relaxed">{body}</p>
                   </div>
-                  <h3 className="font-poppins font-bold text-2xl lg:text-3xl text-charcoal mb-4">{title}</h3>
-                  <p className="font-inter text-[16px] text-muted leading-relaxed">{body}</p>
-                </div>
-              </RevealItem>
-            ))}
+                </RevealItem>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -225,7 +240,7 @@ export default function Australia() {
                   <div className="flex items-center gap-2 text-emerald-300 text-sm font-medium mb-3">
                     <span className="uppercase tracking-widest">{location}</span>
                   </div>
-                  <p className="text-white/60 text-[15px] leading-relaxed max-w-sm">{body}</p>
+                  <p className="text-white/80 text-[15px] leading-relaxed max-w-sm">{body}</p>
                 </RevealItem>
               </SwiperSlide>
             ))}
@@ -263,35 +278,41 @@ export default function Australia() {
       </section>
 
       {/* Costs — Image & Typography Led */}
-      <section ref={revealCosts} className="relative py-32 border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('/images/campus-uwa.webp')] bg-cover bg-center mix-blend-luminosity" />
-        <div className="absolute inset-0 bg-[#FAF9F6]/80 backdrop-blur-[2px]" />
-        <div className="max-w-[1000px] mx-auto px-6">
-          <div className="text-center mb-24">
-            <span className="font-poppins uppercase tracking-widest text-green-em text-xs mb-3 block">Investment</span>
-            <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] tracking-tight">The Cost of Excellence</h2>
+      <section ref={revealCosts} className="py-32 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          <div className="lg:col-span-5 w-full h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl">
+            <img src="/images/campus-uwa.webp" alt="Campus Life" className="w-full h-full object-cover" />
+          </div>
+
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <div className="mb-16">
+              <span className="font-poppins uppercase tracking-widest text-green-em text-xs mb-3 block font-bold">Investment</span>
+              <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] tracking-tight">The Cost of Excellence</h2>
+            </div>
+            
+            <div className="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-8 mb-16">
+              <RevealItem delay={0} type="fade-up">
+                <AnimatedNumber value={45} prefix="AUD 12–" suffix="k" className="font-poppins font-black text-5xl text-[#10B981] leading-none mb-3" />
+                <div className="text-[13px] font-bold text-charcoal uppercase tracking-widest">Annual Tuition</div>
+              </RevealItem>
+              <RevealItem delay={200} type="fade-up">
+                <AnimatedNumber value={16000} prefix="AUD " className="font-poppins font-black text-5xl text-[#10B981] leading-none mb-3" />
+                <div className="text-[13px] font-bold text-charcoal uppercase tracking-widest">Avg Living Cost</div>
+              </RevealItem>
+              <RevealItem delay={400} type="fade-up">
+                <AnimatedNumber value={1500} prefix="AUD 500–" className="font-poppins font-black text-5xl text-[#10B981] leading-none mb-3" />
+                <div className="text-[13px] font-bold text-charcoal uppercase tracking-widest">Monthly Stay</div>
+              </RevealItem>
+            </div>
+            
+            <div className="border-t border-bdr pt-8">
+              <p className="font-playfair italic text-xl text-charcoal leading-relaxed max-w-xl">
+                "While costs vary by city and institution, studying in Australia represents an investment with lifelong returns in global employability."
+              </p>
+            </div>
           </div>
           
-          <div className="flex flex-col md:flex-row justify-between items-center gap-16 md:gap-8 mb-24">
-            <RevealItem delay={0} className="text-center">
-              <AnimatedNumber value={45} prefix="AUD 12–" suffix="k" />
-              <div className="text-sm font-medium text-muted mt-3 uppercase tracking-widest">Annual Tuition</div>
-            </RevealItem>
-            <RevealItem delay={200} className="text-center">
-              <AnimatedNumber value={16000} prefix="AUD " />
-              <div className="text-sm font-medium text-muted mt-3 uppercase tracking-widest">Avg Living Cost</div>
-            </RevealItem>
-            <RevealItem delay={400} className="text-center">
-              <AnimatedNumber value={1500} prefix="AUD 500–" />
-              <div className="text-sm font-medium text-muted mt-3 uppercase tracking-widest">Monthly Stay</div>
-            </RevealItem>
-          </div>
-          
-          <div className="max-w-2xl mx-auto text-center border-t border-bdr pt-12">
-            <p className="font-playfair italic text-xl text-charcoal/70 leading-relaxed mb-8">
-              "While costs vary by city and institution, studying in Australia represents an investment with lifelong returns in global employability."
-            </p>
-          </div>
         </div>
       </section>
 
@@ -322,29 +343,45 @@ export default function Australia() {
       </section>
 
       {/* Visa — Visual Process */}
-      <section ref={revealVisa} className="py-24 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/bg-pattern.webp')] opacity-10 mix-blend-overlay" />
-        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+      <section ref={revealVisa} className="py-24 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out relative">
+        <div className="absolute inset-0 bg-[url('/images/bg-pattern.webp')] opacity-10 mix-blend-overlay pointer-events-none" />
+        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="font-playfair text-[44px] md:text-[56px] text-white mb-4 tracking-tight">The Visa Pathway</h2>
-            <p className="text-white/60">A structured, secure process to your Australian Student Visa.</p>
+            <span className="font-poppins uppercase tracking-widest text-emerald-400 text-xs font-bold mb-4 block">The Process</span>
+            <h2 className="font-playfair text-[44px] md:text-[56px] text-white mb-4 tracking-tight">Your Visa Pathway</h2>
+            <p className="text-white/80">A structured, secure process to your Australian Student Visa.</p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-2xl h-[400px] lg:h-[600px] w-full">
-              <img src="/images/student-5.webp" alt="Student Visa Process" className="w-full h-full object-cover" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative">
+            {/* Sticky Visual Anchor */}
+            <div className="hidden lg:block">
+              <div className="sticky top-32 rounded-2xl overflow-hidden shadow-2xl h-[600px] w-full">
+                <img src="/images/student-5.webp" alt="Student Visa Process" className="w-full h-full object-cover transition-transform duration-[10000ms] hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B] via-transparent to-transparent opacity-60" />
+              </div>
             </div>
-            <div className="flex flex-col gap-6">
+            
+            {/* Scrolling Timeline */}
+            <div className="flex flex-col relative pb-32">
+              {/* Progress Line */}
+              <div className="absolute left-6 top-10 bottom-0 w-px bg-white/10 hidden md:block" />
+              
               {timeline.map(([title, desc], i) => (
-                <RevealItem key={title} delay={i * 100} type="fade-up" className="flex gap-6 items-start group">
-                  <div className="font-playfair italic text-4xl text-white/20 group-hover:text-emerald-400 transition-colors">
-                    0{i+1}
+                <div key={title} className="relative flex gap-12 md:gap-16 items-start group mb-16 last:mb-0">
+                  {/* Timeline Node */}
+                  <div className="hidden md:flex flex-col items-center relative z-10 pt-2">
+                    <div className="w-4 h-4 rounded-full bg-[#064E3B] border-2 border-emerald-400 group-hover:bg-emerald-400 transition-colors duration-500 shadow-[0_0_15px_rgba(52,211,153,0)] group-hover:shadow-[0_0_15px_rgba(52,211,153,0.4)]" />
                   </div>
-                  <div className="flex-1 pb-6 border-b border-white/10 group-last:border-0 group-last:pb-0">
-                    <h3 className="font-poppins font-bold text-white text-lg mb-1">{title}</h3>
-                    <p className="text-white/60 text-sm leading-relaxed">{desc}</p>
+                  
+                  {/* Content */}
+                  <div className="flex-1 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 group-hover:bg-white/10 transition-colors duration-500">
+                    <div className="font-playfair italic text-5xl text-emerald-400/30 group-hover:text-emerald-400 mb-4 transition-colors duration-500">
+                      0{i+1}
+                    </div>
+                    <h3 className="font-poppins font-bold text-white text-2xl mb-3">{title}</h3>
+                    <p className="text-white/70 text-base leading-relaxed">{desc}</p>
                   </div>
-                </RevealItem>
+                </div>
               ))}
             </div>
           </div>

@@ -36,13 +36,17 @@ export default function TheyGotIn() {
                 <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[2000ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,30,20,0.95)] via-[rgba(6,30,20,0.4)] to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="bg-emerald-500 text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-sm w-fit mb-4 shadow-sm">
-                    Admitted
+                  <div className="translate-y-6 group-hover:translate-y-0 transition-transform duration-700 ease-cinematic">
+                    <div className="bg-emerald-500 text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-sm w-fit mb-4 shadow-sm">
+                      Admitted
+                    </div>
+                    <h3 className="font-playfair text-2xl lg:text-3xl text-white mb-2">{name}</h3>
+                    <div className="font-poppins font-semibold text-[14px] text-emerald-300 mb-4">{uni}</div>
+                    <div className="overflow-hidden">
+                      <div className="w-8 h-px bg-white/30 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+                      <p className="text-sm text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200">{major}</p>
+                    </div>
                   </div>
-                  <h3 className="font-playfair text-2xl text-white mb-1">{name}</h3>
-                  <div className="font-poppins font-semibold text-[15px] text-emerald-300 mb-3">{uni}</div>
-                  <div className="w-8 h-px bg-white/30 mb-3" />
-                  <p className="text-sm text-white/80">{major}</p>
                 </div>
               </div>
             </SwiperSlide>

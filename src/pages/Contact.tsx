@@ -13,21 +13,21 @@ function ContactForm() {
     <form ref={formRef} onSubmit={handleSubmit} noValidate className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div>
-          <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/50 mb-3">Full Name *</label>
+          <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Full Name *</label>
           <input className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors" placeholder="John Smith" required />
         </div>
         <div>
-          <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/50 mb-3">Email Address *</label>
+          <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Email Address *</label>
           <input type="email" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors" placeholder="john@example.com" required />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div>
-          <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/50 mb-3">Phone Number *</label>
+          <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Phone Number *</label>
           <input type="tel" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors" placeholder="+91 9xxxxxxxxx" required />
         </div>
         <div>
-          <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/50 mb-3">Service Needed *</label>
+          <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Service Needed *</label>
           <select className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal focus:outline-none focus:border-[#064E3B] transition-colors appearance-none" required>
             <option value="">Select a service</option>
             <option>Study in Australia</option>
@@ -38,22 +38,23 @@ function ContactForm() {
         </div>
       </div>
       <div className="mb-8">
-        <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/50 mb-3">Country of Residence *</label>
+        <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Country of Residence *</label>
         <input className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors" placeholder="India" required />
       </div>
       <div className="mb-12">
-        <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/50 mb-3">Your Message *</label>
+        <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Your Message *</label>
         <textarea className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors min-h-[100px] resize-y" placeholder="Tell us about your goals and how we can help..." required />
       </div>
       <button type="submit" className="bg-[#064E3B] text-white font-poppins font-bold uppercase tracking-widest text-sm px-12 py-5 hover:bg-[#043326] transition-colors w-full md:w-auto">
         Send Message
       </button>
-      {success && <div className="mt-6 font-medium text-sm text-green-em">✓ Thank you! We will get back to you within 24 hours.</div>}
+      <p className="mt-4 text-xs text-charcoal/40 font-inter italic">Note: This is a static demo environment. Form submission is simulated.</p>
+      {success && <div className="mt-6 font-medium text-sm text-green-em bg-emerald-50 px-4 py-3 rounded-md border border-emerald-100">✓ Simulated Success: In a production environment, this message would be delivered to the Literarius team. We will get back to you within 24 hours.</div>}
     </form>
   );
 }
 
-function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: { children: React.ReactNode, delay?: number, className?: string, type?: 'fade-up' | 'fade-in' | 'slide-left' }) {
+function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: { children: React.ReactNode, delay?: number, className?: string, type?: 'fade-up' | 'fade-in' | 'slide-left' | 'slide-right' }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -73,6 +74,7 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
   if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
   if (type === 'fade-in') baseClass += 'duration-[1200ms]';
   if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
+  if (type === 'slide-right') baseClass += 'translate-x-12 duration-[1000ms]';
 
   return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
@@ -103,12 +105,12 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           
           {/* Left Form Panel */}
-          <div ref={revealForm} className="lg:col-span-7 lg:col-start-1 opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+          <RevealItem type="slide-left" className="lg:col-span-7 lg:col-start-1">
             <ContactForm />
-          </div>
+          </RevealItem>
           
           {/* Right Info Panel */}
-          <div ref={revealInfo} className="lg:col-span-4 lg:col-start-9 opacity-0 translate-y-10 transition-all duration-[1000ms] ease-cinematic flex flex-col gap-12 lg:pt-4">
+          <RevealItem type="slide-right" className="lg:col-span-4 lg:col-start-9 flex flex-col gap-12 lg:pt-4">
             
             <div className="rounded-xl overflow-hidden shadow-sm h-48 group">
               <img src="/images/student-group.webp" alt="Consultation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
@@ -145,40 +147,40 @@ export default function Contact() {
               "We have helped 1,000+ students begin their Australian journey. Yours could be next."
             </div>
             
-          </div>
+          </RevealItem>
           
         </div>
       </section>
 
       {/* Trust Indicators — Pure Typography */}
-      <section ref={revealTrust} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-cinematic">
+      <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-8 text-center md:text-left">
             
-            <div className="flex flex-col md:flex-row items-center gap-6">
+            <RevealItem delay={0} type="fade-up" className="flex flex-col md:flex-row items-center gap-6">
               <div className="font-playfair italic text-[72px] lg:text-[100px] text-green-em leading-none">24h</div>
               <div className="font-poppins font-bold text-xs uppercase tracking-widest text-muted md:max-w-[100px] leading-relaxed">
                 Response<br/>Time
               </div>
-            </div>
+            </RevealItem>
             
             <div className="hidden md:block w-px h-24 bg-bdr" />
             
-            <div className="flex flex-col md:flex-row items-center gap-6">
+            <RevealItem delay={200} type="fade-up" className="flex flex-col md:flex-row items-center gap-6">
               <div className="font-playfair italic text-[72px] lg:text-[100px] text-green-em leading-none">15+</div>
               <div className="font-poppins font-bold text-xs uppercase tracking-widest text-muted md:max-w-[100px] leading-relaxed">
                 Years<br/>Experience
               </div>
-            </div>
+            </RevealItem>
             
             <div className="hidden md:block w-px h-24 bg-bdr" />
             
-            <div className="flex flex-col md:flex-row items-center gap-6">
+            <RevealItem delay={400} type="fade-up" className="flex flex-col md:flex-row items-center gap-6">
               <div className="font-playfair italic text-[72px] lg:text-[100px] text-green-em leading-none">Free</div>
               <div className="font-poppins font-bold text-xs uppercase tracking-widest text-muted md:max-w-[100px] leading-relaxed">
                 First<br/>Consultation
               </div>
-            </div>
+            </RevealItem>
 
           </div>
         </div>

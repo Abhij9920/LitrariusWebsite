@@ -77,6 +77,41 @@ function AnimatedNumber({ value, prefix = '', suffix = '', className = '' }: { v
   return <div ref={ref} className={className}>{prefix}{current.toLocaleString()}{suffix}</div>;
 }
 
+function TimelineItem({ year, text, img, index }: { year: string, text: string, img?: string, index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      setIsActive(entry.isIntersecting);
+    }, { rootMargin: '-40% 0px -40% 0px' });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="relative group transition-all duration-700 ease-out">
+      <div className="flex flex-col md:flex-row items-start gap-8 relative z-10">
+        <div className={`font-poppins font-black text-6xl md:text-7xl lg:text-8xl leading-none min-w-[140px] transition-colors duration-700 bg-[#FAF9F6] pr-8 ${isActive ? 'text-emerald-500' : 'text-emerald-100'}`}>
+          {year}
+        </div>
+        <div className="md:pt-4 w-full">
+          <p className={`text-xl md:text-2xl font-playfair transition-colors duration-700 leading-relaxed mb-6 ${isActive ? 'text-[#064E3B]' : 'text-charcoal/30'}`}>
+            {text}
+          </p>
+          {img && (
+            <div className={`w-full aspect-video rounded-2xl overflow-hidden shadow-sm transition-all duration-1000 ease-cinematic ${isActive ? 'opacity-100 scale-100 grayscale-0' : 'opacity-40 scale-95 grayscale'}`}>
+              <img src={img} alt={`Literarius ${year}`} className="w-full h-full object-cover" />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function About() {
   const revealMission = useReveal();
   const revealTimeline = useReveal();
@@ -117,7 +152,7 @@ export default function About() {
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-12 block">Why We Exist</span>
           <h2 className="font-playfair text-[32px] md:text-[48px] lg:text-[64px] text-[#064E3B] leading-[1.2] max-w-5xl mx-auto mb-16 font-normal">
-            "We believe every ambitious student deserves access to the world's best education — <span className="italic text-charcoal/60">regardless of background or budget.</span>"
+            "We believe every ambitious student deserves access to the world's best education — <span className="italic text-charcoal/80">regardless of background or budget.</span>"
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-charcoal font-poppins font-bold text-sm tracking-widest uppercase">
             <span>Accessibility</span>
@@ -126,6 +161,12 @@ export default function About() {
             <span className="text-green-em hidden md:block">•</span>
             <span>Excellence</span>
           </div>
+          
+          <RevealItem delay={300} type="fade-up" className="mt-20">
+            <div className="w-full max-w-5xl mx-auto aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-xl">
+              <img src="/images/student-5.webp" alt="Students Graduating" className="w-full h-full object-cover" />
+            </div>
+          </RevealItem>
         </div>
       </section>
 
@@ -143,25 +184,10 @@ export default function About() {
           </div>
           
           {/* Scrolling Timeline */}
-          <div className="lg:col-span-8 flex flex-col gap-24 lg:pl-16">
+          <div className="lg:col-span-8 flex flex-col gap-32 lg:pl-16 relative py-32">
+            <div className="absolute left-[38px] lg:left-24 top-0 bottom-0 w-px bg-bdr hidden md:block" />
             {milestones.map((m, i) => (
-              <RevealItem key={m.year} delay={100} type="fade-up" className="relative">
-                <div className="flex flex-col md:flex-row items-start gap-8">
-                  <div className="font-poppins font-black text-6xl md:text-7xl lg:text-8xl text-emerald-100 leading-none min-w-[140px]">
-                    {m.year}
-                  </div>
-                  <div className="md:pt-4 w-full">
-                    <p className="text-xl md:text-2xl font-playfair text-[#064E3B] leading-relaxed mb-6">
-                      {m.text}
-                    </p>
-                    {m.img && (
-                      <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-sm">
-                        <img src={m.img} alt={`Literarius ${m.year}`} className="w-full h-full object-cover" />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </RevealItem>
+              <TimelineItem key={m.year} year={m.year} text={m.text} img={m.img} index={i} />
             ))}
           </div>
           
@@ -188,7 +214,7 @@ export default function About() {
               ].map(({ val, suf, l }, i) => (
                 <RevealItem key={l} delay={i * 120} type="fade-up" className="border-l border-white/20 pl-6">
                   <AnimatedNumber value={val} suffix={suf} className="font-poppins font-black text-4xl md:text-5xl text-emerald-300 leading-none mb-3" />
-                  <div className="text-xs uppercase tracking-widest text-white/60">{l}</div>
+                  <div className="text-xs uppercase tracking-widest text-white/80">{l}</div>
                 </RevealItem>
               ))}
             </div>

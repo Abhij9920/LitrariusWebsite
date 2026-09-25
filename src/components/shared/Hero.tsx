@@ -49,7 +49,7 @@ export default function Hero({
       <div className="relative z-10 flex-1 flex flex-col justify-end">
         <div className={`pb-16 px-8 md:px-20 max-w-[800px] ${short ? 'pb-12' : 'pb-20'}`}>
           <p className="font-playfair italic text-xl md:text-2xl text-white/90 mb-4">{italicLine}</p>
-          <h1 className="font-playfair text-[42px] md:text-[60px] lg:text-[76px] text-white leading-[1.05] mb-6 tracking-tight drop-shadow-sm">{heading}</h1>
+          <h1 className="font-playfair text-[42px] md:text-[56px] lg:text-[72px] text-white leading-[1.05] mb-6 tracking-tight drop-shadow-sm">{heading}</h1>
           {subText && (
             <p className="text-lg md:text-[20px] text-white/80 max-w-2xl mb-10 leading-relaxed">{subText}</p>
           )}
@@ -70,7 +70,7 @@ export default function Hero({
       {/* Trusted-by strip */}
       {trustedBy && (
         <div className="relative z-10 bg-black/28 backdrop-blur-sm px-8 md:px-20 py-3.5 flex items-center gap-6 flex-wrap">
-          <span className="text-[11px] text-white/50 tracking-widest uppercase whitespace-nowrap">
+          <span className="text-[11px] text-white/80 tracking-widest uppercase whitespace-nowrap">
             Trusted by students from
           </span>
           <div className="flex gap-6 flex-wrap">

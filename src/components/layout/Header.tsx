@@ -7,6 +7,7 @@ const navLinks = [
   { to: '/coaching', label: 'Coaching' },
   { to: '/blog', label: 'Blog' },
   { to: '/about', label: 'About Us' },
+  { to: '/contact', label: 'Contact Us' },
 ];
 
 export default function Header() {

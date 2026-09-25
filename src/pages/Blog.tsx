@@ -1,66 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MiniCTABar from '../components/shared/MiniCTABar';
+import { articles } from '../data/articles';
 
 const categories = ['All', 'Study in Australia', 'Universities', 'IELTS & PTE', 'Scholarships', 'Student Visa', 'Courses', 'Student Life'];
-
-const articles = [
-  {
-    slug: 'top-australian-universities-indian-students',
-    title: 'Top Australian Universities for Indian Students in 2026',
-    excerpt: 'A comprehensive breakdown of the Group of Eight and emerging institutions that offer the best ROI and student experience for Indian applicants.',
-    category: 'Universities',
-    date: 'Sep 24, 2026',
-    readTime: '6 min read',
-    img: '/images/campus-monash.webp',
-    featured: true
-  },
-  {
-    slug: 'ielts-vs-pte-australia',
-    title: 'IELTS vs PTE: Which Should You Take for Your Australian Visa?',
-    excerpt: 'We analyze scoring systems, test formats, and university acceptance rates to help you decide which English test aligns with your strengths.',
-    category: 'IELTS & PTE',
-    date: 'Sep 18, 2026',
-    readTime: '5 min read',
-    img: '/images/coaching-mock.webp'
-  },
-  {
-    slug: 'australian-scholarships-guide',
-    title: 'The Complete Guide to Australian University Scholarships',
-    excerpt: 'From government-funded Destination Australia grants to university-specific merit awards—how to fund your education down under.',
-    category: 'Scholarships',
-    date: 'Sep 12, 2026',
-    readTime: '8 min read',
-    img: '/images/article-scholarship.webp'
-  },
-  {
-    slug: 'studying-computer-science-australia',
-    title: 'Why Australia is the New Hub for Computer Science Degrees',
-    excerpt: 'With massive investments in AI and cybersecurity, Australian universities are producing highly sought-after tech graduates globally.',
-    category: 'Courses',
-    date: 'Sep 05, 2026',
-    readTime: '6 min read',
-    img: '/images/course-cs.webp'
-  },
-  {
-    slug: 'student-visa-application-guide',
-    title: 'Australian Student Visa Application Guide 2026',
-    excerpt: 'Step-by-step instructions on compiling your Genuine Student (GS) documents, financial evidence, and navigating the new visa rules.',
-    category: 'Student Visa',
-    date: 'Aug 28, 2026',
-    readTime: '10 min read',
-    img: '/images/student-5.webp'
-  },
-  {
-    slug: 'post-study-work-options',
-    title: 'Post-Study Work Options: Pathway to Permanent Residency',
-    excerpt: 'Understanding the Temporary Graduate visa (subclass 485) and how regional study can extend your right to work in Australia.',
-    category: 'Study in Australia',
-    date: 'Aug 15, 2026',
-    readTime: '7 min read',
-    img: '/images/campus-unsw.webp'
-  }
-];
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -78,7 +21,7 @@ export default function Blog() {
   return (
     <div className="bg-[#FAF9F6] min-h-screen">
       {/* Blog Editorial Hero */}
-      <section className="pt-32 pb-16 lg:pt-48 lg:pb-24 px-6 border-b border-bdr bg-white relative overflow-hidden">
+      <section className="pt-32 pb-16 lg:pt-48 lg:pb-24 px-6 border-b border-bdr bg-white relative overflow-hidden opacity-0 animate-fadeUp" style={{ animationDelay: '100ms' }}>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('/images/bg-pattern.webp')] opacity-5 mix-blend-multiply pointer-events-none" />
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="max-w-3xl">
@@ -96,7 +39,7 @@ export default function Blog() {
 
       {/* Featured Article (only shows when 'All' is selected and no search query) */}
       {activeCategory === 'All' && !searchQuery && featuredArticle && (
-        <section className="py-24 px-6 max-w-[1200px] mx-auto border-b border-bdr">
+        <section className="py-24 px-6 max-w-[1200px] mx-auto border-b border-bdr opacity-0 animate-fadeUp" style={{ animationDelay: '300ms' }}>
           <span className="font-poppins uppercase tracking-widest text-charcoal/50 text-xs font-bold mb-8 block">Featured Story</span>
           <Link to={`/blog/${featuredArticle.slug}`} className="group block">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -167,7 +110,12 @@ export default function Blog() {
         {filteredArticles.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
             {filteredArticles.map((article, i) => (
-              <Link key={article.slug} to={`/blog/${article.slug}`} className={`group flex flex-col ${i % 2 !== 0 ? 'md:mt-16' : ''}`}>
+              <Link 
+                key={article.slug} 
+                to={`/blog/${article.slug}`} 
+                className={`group flex flex-col opacity-0 animate-fadeUp ${i % 2 !== 0 ? 'md:mt-16' : ''}`}
+                style={{ animationDelay: `${500 + i * 150}ms` }}
+              >
                 <div className="rounded-2xl overflow-hidden aspect-[4/3] mb-8 shadow-sm relative">
                   <img src={article.img} alt={article.title} className="w-full h-full object-cover transition-transform duration-[2000ms] ease-cinematic-slow group-hover:scale-105" />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 text-[10px] font-poppins font-bold uppercase tracking-widest text-[#064E3B] rounded-sm shadow-sm">
@@ -182,7 +130,7 @@ export default function Blog() {
                 <h3 className="font-playfair text-[28px] md:text-[32px] leading-[1.2] text-[#064E3B] mb-4 group-hover:text-green-em transition-colors tracking-tight">
                   {article.title}
                 </h3>
-                <p className="text-charcoal/70 leading-relaxed mb-6">
+                <p className="text-charcoal/80 leading-relaxed mb-6">
                   {article.excerpt}
                 </p>
                 <span className="font-poppins font-bold text-xs tracking-widest uppercase text-emerald-500 group-hover:text-emerald-400 transition-colors flex items-center gap-1.5 mt-auto">

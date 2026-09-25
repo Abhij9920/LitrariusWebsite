@@ -53,27 +53,27 @@ function BookingForm() {
     <form ref={formRef} onSubmit={handleSubmit} noValidate className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
-          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">First Name</label>
+          <label className="block text-xs uppercase tracking-widest text-white/80 mb-2 font-medium">First Name</label>
           <input className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="John" required />
         </div>
         <div>
-          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Last Name</label>
+          <label className="block text-xs uppercase tracking-widest text-white/80 mb-2 font-medium">Last Name</label>
           <input className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="Smith" required />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
-          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Email Address</label>
+          <label className="block text-xs uppercase tracking-widest text-white/80 mb-2 font-medium">Email Address</label>
           <input type="email" className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="john@example.com" required />
         </div>
         <div>
-          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Phone Number</label>
+          <label className="block text-xs uppercase tracking-widest text-white/80 mb-2 font-medium">Phone Number</label>
           <input type="tel" className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="+91 9xxxxxxxxx" required />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
-          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Test Type</label>
+          <label className="block text-xs uppercase tracking-widest text-white/80 mb-2 font-medium">Test Type</label>
           <select className="w-full bg-[#082f23] border border-white/10 rounded-none px-4 py-3.5 text-white focus:outline-none focus:border-emerald-400 transition-colors appearance-none" required>
             <option value="">Select Test</option>
             <option>IELTS Academic</option>
@@ -81,12 +81,12 @@ function BookingForm() {
           </select>
         </div>
         <div>
-          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Target Score</label>
+          <label className="block text-xs uppercase tracking-widest text-white/80 mb-2 font-medium">Target Score</label>
           <input className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="e.g. Band 7.0 or 65+" required />
         </div>
       </div>
       <div className="mb-8">
-        <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Your Goals</label>
+        <label className="block text-xs uppercase tracking-widest text-white/80 mb-2 font-medium">Your Goals</label>
         <textarea className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors min-h-[100px] resize-y" placeholder="Briefly describe your timeline and specific struggles..." />
       </div>
       <button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-poppins font-bold uppercase tracking-widest text-sm py-5 transition-colors">
@@ -253,21 +253,29 @@ export default function Coaching() {
                 </div>
                 
                 {/* Text side */}
-                <RevealItem delay={150} type="fade-up" className="w-full md:w-1/2 relative z-10 md:py-8">
-                  <div className={`font-poppins font-black text-6xl opacity-10 absolute -top-8 -left-4 pointer-events-none ${prog.accent}`}>
-                    0{i+1}
-                  </div>
-                  <h3 className="font-playfair text-[32px] md:text-[40px] text-[#064E3B] mb-4 relative z-10">{prog.h3}</h3>
-                  <p className="text-muted leading-relaxed mb-6 relative z-10">{prog.desc}</p>
-                  <ul className="flex flex-col gap-2.5 relative z-10">
-                    {prog.points.map(p => (
-                      <li key={p} className="flex items-start gap-3 text-sm text-charcoal/80">
-                        <span className={`mt-0.5 font-bold ${prog.accent}`}>—</span>
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </RevealItem>
+                <div className="w-full md:w-1/2 relative z-10 md:py-8">
+                  <RevealItem delay={150} type="fade-up">
+                    <div className={`font-poppins font-black text-6xl opacity-10 absolute -top-8 -left-4 pointer-events-none ${prog.accent}`}>
+                      0{i+1}
+                    </div>
+                  </RevealItem>
+                  <RevealItem delay={300} type="fade-up">
+                    <h3 className="font-playfair text-[32px] md:text-[40px] text-[#064E3B] mb-4 relative z-10">{prog.h3}</h3>
+                  </RevealItem>
+                  <RevealItem delay={450} type="fade-up">
+                    <p className="text-muted leading-relaxed mb-6 relative z-10">{prog.desc}</p>
+                  </RevealItem>
+                  <RevealItem delay={600} type="fade-up">
+                    <ul className="flex flex-col gap-2.5 relative z-10">
+                      {prog.points.map(p => (
+                        <li key={p} className="flex items-start gap-3 text-sm text-charcoal/80">
+                          <span className={`mt-0.5 font-bold ${prog.accent}`}>—</span>
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </RevealItem>
+                </div>
                 
               </div>
             ))}
@@ -290,12 +298,21 @@ export default function Coaching() {
               <div className="hidden lg:block w-16 h-px bg-green-em" />
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
+            <div className="flex flex-col gap-12">
               {extras.map((extra, i) => (
-                <RevealItem key={extra.h} delay={i * 100} type="fade-up">
-                  <div className="font-poppins font-bold text-sm tracking-widest uppercase text-emerald-500 mb-3">Module Support</div>
-                  <h3 className="font-playfair text-[28px] md:text-[32px] text-[#064E3B] mb-3 tracking-tight">{extra.h}</h3>
-                  <p className="text-muted text-sm leading-relaxed">{extra.body}</p>
+                <RevealItem key={extra.h} delay={i * 100} type="fade-up" className="border-b border-bdr pb-12 last:border-0 last:pb-0">
+                  <div className="flex flex-col sm:flex-row gap-8 items-start">
+                    <div className="flex-1">
+                      <div className="font-poppins font-bold text-sm tracking-widest uppercase text-emerald-500 mb-3">Module Support</div>
+                      <h3 className="font-playfair text-[28px] md:text-[32px] text-[#064E3B] mb-3 tracking-tight">{extra.h}</h3>
+                      <p className="text-muted text-sm leading-relaxed">{extra.body}</p>
+                    </div>
+                    {i === 1 && (
+                      <div className="w-full sm:w-1/3 aspect-square rounded-xl overflow-hidden shadow-sm flex-shrink-0">
+                         <img src="/images/coaching-intensive.webp" alt={extra.h} className="w-full h-full object-cover" />
+                      </div>
+                    )}
+                  </div>
                 </RevealItem>
               ))}
             </div>

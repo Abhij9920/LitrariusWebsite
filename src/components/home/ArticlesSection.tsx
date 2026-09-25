@@ -39,7 +39,7 @@ export default function ArticlesSection() {
                 className="bg-white/[0.06] border border-white/10 rounded-lg px-4 py-3.5 cursor-pointer
                            hover:bg-white/[0.12] transition-colors group"
               >
-                <div className="text-[11px] text-white/40 mb-1.5">{date}</div>
+                <div className="text-[11px] text-white/80 mb-1.5">{date}</div>
                 <div className="font-poppins font-semibold text-sm text-white/88 leading-snug
                                group-hover:text-green-em transition-colors">
                   {title}

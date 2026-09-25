@@ -1,67 +1,59 @@
-import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import MiniCTABar from '../components/shared/MiniCTABar';
-
-const mockArticle = {
-  slug: 'top-australian-universities-indian-students',
-  title: 'Top Australian Universities for Indian Students in 2026',
-  excerpt: 'A comprehensive breakdown of the Group of Eight and emerging institutions that offer the best ROI and student experience for Indian applicants.',
-  category: 'Universities',
-  date: 'Sep 24, 2026',
-  readTime: '6 min read',
-  img: '/images/campus-monash.webp',
-  content: `
-    <p>Australia has cemented its position as the third most popular study destination in the world, and for Indian students, the appeal is stronger than ever. Beyond the famous sunny lifestyle and stunning landscapes, Australia offers an educational infrastructure that prioritizes practical outcomes, high employability, and world-class research facilities.</p>
-    
-    <h2>The Group of Eight (Go8) Advantage</h2>
-    <p>The Group of Eight represents Australia's leading research-intensive universities. For Indian students aiming for degrees in STEM, Business, or Healthcare, these institutions provide unparalleled ROI. They consistently rank in the global top 100 and boast the highest employment rates in the country.</p>
-    <p>When you graduate from a Go8 university, you carry a brand that is instantly recognized by employers from Silicon Valley to Bangalore.</p>
-    
-    <h2>Cost vs. Value</h2>
-    <p>While Go8 universities carry a premium tuition fee (typically ranging from AUD 45,000 to AUD 55,000 annually), the post-study work rights and the sheer quality of the alumni network often offset the initial investment. Furthermore, institutions like the University of Melbourne and UNSW Sydney offer substantial merit-based scholarships specifically designed for high-achieving South Asian applicants.</p>
-    
-    <h2>Emerging Tech Hubs</h2>
-    <p>Beyond the Go8, universities like RMIT, UTS, and Macquarie University are gaining massive popularity among Indian students. Why? Their deep integration with industry. These universities often co-design their curriculums with tech giants, ensuring that graduates possess exactly the skills required by the current market.</p>
-    
-    <blockquote>"The best university isn't always the highest-ranked one; it's the one that aligns perfectly with your career trajectory and budget."</blockquote>
-    
-    <h2>Making the Right Choice</h2>
-    <p>When selecting your university, look beyond the overall QS ranking. Analyze the subject-specific rankings, the availability of industry placements (internships), the cost of living in that specific city, and the strength of the Indian student community on campus.</p>
-  `,
-  author: 'Literarius Editorial Team'
-};
-
-const related = [
-  {
-    slug: 'studying-computer-science-australia',
-    title: 'Why Australia is the New Hub for Computer Science Degrees',
-    img: '/images/course-cs.webp',
-    category: 'Courses'
-  },
-  {
-    slug: 'post-study-work-options',
-    title: 'Post-Study Work Options: Pathway to Permanent Residency',
-    img: '/images/campus-unsw.webp',
-    category: 'Study in Australia'
-  }
-];
+import { articles } from '../data/articles';
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   
-  // In a real app, fetch article by slug. Here we use mock data.
-  const article = mockArticle;
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Scroll to top on mount
+  // Find article by slug
+  const article = articles.find(a => a.slug === slug);
+
+  // Scroll to top and reset progress on mount
   useEffect(() => {
     window.scrollTo(0, 0);
+    setScrollProgress(0);
   }, [slug]);
 
+  // Track scroll progress
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = `${totalScroll / windowHeight}`;
+      setScrollProgress(Number(scroll));
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!article) {
+    return (
+      <div className="bg-white min-h-[60vh] flex flex-col items-center justify-center text-center px-6">
+        <h1 className="font-playfair text-4xl text-[#064E3B] mb-4">Article Not Found</h1>
+        <p className="text-muted mb-8">The article you are looking for does not exist or has been moved.</p>
+        <button onClick={() => navigate('/blog')} className="btn btn-coral">Back to Blog</button>
+      </div>
+    );
+  }
+
+  // Get related articles (just picking the next two for demo purposes, excluding current)
+  const related = articles.filter(a => a.slug !== slug).slice(0, 2);
+
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen relative">
       
+      {/* Scroll Progress Bar */}
+      <div 
+        className="fixed top-0 left-0 h-1 bg-emerald-500 z-50 transition-all duration-150 ease-out"
+        style={{ width: `${scrollProgress * 100}%` }}
+      />
+
       {/* Editorial Article Hero */}
-      <section className="pt-32 pb-16 lg:pt-48 lg:pb-20 px-6 max-w-[1000px] mx-auto text-center">
+      <section className="pt-32 pb-16 lg:pt-48 lg:pb-20 px-6 max-w-[1000px] mx-auto text-center opacity-0 animate-fadeUp" style={{ animationDelay: '100ms' }}>
         <div className="flex items-center justify-center gap-3 text-xs font-poppins font-bold uppercase tracking-widest mb-8">
           <span className="text-[#064E3B] bg-emerald-100 px-3 py-1.5 rounded-sm">{article.category}</span>
           <span className="text-muted">{article.date}</span>
@@ -73,20 +65,20 @@ export default function BlogPost() {
           {article.title}
         </h1>
         
-        <p className="text-xl md:text-2xl text-charcoal/70 font-playfair italic max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-charcoal/80 font-playfair italic max-w-3xl mx-auto leading-relaxed">
           {article.excerpt}
         </p>
       </section>
 
       {/* Featured Image */}
-      <section className="px-6 max-w-[1200px] mx-auto mb-20">
+      <section className="px-6 max-w-[1200px] mx-auto mb-20 opacity-0 animate-fadeUp" style={{ animationDelay: '300ms' }}>
         <div className="w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-md">
           <img src={article.img} alt={article.title} className="w-full h-full object-cover" />
         </div>
       </section>
 
       {/* Article Content */}
-      <section className="px-6 max-w-[750px] mx-auto mb-32">
+      <section className="px-6 max-w-[750px] mx-auto mb-32 opacity-0 animate-fadeUp" style={{ animationDelay: '500ms' }}>
         <div className="prose prose-lg prose-emerald max-w-none 
           prose-headings:font-playfair prose-headings:text-[#064E3B] prose-headings:font-normal prose-headings:tracking-tight
           prose-h2:text-4xl prose-h2:mt-16 prose-h2:mb-6
