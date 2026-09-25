@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Hero
-        imageSrc="/Uploads/australia.jpg"
+        imageSrc="/images/hero-home.webp"
         imageAlt="Beautiful Australian university campus"
         italicLine="Thousands Apply. Few Get Placed."
         heading={<>We'll Get You Into<br />Australia's Best<br />Universities.</>}

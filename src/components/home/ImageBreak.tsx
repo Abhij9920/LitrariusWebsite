@@ -20,7 +20,7 @@ export default function ImageBreak() {
 
   return (
     <section className="relative h-[380px] overflow-hidden">
-      <img src="/Uploads/australia.png" alt="Australian landmark" className="w-full h-full object-cover" />
+      <img src="/images/student-group.webp" alt="Australian landmark" className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-[rgba(6,30,20,0.65)]" />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
         <p className="text-sm text-white/65 mb-3">Meet Our Australia Admissions Experts Getting Students Into</p>

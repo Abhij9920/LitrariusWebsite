@@ -18,7 +18,7 @@ export default function ArticlesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[55%_1fr] gap-5">
           {/* Featured */}
           <div className="rounded-xl overflow-hidden relative min-h-[340px]">
-            <img src="/Uploads/australia.jpg" alt="Scholarship Guide" className="w-full h-full object-cover" />
+            <img src="/images/article-scholarship.webp" alt="Scholarship Guide" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,30,20,0.92)] via-[rgba(0,0,0,0.2)] to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <span className="inline-block bg-green-em text-white text-[10.5px] font-semibold px-3 py-1 rounded-full mb-3">

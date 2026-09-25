@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import StudentCard from '../shared/StudentCard';
 
 const students = [
-  { name: 'Priya Sharma',  university: 'Admitted to University of Melbourne', course: 'MBA · Class of 2025',              img: '/Uploads/australia.jpg' },
-  { name: 'Arjun Patel',   university: 'Admitted to UNSW Sydney',             course: 'Computer Science · Class of 2025',  img: '/Uploads/computer science.jpg' },
-  { name: 'Meera Iyer',    university: 'Admitted to Monash University',        course: 'Business Management',               img: '/Uploads/business manegement.jpg', badge: 'Scholarship Recipient' },
-  { name: 'Rohit Verma',   university: 'Admitted to University of Queensland', course: 'Engineering · Class of 2025',        img: '/Uploads/engineering img for study in.jpg' },
+  { name: 'Priya Sharma',  university: 'Admitted to University of Melbourne', course: 'MBA · Class of 2025',              img: '/images/student-3.webp' },
+  { name: 'Arjun Patel',   university: 'Admitted to UNSW Sydney',             course: 'Computer Science · Class of 2025',  img: '/images/student-4.webp' },
+  { name: 'Meera Iyer',    university: 'Admitted to Monash University',        course: 'Business Management',               img: '/images/student-5.webp', badge: 'Scholarship Recipient' },
+  { name: 'Rohit Verma',   university: 'Admitted to University of Queensland', course: 'Engineering · Class of 2025',        img: '/images/student-1.webp' },
 ];
 
 const subs = [

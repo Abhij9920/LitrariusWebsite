@@ -19,21 +19,21 @@ const whyCards = [
 ];
 
 const universities = [
-  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80', location: 'Melbourne, Victoria' },
-  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: 'https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=600&q=80', location: 'Sydney, NSW' },
-  { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.', img: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80', location: 'Sydney, NSW' },
-  { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.', img: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=600&q=80', location: 'Canberra, ACT' },
-  { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80', location: 'Melbourne, Victoria' },
-  { rank: 'QS #40',  name: 'University of Queensland',     body: 'Leader in research commercialisation and health sciences — beautiful Brisbane campus.', img: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80', location: 'Brisbane, Queensland' },
-  { rank: 'QS #82',  name: 'University of Western Australia', body: 'Perth-based research university known for mining, agriculture, and medical sciences.', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80', location: 'Perth, WA' },
+  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: '/images/campus-melbourne.webp', location: 'Melbourne, Victoria' },
+  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: '/images/campus-sydney.webp', location: 'Sydney, NSW' },
+  { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.', img: '/images/campus-unsw.webp', location: 'Sydney, NSW' },
+  { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.', img: '/images/campus-anu.webp', location: 'Canberra, ACT' },
+  { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.', img: '/images/campus-monash.webp', location: 'Melbourne, Victoria' },
+  { rank: 'QS #40',  name: 'University of Queensland',     body: 'Leader in research commercialisation and health sciences — beautiful Brisbane campus.', img: '/images/campus-uq.webp', location: 'Brisbane, Queensland' },
+  { rank: 'QS #82',  name: 'University of Western Australia', body: 'Perth-based research university known for mining, agriculture, and medical sciences.', img: '/images/campus-uwa.webp', location: 'Perth, WA' },
 ];
 
 const courses = [
-  { name: 'Business Management', img: '/Uploads/business manegement.jpg', size: 'large' },
-  { name: 'Engineering',         img: '/Uploads/engineering img for study in.jpg', size: 'tall' },
-  { name: 'Computer Science',    img: '/Uploads/computer science.jpg', size: 'regular' },
-  { name: 'Law',                 img: '/Uploads/law.jpg', size: 'wide' },
-  { name: 'Finance',             img: '/Uploads/finance.jpg', size: 'regular' },
+  { name: 'Business Management', img: '/images/course-business.webp', size: 'large' },
+  { name: 'Engineering',         img: '/images/course-engineering.webp', size: 'tall' },
+  { name: 'Computer Science',    img: '/images/course-cs.webp', size: 'regular' },
+  { name: 'Law',                 img: '/images/course-law.webp', size: 'wide' },
+  { name: 'Finance',             img: '/images/course-finance.webp', size: 'regular' },
 ];
 
 const faqs = [
@@ -153,7 +153,7 @@ export default function Australia() {
             <RevealItem delay={300} type="fade-in" className="w-full h-full">
               <video 
                 src="https://videos.pexels.com/video-files/3737970/3737970-uhd_2732_1440_25fps.mp4"
-                poster="/Uploads/australia.jpg"
+                poster="/images/hero-australia.webp"
                 autoPlay muted loop playsInline
                 className="w-full h-full object-cover"
               />
@@ -347,7 +347,7 @@ export default function Australia() {
 
       {/* Custom Final CTA for Australia */}
       <section className="relative py-32 bg-[#064E3B] overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80')] bg-cover bg-center mix-blend-overlay" />
+        <div className="absolute inset-0 opacity-20 bg-[url('/images/bg-pattern.webp')] bg-cover bg-center mix-blend-overlay" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white">
           <h2 className="font-playfair text-5xl lg:text-6xl mb-6">Begin Your Application</h2>
           <p className="text-lg text-white/80 mb-10">Our expert counsellors are ready to design your roadmap to Australia.</p>

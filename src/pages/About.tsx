@@ -11,9 +11,9 @@ const whyUs = [
 ];
 
 const teamStudents = [
-  { name: 'Priya Sharma',  university: 'University of Melbourne', course: 'MBA · Class of 2025',              img: '/Uploads/australia.jpg' },
-  { name: 'Arjun Patel',   university: 'UNSW Sydney',             course: 'Computer Science · Class of 2025',  img: '/Uploads/computer science.jpg' },
-  { name: 'Meera Iyer',    university: 'Monash University',        course: 'Business Management · Scholarship', img: '/Uploads/business manegement.jpg' },
+  { name: 'Priya Sharma',  university: 'University of Melbourne', course: 'MBA · Class of 2025',              img: '/images/student-1.webp' },
+  { name: 'Arjun Patel',   university: 'UNSW Sydney',             course: 'Computer Science · Class of 2025',  img: '/images/student-2.webp' },
+  { name: 'Meera Iyer',    university: 'Monash University',        course: 'Business Management · Scholarship', img: '/images/student-3.webp' },
 ];
 
 const milestones = [
@@ -103,7 +103,7 @@ export default function About() {
             <div className="w-full h-[50vh] lg:h-[70vh] rounded-none overflow-hidden relative">
               <video 
                 src="https://videos.pexels.com/video-files/7310207/7310207-uhd_2732_1440_25fps.mp4"
-                poster="/Uploads/Group1.webp"
+                poster="/images/hero-about.webp"
                 autoPlay muted loop playsInline
                 className="w-full h-full object-cover"
               />

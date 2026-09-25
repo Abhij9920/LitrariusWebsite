@@ -4,10 +4,10 @@ import MiniCTABar from '../components/shared/MiniCTABar';
 import { useReveal } from '../hooks/useReveal';
 
 const programs = [
-  { h3: 'Foundation Assessment', accent: 'text-coral', desc: 'We start by evaluating your current proficiency. Build strong fundamentals across all four skills with our comprehensive diagnostic approach.', points: ['Detailed baseline testing', 'Grammar & vocabulary gap analysis', 'Basic test strategies introduction', 'Personalised study roadmap'], img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80' },
-  { h3: 'Intensive Training', accent: 'text-blue-acc', desc: 'Fast-track your learning. Dive deep into intensive practice sessions with expert one-on-one feedback focusing on high-weightage topics.', points: ['Targeted skill workshops', 'Advanced test techniques', 'Time management drills', 'Personal mentor support'], img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80' },
-  { h3: 'Mock & Progress', accent: 'text-green-em', desc: 'Simulate the real test environment. Regular mock tests build stamina and familiarity, ensuring no surprises on test day.', points: ['Full-length timed mock tests', 'Detailed performance analytics', 'Speaking module simulations', 'Writing task evaluations'], img: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&q=80' },
-  { h3: 'Final Polish & Results', accent: 'text-charcoal', desc: 'The final stretch before test day. We focus entirely on error elimination and psychological readiness to maximize your final score.', points: ['Confidence building sessions', 'Last-minute error correction', 'Test day logistics planning', 'Final target score verification'], img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80' },
+  { h3: 'Foundation Assessment', accent: 'text-coral', desc: 'We start by evaluating your current proficiency. Build strong fundamentals across all four skills with our comprehensive diagnostic approach.', points: ['Detailed baseline testing', 'Grammar & vocabulary gap analysis', 'Basic test strategies introduction', 'Personalised study roadmap'], img: '/images/coaching-foundation.webp' },
+  { h3: 'Intensive Training', accent: 'text-blue-acc', desc: 'Fast-track your learning. Dive deep into intensive practice sessions with expert one-on-one feedback focusing on high-weightage topics.', points: ['Targeted skill workshops', 'Advanced test techniques', 'Time management drills', 'Personal mentor support'], img: '/images/coaching-intensive.webp' },
+  { h3: 'Mock & Progress', accent: 'text-green-em', desc: 'Simulate the real test environment. Regular mock tests build stamina and familiarity, ensuring no surprises on test day.', points: ['Full-length timed mock tests', 'Detailed performance analytics', 'Speaking module simulations', 'Writing task evaluations'], img: '/images/coaching-mock.webp' },
+  { h3: 'Final Polish & Results', accent: 'text-charcoal', desc: 'The final stretch before test day. We focus entirely on error elimination and psychological readiness to maximize your final score.', points: ['Confidence building sessions', 'Last-minute error correction', 'Test day logistics planning', 'Final target score verification'], img: '/images/coaching-final.webp' },
 ];
 
 const extras = [
@@ -127,7 +127,7 @@ export default function Coaching() {
             <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden relative">
               <video 
                 src="https://videos.pexels.com/video-files/5198399/5198399-uhd_2732_1440_25fps.mp4"
-                poster="/Uploads/computer science.jpg"
+                poster="/images/hero-coaching.webp"
                 autoPlay muted loop playsInline
                 className="w-full h-full object-cover"
               />
@@ -302,7 +302,7 @@ export default function Coaching() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[800px]">
           
           <div className="relative p-12 lg:p-24 flex flex-col justify-center">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-[url('/images/coaching-intensive.webp')] bg-cover bg-center opacity-10 mix-blend-overlay" />
             <div className="relative z-10">
               <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs mb-4 block">Take The First Step</span>
               <h2 className="font-playfair text-4xl lg:text-5xl text-white mb-6">Book Your Free Assessment Call</h2>

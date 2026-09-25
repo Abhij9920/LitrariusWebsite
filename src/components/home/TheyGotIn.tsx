@@ -6,11 +6,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const cards = [
-  { uni: 'University of Melbourne',    name: 'Priya Sharma',  major: 'Masters in Business Administration', img: '/Uploads/australia.jpg' },
-  { uni: 'UNSW Sydney',                name: 'Arjun Patel',   major: 'Computer Science',                    img: '/Uploads/computer science.jpg' },
-  { uni: 'Monash University',          name: 'Meera Iyer',    major: 'Business Management',                 img: '/Uploads/business manegement.jpg' },
-  { uni: 'University of Queensland',   name: 'Rohit Verma',   major: 'Engineering',                         img: '/Uploads/engineering img for study in.jpg' },
-  { uni: 'Australian National University', name: 'Sneha Kapoor', major: 'International Relations',         img: '/Uploads/australia.png' },
+  { uni: 'University of Melbourne',    name: 'Priya Sharma',  major: 'Masters in Business Administration', img: '/images/student-1.webp' },
+  { uni: 'UNSW Sydney',                name: 'Arjun Patel',   major: 'Computer Science',                    img: '/images/student-2.webp' },
+  { uni: 'Monash University',          name: 'Meera Iyer',    major: 'Business Management',                 img: '/images/student-3.webp' },
+  { uni: 'University of Queensland',   name: 'Rohit Verma',   major: 'Engineering',                         img: '/images/student-4.webp' },
+  { uni: 'Australian National University', name: 'Sneha Kapoor', major: 'International Relations',         img: '/images/student-5.webp' },
 ];
 
 export default function TheyGotIn() {

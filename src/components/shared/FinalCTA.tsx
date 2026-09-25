@@ -13,7 +13,7 @@ interface FinalCTAProps {
 export default function FinalCTA({
   heading, italic,
   btnLabel = 'Start Today', btnTo = '/contact',
-  imageSrc = '/Uploads/australia.jpg',
+  imageSrc = '/images/hero-home.webp',
   children,
 }: FinalCTAProps) {
   return (

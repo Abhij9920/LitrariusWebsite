@@ -86,13 +86,16 @@ export default function Contact() {
     <div className="bg-[#FAF9F6] min-h-screen">
       
       {/* Minimal Header */}
-      <section className="pt-40 pb-20 lg:pt-56 lg:pb-32 px-6 max-w-[1400px] mx-auto">
-        <RevealItem delay={0} type="fade-up">
-          <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Get in Touch</span>
-          <h1 className="font-playfair text-[60px] md:text-[80px] lg:text-[100px] leading-[1] text-[#064E3B] tracking-tight">
-            Let's start the<br /><span className="italic text-charcoal/80">conversation.</span>
-          </h1>
-        </RevealItem>
+      <section className="relative pt-40 pb-20 lg:pt-56 lg:pb-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[url('/images/hero-contact.webp')] bg-cover bg-center mix-blend-overlay" />
+        <div className="max-w-[1400px] mx-auto relative z-10">
+          <RevealItem delay={0} type="fade-up">
+            <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Get in Touch</span>
+            <h1 className="font-playfair text-[60px] md:text-[80px] lg:text-[100px] leading-[1] text-[#064E3B] tracking-tight">
+              Let's start the<br /><span className="italic text-charcoal/80">conversation.</span>
+            </h1>
+          </RevealItem>
+        </div>
       </section>
 
       {/* Main Split Content */}
@@ -105,8 +108,12 @@ export default function Contact() {
           </div>
           
           {/* Right Info Panel */}
-          <div ref={revealInfo} className="lg:col-span-4 lg:col-start-9 opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out flex flex-col gap-12 lg:pt-4">
+          <div ref={revealInfo} className="lg:col-span-4 lg:col-start-9 opacity-0 translate-y-10 transition-all duration-[1000ms] ease-cinematic flex flex-col gap-12 lg:pt-4">
             
+            <div className="rounded-xl overflow-hidden shadow-sm h-48 group">
+              <img src="/images/student-group.webp" alt="Consultation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
+            </div>
+
             <div className="flex flex-col gap-8">
               <div>
                 <div className="font-poppins font-bold text-[10px] text-charcoal/40 uppercase tracking-widest mb-2">Phone</div>
@@ -144,7 +151,7 @@ export default function Contact() {
       </section>
 
       {/* Trust Indicators — Pure Typography */}
-      <section ref={revealTrust} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+      <section ref={revealTrust} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-cinematic">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-8 text-center md:text-left">
             
