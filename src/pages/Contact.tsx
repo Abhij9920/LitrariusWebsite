@@ -69,7 +69,7 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
     return () => obs.disconnect();
   }, [delay]);
 
-  let baseClass = 'opacity-0 transition-all ease-out ';
+  let baseClass = 'opacity-0 transition-all ease-cinematic ';
   if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
   if (type === 'fade-in') baseClass += 'duration-[1200ms]';
   if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';

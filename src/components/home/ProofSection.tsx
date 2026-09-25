@@ -21,7 +21,7 @@ function AnimatedBar({ width, color }: { width: number; color: string }) {
   }, [width]);
   return (
     <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-0.5">
-      <div ref={ref} className={`h-full rounded-full transition-all duration-1000 ease-out ${color}`} />
+      <div ref={ref} className={`h-full rounded-full transition-all duration-1000 ease-cinematic ${color}`} />
     </div>
   );
 }

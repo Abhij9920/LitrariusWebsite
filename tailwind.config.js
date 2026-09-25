@@ -41,6 +41,10 @@ export default {
         'fadeUp':   'fadeUp 0.6s ease forwards',
         rotateFade: 'rotateFade 2.5s ease-in-out infinite',
       },
+      transitionTimingFunction: {
+        'cinematic': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'cinematic-slow': 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
       maxWidth: { content: '1200px' },
     },
   },

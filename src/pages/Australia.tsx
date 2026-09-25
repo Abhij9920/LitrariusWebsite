@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import FAQAccordion from '../components/shared/FAQAccordion';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, FreeMode } from 'swiper/modules';
+import { Navigation, FreeMode, Mousewheel } from 'swiper/modules';
 import { useReveal } from '../hooks/useReveal';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -76,7 +76,7 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
     return () => obs.disconnect();
   }, [delay]);
 
-  let baseClass = 'opacity-0 transition-all ease-out ';
+  let baseClass = 'opacity-0 transition-all ease-cinematic ';
   if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
   if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
   if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
@@ -200,18 +200,20 @@ export default function Australia() {
         
         <div className="ml-6 md:ml-[calc((100vw-1400px)/2+24px)] pr-6">
           <Swiper 
-            modules={[Navigation, FreeMode]} 
+            modules={[Navigation, FreeMode, Mousewheel]} 
             slidesPerView="auto" 
             spaceBetween={32} 
-            freeMode={true}
+            freeMode={{ enabled: true, sticky: true, momentumRatio: 0.25 }}
+            mousewheel={{ forceToAxis: true, sensitivity: 1 }}
+            grabCursor={true}
             className="!overflow-visible"
           >
             {universities.map(({ rank, name, body, img, location }, i) => (
               <SwiperSlide key={name} className="!w-[300px] md:!w-[500px]">
                 <RevealItem delay={i * 200} type="slide-left" className="group cursor-pointer">
                   <div className="relative h-[400px] md:h-[600px] rounded-xl overflow-hidden mb-6">
-                    <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                    <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700 ease-cinematic" />
                     <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 text-white font-poppins font-bold text-xs px-4 py-2 rounded-full">
                       {rank}
                     </div>
@@ -245,8 +247,8 @@ export default function Australia() {
               
               return (
                 <RevealItem key={name} delay={i * 150} type="fade-in" className={`${spanClass} relative rounded-xl overflow-hidden group`}>
-                  <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700 ease-cinematic" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <h3 className="font-poppins font-bold text-xl text-white tracking-wide">{name}</h3>
                   </div>

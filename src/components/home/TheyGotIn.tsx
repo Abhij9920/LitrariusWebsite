@@ -34,13 +34,13 @@ export default function TheyGotIn() {
         >
           {cards.map(({ uni, name, major, img }) => (
             <SwiperSlide key={name}>
-              <div className="bg-white border border-bdr rounded-xl overflow-hidden h-full">
-                <div className="p-4 text-center border-b border-bdr">
+              <div className="bg-white border border-bdr rounded-xl overflow-hidden h-full group hover:-translate-y-1.5 transition-all duration-500 ease-cinematic hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+                <div className="p-4 text-center border-b border-bdr relative z-10 bg-white">
                   <p className="text-xs text-muted mb-1">Accepted to</p>
                   <div className="font-poppins font-bold text-[18px] text-green-em">{uni}</div>
                 </div>
-                <div className="h-60 overflow-hidden">
-                  <img src={img} alt={name} className="w-full h-full object-cover" />
+                <div className="h-60 overflow-hidden relative z-0">
+                  <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-cinematic-slow" />
                 </div>
                 <div className="p-4 border-t border-bdr">
                   <div className="text-[10.5px] text-muted uppercase tracking-wider mb-0.5">Name</div>

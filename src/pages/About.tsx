@@ -41,7 +41,7 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
     return () => obs.disconnect();
   }, [delay]);
 
-  let baseClass = 'opacity-0 transition-all ease-out ';
+  let baseClass = 'opacity-0 transition-all ease-cinematic ';
   if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
   if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
   if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
@@ -190,20 +190,20 @@ export default function About() {
             
             {/* Image Gallery overlapping */}
             <div className="relative h-[500px] md:h-[600px] w-full">
-              <RevealItem delay={200} type="slide-left" className="absolute top-0 right-0 w-[60%] h-[50%] z-10 shadow-2xl">
-                <img src={teamStudents[0].img} alt="Student" className="w-full h-full object-cover" />
+              <RevealItem delay={200} type="slide-left" className="absolute top-0 right-0 w-[60%] h-[50%] z-10 shadow-2xl group overflow-hidden">
+                <img src={teamStudents[0].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold">
                   {teamStudents[0].name}
                 </div>
               </RevealItem>
-              <RevealItem delay={400} type="fade-in" className="absolute bottom-12 left-0 w-[55%] h-[60%] z-20 shadow-2xl">
-                <img src={teamStudents[1].img} alt="Student" className="w-full h-full object-cover" />
+              <RevealItem delay={400} type="fade-in" className="absolute bottom-12 left-0 w-[55%] h-[60%] z-20 shadow-2xl group overflow-hidden">
+                <img src={teamStudents[1].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold">
                   {teamStudents[1].name}
                 </div>
               </RevealItem>
-              <RevealItem delay={600} type="slide-left" className="absolute bottom-0 right-12 w-[45%] h-[40%] z-30 shadow-2xl">
-                <img src={teamStudents[2].img} alt="Student" className="w-full h-full object-cover" />
+              <RevealItem delay={600} type="slide-left" className="absolute bottom-0 right-12 w-[45%] h-[40%] z-30 shadow-2xl group overflow-hidden">
+                <img src={teamStudents[2].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
                 <div className="absolute bottom-4 left-4 bg-emerald-500 text-white px-3 py-1.5 text-xs font-poppins font-bold">
                   Scholarship
                 </div>

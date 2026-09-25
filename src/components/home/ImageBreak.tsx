@@ -25,7 +25,7 @@ export default function ImageBreak() {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
         <p className="text-sm text-white/65 mb-3">Meet Our Australia Admissions Experts Getting Students Into</p>
         <div
-          className="font-poppins font-black text-white text-[clamp(36px,6vw,60px)] min-h-[1.2em] transition-all duration-350 ease-in-out"
+          className="font-poppins font-black text-white text-[clamp(36px,6vw,60px)] min-h-[1.2em] transition-all duration-500 ease-cinematic"
           style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(12px)' }}
         >
           {words[idx]}

@@ -33,7 +33,7 @@ function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: {
     return () => obs.disconnect();
   }, [delay]);
 
-  let baseClass = 'opacity-0 transition-all ease-out ';
+  let baseClass = 'opacity-0 transition-all ease-cinematic ';
   if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
   if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
   if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
@@ -238,9 +238,9 @@ export default function Coaching() {
                 
                 {/* Visual side */}
                 <RevealItem delay={0} type={i % 2 === 0 ? 'slide-left' : 'slide-right'} className="w-full md:w-1/2 relative z-10">
-                  <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg relative">
-                    <img src={prog.img} alt={prog.h3} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/10" />
+                  <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg relative group">
+                    <img src={prog.img} alt={prog.h3} className="w-full h-full object-cover transition-transform duration-[1500ms] ease-cinematic-slow group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-700 ease-cinematic" />
                   </div>
                 </RevealItem>
 
