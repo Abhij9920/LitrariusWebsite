@@ -1,15 +1,13 @@
-﻿import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Hero from '../components/shared/Hero';
 import FAQAccordion from '../components/shared/FAQAccordion';
-import FinalCTA from '../components/shared/FinalCTA';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+import { Navigation, FreeMode } from 'swiper/modules';
 import { useReveal } from '../hooks/useReveal';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
 const whyCards = [
   { title: 'Global Academic Excellence',     body: '9 universities in the global top 100. Rigorous standards, cutting-edge research, and internationally recognised qualifications.' },
@@ -21,24 +19,21 @@ const whyCards = [
 ];
 
 const universities = [
-  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80' },
-  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: 'https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=600&q=80' },
-  { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.', img: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80' },
-  { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.', img: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=600&q=80' },
-  { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80' },
-  { rank: 'QS #40',  name: 'University of Queensland',     body: 'Leader in research commercialisation and health sciences — beautiful Brisbane campus.', img: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80' },
-  { rank: 'QS #82',  name: 'University of Western Australia', body: 'Perth-based research university known for mining, agriculture, and medical sciences.', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80' },
-  { rank: 'QS #89',  name: 'University of Adelaide',       body: 'Rich history of excellence in research and education, located in a vibrant city.', img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80' },
-  { rank: 'QS #113', name: 'University of Technology Sydney', body: 'Practice-oriented, renowned for design, IT, and business innovation in the heart of Sydney.', img: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80' },
+  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80', location: 'Melbourne, Victoria' },
+  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: 'https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=600&q=80', location: 'Sydney, NSW' },
+  { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.', img: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80', location: 'Sydney, NSW' },
+  { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.', img: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=600&q=80', location: 'Canberra, ACT' },
+  { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80', location: 'Melbourne, Victoria' },
+  { rank: 'QS #40',  name: 'University of Queensland',     body: 'Leader in research commercialisation and health sciences — beautiful Brisbane campus.', img: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80', location: 'Brisbane, Queensland' },
+  { rank: 'QS #82',  name: 'University of Western Australia', body: 'Perth-based research university known for mining, agriculture, and medical sciences.', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80', location: 'Perth, WA' },
 ];
 
 const courses = [
-  { name: 'Business Management', img: '/Uploads/business manegement.jpg' },
-  { name: 'Engineering',         img: '/Uploads/engineering img for study in.jpg' },
-  { name: 'Computer Science',    img: '/Uploads/computer science.jpg' },
-  { name: 'Law',                 img: '/Uploads/law.jpg' },
-  { name: 'Finance',             img: '/Uploads/finance.jpg' },
-  { name: 'Architecture',        img: '/Uploads/architecture.jpg' },
+  { name: 'Business Management', img: '/Uploads/business manegement.jpg', size: 'large' },
+  { name: 'Engineering',         img: '/Uploads/engineering img for study in.jpg', size: 'tall' },
+  { name: 'Computer Science',    img: '/Uploads/computer science.jpg', size: 'regular' },
+  { name: 'Law',                 img: '/Uploads/law.jpg', size: 'wide' },
+  { name: 'Finance',             img: '/Uploads/finance.jpg', size: 'regular' },
 ];
 
 const faqs = [
@@ -49,8 +44,13 @@ const faqs = [
   { q: 'How can I apply for a student visa?', a: 'Apply online via the Australian Department of Home Affairs. You need an offer letter, health and character checks, funds proof, and English test results. Literarius provides end-to-end support.' },
 ];
 
-const pills = ['Fellowships', 'Assistantships', 'Sports Scholarships', 'Need Based', 'Australia Awards', 'Endeavour Scholarships', 'Merit Based', 'University Grants'];
-const visa_docs = ['Confirmation of Enrolment', 'Student Visa', 'Academic Transcripts and Certificates', 'Statement of Purpose', 'Letter of Recommendation', 'English Language Proficiency (IELTS / PTE)', 'Valid Passport', 'Visa Application Fee', 'Financial Documents'];
+const scholarshipsList = [
+  { name: 'Australia Awards', desc: 'Fully funded scholarships by the Australian Government covering tuition, travel, and living expenses.' },
+  { name: 'Endeavour Scholarships', desc: 'Merit-based scholarships for high-achieving international students to study or research.' },
+  { name: 'University-Specific Grants', desc: 'Direct financial aid provided by top institutions based on academic excellence or need.' },
+  { name: 'Destination Australia', desc: 'Funding for students choosing to study in regional Australia, offering AUD 15,000 per year.' }
+];
+
 const timeline = [
   ['Arrange OSHC Cover', 'Valid Overseas Student Health Cover before applying.'],
   ['Prepare Academic Documents', 'All transcripts, certificates, and resumes.'],
@@ -60,7 +60,7 @@ const timeline = [
   ['Await Visa Decision', 'Processing: 2–6 weeks. We track every step.'],
 ];
 
-function RevealItem({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) {
+function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: { children: React.ReactNode, delay?: number, className?: string, type?: 'fade-up' | 'fade-in' | 'slide-left' }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -68,17 +68,23 @@ function RevealItem({ children, delay = 0, className = '' }: { children: React.R
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         el.style.transitionDelay = `${delay}ms`;
-        el.classList.add('opacity-100', '!translate-y-0');
+        el.classList.add('opacity-100', '!translate-y-0', '!translate-x-0', '!scale-100');
         obs.unobserve(el);
       }
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     obs.observe(el);
     return () => obs.disconnect();
   }, [delay]);
-  return <div ref={ref} className={`opacity-0 translate-y-10 transition-all duration-[900ms] ease-out ${className}`}>{children}</div>;
+
+  let baseClass = 'opacity-0 transition-all ease-out ';
+  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
+  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
+  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
+
+  return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
 
-function AnimatedNumber({ value, prefix = '', suffix = '', className = "font-poppins font-black text-[48px] text-green-em leading-none" }: { value: number; prefix?: string; suffix?: string; className?: string }) {
+function AnimatedNumber({ value, prefix = '', suffix = '', className = "font-poppins font-black text-[56px] text-[#064E3B] leading-none" }: { value: number; prefix?: string; suffix?: string; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
 
@@ -116,82 +122,105 @@ export default function Australia() {
   const revealFaq = useReveal();
 
   return (
-    <>
-      <Hero
-        imageSrc="/Uploads/australia.jpg"
-        videoSrc="https://videos.pexels.com/video-files/3737970/3737970-uhd_2732_1440_25fps.mp4"
-        imageAlt="Australian university campus"
-        italicLine="Your Australian Education Journey Starts Here."
-        heading={<>World-Class Australian Universities.<br />Personalised Guidance.</>}
-        subText="42+ partner universities · Post-study work visa up to 4 years · 95% visa success rate"
-        ctaLabel="Get Free Consultation"
-        ctaTo="/contact"
-        short
-      >
-        <div className="px-8 md:px-20 pb-12 w-full mt-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 divide-x divide-white/20 border-t border-white/20 pt-8">
-            {[
-              ['42+', 'Universities'],
-              ['AUD 20–45k', 'Avg Fees'],
-              ['700k+', 'Intl Students'],
-              ['4yr', 'Post-Study Visa']
-            ].map(([val, label], i) => (
-              <div key={label} className={i !== 0 ? 'pl-6' : ''}>
-                <div className="font-poppins font-black text-2xl text-white">{val}</div>
-                <div className="text-xs text-white/60 uppercase tracking-wider mt-1">{label}</div>
+    <div className="bg-[#FAF9F6]">
+      {/* Editorial Hero */}
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
+          <div className="lg:col-span-5 z-10 relative">
+            <RevealItem delay={0} type="slide-left">
+              <span className="font-poppins font-bold tracking-widest uppercase text-green-em text-xs mb-4 block">The Ultimate Destination</span>
+              <h1 className="font-playfair text-[56px] lg:text-[76px] leading-[1.05] text-[#064E3B] mb-6 tracking-tight">
+                Study in<br /><span className="italic text-green-em">Australia.</span>
+              </h1>
+              <p className="text-lg text-charcoal/80 mb-10 max-w-md leading-relaxed">
+                World-class universities, an incredible lifestyle, and a clear pathway to global career opportunities.
+              </p>
+              <Link to="/contact" className="btn btn-coral px-8 py-4">Start Your Application</Link>
+              
+              <div className="mt-16 grid grid-cols-2 gap-8 border-t border-bdr pt-8">
+                <div>
+                  <div className="font-poppins font-black text-3xl text-green-em mb-1">42+</div>
+                  <div className="text-xs uppercase tracking-widest text-charcoal/60">Universities</div>
+                </div>
+                <div>
+                  <div className="font-poppins font-black text-3xl text-green-em mb-1">4 Yrs</div>
+                  <div className="text-xs uppercase tracking-widest text-charcoal/60">Post-Study Visa</div>
+                </div>
               </div>
-            ))}
+            </RevealItem>
           </div>
-        </div>
-      </Hero>
-
-      {/* Why Australia — cream */}
-      <section ref={revealWhy} className="py-20 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-12 lg:gap-20 items-start">
-            <div className="lg:sticky lg:top-24">
-              <span className="eyebrow-italic">Why Australia?</span>
-              <h2>Why Study in Australia?</h2>
-              <p className="mt-4 text-muted leading-relaxed mb-6">The world's #3 destination for international students — combining world-class education with an incredible lifestyle.</p>
-              <Link to="/contact" className="btn btn-coral">Book Free Consultation</Link>
-            </div>
-            <div className="flex flex-col">
-              {whyCards.map(({ title, body }, i) => (
-                <RevealItem key={title} delay={i * 180} className="border-b border-bdr last:border-b-0 py-6 first:pt-0 last:pb-0">
-                  <div className="flex items-start gap-5">
-                    <div className="font-poppins font-black text-[44px] text-green-em leading-none mt-0.5 tracking-tighter">0{i + 1}</div>
-                    <div>
-                      <h3 className="font-poppins font-semibold text-[19px] mb-2">{title}</h3>
-                      <p className="font-inter text-[14.5px] text-muted">{body}</p>
-                    </div>
-                  </div>
-                </RevealItem>
-              ))}
-            </div>
+          <div className="lg:col-span-7 relative h-[50vh] lg:h-[750px] w-full rounded-2xl overflow-hidden shadow-2xl">
+            <RevealItem delay={300} type="fade-in" className="w-full h-full">
+              <video 
+                src="https://videos.pexels.com/video-files/3737970/3737970-uhd_2732_1440_25fps.mp4"
+                poster="/Uploads/australia.jpg"
+                autoPlay muted loop playsInline
+                className="w-full h-full object-cover"
+              />
+            </RevealItem>
           </div>
         </div>
       </section>
 
-      {/* Universities carousel — white */}
-      <section ref={revealUni} className="py-20 bg-white opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-10">
-            <span className="eyebrow-italic">Our Partner Universities.</span>
-            <h2>Top Australian Universities</h2>
+      {/* Why Australia — Editorial Layout */}
+      <section ref={revealWhy} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-4">Why Australia?</h2>
+            <p className="text-muted max-w-2xl mx-auto">The world's #3 destination for international students, combining rigorous academics with unparalleled lifestyle.</p>
           </div>
-          <Swiper modules={[Pagination, Autoplay, Navigation]} slidesPerView={1} spaceBetween={20} loop autoplay={{ delay: 4500 }} navigation pagination={{ clickable: true }} breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }} className="pb-12">
-            {universities.map(({ rank, name, body, img }, i) => (
-              <SwiperSlide key={name}>
-                <RevealItem delay={i * 180} className="bg-white border border-bdr rounded-xl overflow-hidden shadow-sm h-full group">
-                  <div className="relative h-[200px] overflow-hidden">
-                    <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.08]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-transparent pointer-events-none" />
-                    <span className="absolute top-4 right-4 inline-flex bg-black/60 backdrop-blur-sm text-white text-[10.5px] font-semibold px-3 py-1 rounded-full z-10">{rank}</span>
+          
+          <div className="flex flex-col gap-12 lg:gap-0">
+            {whyCards.map(({ title, body }, i) => (
+              <RevealItem key={title} delay={i * 150} type="fade-up" className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center lg:py-16 border-b border-bdr last:border-0`}>
+                <div className="w-full lg:w-1/2 flex items-center justify-center py-8 lg:py-0">
+                  <div className="font-playfair italic text-[140px] lg:text-[200px] text-green-em/10 leading-none select-none">
+                    0{i + 1}
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-poppins font-semibold text-[15px] mb-2">{name}</h3>
-                    <p className="font-inter text-[13px] text-muted">{body}</p>
+                </div>
+                <div className="w-full lg:w-1/2 px-4 lg:px-16 text-center lg:text-left pb-8 lg:pb-0">
+                  <h3 className="font-poppins font-bold text-2xl lg:text-3xl text-charcoal mb-4">{title}</h3>
+                  <p className="font-inter text-[16px] text-muted leading-relaxed">{body}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Universities — Horizontal Showcase */}
+      <section ref={revealUni} className="py-32 bg-[#064E3B] overflow-hidden opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out text-white">
+        <div className="max-w-[1400px] mx-auto px-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs mb-3 block">Premium Institutions</span>
+            <h2 className="font-playfair text-4xl lg:text-5xl text-white">Where Ambition Meets Excellence</h2>
+          </div>
+          <p className="text-white/70 max-w-sm text-sm">We partner with Australia's most prestigious universities to give you access to world-class faculty and facilities.</p>
+        </div>
+        
+        <div className="ml-6 md:ml-[calc((100vw-1400px)/2+24px)] pr-6">
+          <Swiper 
+            modules={[Navigation, FreeMode]} 
+            slidesPerView="auto" 
+            spaceBetween={32} 
+            freeMode={true}
+            className="!overflow-visible"
+          >
+            {universities.map(({ rank, name, body, img, location }, i) => (
+              <SwiperSlide key={name} className="!w-[300px] md:!w-[500px]">
+                <RevealItem delay={i * 200} type="slide-left" className="group cursor-pointer">
+                  <div className="relative h-[400px] md:h-[600px] rounded-xl overflow-hidden mb-6">
+                    <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                    <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 text-white font-poppins font-bold text-xs px-4 py-2 rounded-full">
+                      {rank}
+                    </div>
                   </div>
+                  <h3 className="font-playfair text-2xl lg:text-3xl mb-2">{name}</h3>
+                  <div className="flex items-center gap-2 text-emerald-300 text-sm font-medium mb-3">
+                    <span className="uppercase tracking-widest">{location}</span>
+                  </div>
+                  <p className="text-white/60 text-[15px] leading-relaxed max-w-sm">{body}</p>
                 </RevealItem>
               </SwiperSlide>
             ))}
@@ -199,154 +228,134 @@ export default function Australia() {
         </div>
       </section>
 
-      {/* Courses — dark green */}
-      <section ref={revealCourses} className="py-20 bg-dark-section opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-10">
-            <span className="font-playfair italic text-lg text-emerald-300 block mb-2">Top Programs.</span>
-            <h2 className="text-white mb-3">Popular Courses in Australia</h2>
-            <p className="text-white/60">Studying in Australia provides excellent career opportunities.</p>
+      {/* Courses — Visual Gallery */}
+      <section ref={revealCourses} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="mb-16">
+            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-4">Discover Your Discipline</h2>
+            <p className="text-muted">Explore fields where Australian institutions globally lead.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {courses.map(({ name, img }, i) => (
-              <RevealItem key={name} delay={i * 180} className="relative h-60 rounded-xl overflow-hidden cursor-pointer group">
-                <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,78,59,0.88)] via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 font-poppins font-bold text-sm tracking-widest uppercase text-white">{name}</div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+            {courses.map(({ name, img, size }, i) => {
+              let spanClass = 'md:col-span-1 md:row-span-1';
+              if (size === 'large') spanClass = 'md:col-span-2 md:row-span-2';
+              if (size === 'wide') spanClass = 'md:col-span-2 md:row-span-1';
+              if (size === 'tall') spanClass = 'md:col-span-1 md:row-span-2';
+              
+              return (
+                <RevealItem key={name} delay={i * 150} type="fade-in" className={`${spanClass} relative rounded-xl overflow-hidden group`}>
+                  <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <h3 className="font-poppins font-bold text-xl text-white tracking-wide">{name}</h3>
+                  </div>
+                </RevealItem>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Costs — Typography Led */}
+      <section ref={revealCosts} className="py-32 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <div className="text-center mb-24">
+            <span className="font-poppins uppercase tracking-widest text-green-em text-xs mb-3 block">Investment</span>
+            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B]">The Cost of Excellence</h2>
+          </div>
+          
+          <div className="flex flex-col md:flex-row justify-between items-center gap-16 md:gap-8 mb-24">
+            <RevealItem delay={0} className="text-center">
+              <AnimatedNumber value={45} prefix="AUD 12–" suffix="k" />
+              <div className="text-sm font-medium text-muted mt-3 uppercase tracking-widest">Annual Tuition</div>
+            </RevealItem>
+            <RevealItem delay={200} className="text-center">
+              <AnimatedNumber value={16000} prefix="AUD " />
+              <div className="text-sm font-medium text-muted mt-3 uppercase tracking-widest">Avg Living Cost</div>
+            </RevealItem>
+            <RevealItem delay={400} className="text-center">
+              <AnimatedNumber value={1500} prefix="AUD 500–" />
+              <div className="text-sm font-medium text-muted mt-3 uppercase tracking-widest">Monthly Stay</div>
+            </RevealItem>
+          </div>
+          
+          <div className="max-w-2xl mx-auto text-center border-t border-bdr pt-12">
+            <p className="font-playfair italic text-xl text-charcoal/70 leading-relaxed mb-8">
+              "While costs vary by city and institution, studying in Australia represents an investment with lifelong returns in global employability."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Scholarships — Structured List */}
+      <section ref={revealSchol} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-6">Funding Your Journey</h2>
+            <p className="text-lg text-muted mb-8 leading-relaxed">
+              Australia offers extensive funding for international students. Through government and university partnerships, financial barriers can be significantly reduced.
+            </p>
+            <Link to="/contact" className="text-coral font-poppins font-bold uppercase tracking-widest text-sm hover:text-orange-700 transition-colors flex items-center gap-2">
+              Evaluate Your Eligibility <span className="text-xl">→</span>
+            </Link>
+          </div>
+          <div className="flex flex-col">
+            {scholarshipsList.map((schol, i) => (
+              <RevealItem key={schol.name} delay={i * 150} className="border-b border-bdr py-6 first:pt-0">
+                <h3 className="font-poppins font-semibold text-lg text-[#064E3B] mb-2">{schol.name}</h3>
+                <p className="text-sm text-muted">{schol.desc}</p>
               </RevealItem>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Costs — cream */}
-      <section ref={revealCosts} className="py-20 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="eyebrow-italic">The Investment.</span>
-            <h2>Cost of Studying in Australia</h2>
+      {/* Visa — Visual Process */}
+      <section ref={revealVisa} className="py-24 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="font-playfair text-4xl lg:text-5xl text-white mb-4">The Visa Pathway</h2>
+            <p className="text-white/60">A structured, secure process to your Australian Student Visa.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-center">
-            <RevealItem delay={0}>
-              <AnimatedNumber value={45} prefix="AUD 12–" suffix="k" />
-              <div className="text-[13px] text-muted mt-2 uppercase tracking-wide">Annual Tuition</div>
-            </RevealItem>
-            <RevealItem delay={180}>
-              <AnimatedNumber value={16000} prefix="AUD " />
-              <div className="text-[13px] text-muted mt-2 uppercase tracking-wide">Avg Annual Living Cost</div>
-            </RevealItem>
-            <RevealItem delay={360}>
-              <AnimatedNumber value={1500} prefix="AUD 500–" />
-              <div className="text-[13px] text-muted mt-2 uppercase tracking-wide">Monthly Accommodation</div>
-            </RevealItem>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <div>
-              <h3 className="mb-4">Tuition Fees Breakdown</h3>
-              <table className="w-full rounded-xl overflow-hidden shadow-md">
-                <thead><tr className="bg-blue-acc text-white"><th className="p-3 text-left text-xs tracking-wide">Degree Level</th><th className="p-3 text-left text-xs tracking-wide">Annual Tuition</th></tr></thead>
-                <tbody>
-                  {[['Associate Degree','AUD 12,000 – 20,000'],['Bachelor\'s Degree','AUD 20,000 – 45,000'],['Master\'s Degree','AUD 22,000 – 50,000']].map(([d,t],i) => (
-                    <tr key={d} className={i%2===1 ? 'bg-gray-50' : ''}><td className="p-3 text-sm border-b border-bdr">{d}</td><td className="p-3 text-sm border-b border-bdr">{t}</td></tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div>
-              <h3 className="mb-4">Living Expenses Breakdown</h3>
-              <div className="flex flex-col gap-2.5">
-                {[['On-Campus','AUD 800–900/month'],['Off-Campus','AUD 500–1,500/month'],['Homestay','AUD 1,000–1,200/month']].map(([l,v]) => (
-                  <div key={l} className="flex justify-between items-center px-4 py-3 border border-bdr rounded-lg bg-white shadow-sm">
-                    <span className="font-semibold text-sm">{l}</span><span className="text-blue-acc font-semibold text-sm">{v}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {timeline.map(([title, desc], i) => (
+              <RevealItem key={title} delay={i * 150} type="fade-up" className="bg-white/5 border border-white/10 p-8 rounded-xl relative overflow-hidden group hover:bg-white/10 transition-colors">
+                <div className="absolute top-0 right-0 p-6 font-playfair italic text-6xl text-white/5 group-hover:text-white/10 transition-colors">
+                  0{i+1}
+                </div>
+                <h3 className="font-poppins font-bold text-white text-lg mb-3 relative z-10">{title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed relative z-10">{desc}</p>
+              </RevealItem>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Scholarships — white */}
-      <section ref={revealSchol} className="py-20 bg-white opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
+      {/* FAQ — Keep Component */}
+      <section ref={revealFaq} className="py-24 bg-[#FAF9F6] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
         <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-10"><span className="eyebrow-italic">Financial Support.</span><h2>Scholarships in Australia</h2></div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <p className="mb-4 text-[14.5px]">Australia's scholarships are offered based on academic merit, financial need, or community involvement.</p>
-              <p className="mb-4 text-[14.5px]">Types: Fellowships, Assistantships, Sports Scholarships, Need Based, and government programs.</p>
-              <p className="mb-7 text-[14.5px]">Australia Awards and Endeavour Scholarships provide substantial financial assistance to international students.</p>
-              <Link to="/contact" className="btn btn-coral">Check Scholarship Eligibility</Link>
-            </div>
-            <div className="flex flex-col gap-4">
-              <h3 className="font-playfair italic text-[20px] text-green-em leading-tight">"Australia offers extensive funding for international students"</h3>
-              <div className="flex flex-wrap gap-2.5 mt-2">
-                {pills.map((p, i) => (
-                  <RevealItem key={p} delay={i * 180} className="inline-block">
-                    <span className="bg-emerald-50 text-green-em border border-green-em text-xs font-medium px-3.5 py-1.5 rounded-full block">{p}</span>
-                  </RevealItem>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Visa — dark green */}
-      <section ref={revealVisa} className="py-20 bg-dark-section opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-12">
-            <span className="font-playfair italic text-lg text-emerald-300 block mb-2">Your Pathway to Australia.</span>
-            <h2 className="text-white">Visa &amp; Documents</h2>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-white text-[19px] mb-3">Documents Required</h3>
-              <p className="text-white/55 text-sm mb-4">When applying as an international student, you typically need:</p>
-              <div className="flex flex-col gap-2.5 mb-7">
-                {visa_docs.map((d, i) => (
-                  <RevealItem key={d} delay={i * 180} className="flex items-center gap-3 text-white/85 text-sm">
-                    <span className="w-5 h-5 bg-green-em rounded-full flex items-center justify-center text-[9px] font-bold text-white flex-shrink-0">✓</span>{d}
-                  </RevealItem>
-                ))}
-              </div>
-              <Link to="/contact" className="btn btn-coral">Get Free Visa Guidance</Link>
-            </div>
-            <div>
-              <h3 className="text-white text-[19px] mb-3">Australia Study Visa Process</h3>
-              <p className="text-white/55 text-sm mb-5">We provide comprehensive visa guidance — bank statements, latest updates, and mock interviews.</p>
-              <div className="flex flex-col">
-                {timeline.map(([h, b], i) => (
-                  <RevealItem key={h} delay={i * 180} className="flex gap-3.5 relative">
-                    {i < timeline.length - 1 && <div className="absolute left-4 top-8 w-0.5 h-full bg-white/10" />}
-                    <div className="w-8 h-8 bg-coral rounded-full flex items-center justify-center font-poppins font-bold text-white text-[12.5px] flex-shrink-0 z-10">{i+1}</div>
-                    <div className="pb-6">
-                      <h4 className="text-white text-sm font-semibold">{h}</h4>
-                      <p className="text-white/50 text-xs mt-0.5">{b}</p>
-                    </div>
-                  </RevealItem>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ — cream */}
-      <section ref={revealFaq} className="py-20 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-12">
-            <span className="eyebrow-italic">Your Questions, Answered.</span>
-            <h2>Frequently Asked Questions</h2>
-            <div className="mt-4 mb-6 font-playfair italic text-[22px] text-green-em">"Every question answered. Every step supported."</div>
+          <div className="text-center mb-16">
+            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-4">Common Questions</h2>
           </div>
           <FAQAccordion faqs={faqs} />
         </div>
       </section>
 
-      <FinalCTA heading={<>Book Your Free Consultation<br />with Trusted Counsellors.</>} italic="Your Australian journey begins today." btnLabel="Book Free Consultation" />
+      {/* Custom Final CTA for Australia */}
+      <section className="relative py-32 bg-[#064E3B] overflow-hidden">
+        <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80')] bg-cover bg-center mix-blend-overlay" />
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white">
+          <h2 className="font-playfair text-5xl lg:text-6xl mb-6">Begin Your Application</h2>
+          <p className="text-lg text-white/80 mb-10">Our expert counsellors are ready to design your roadmap to Australia.</p>
+          <Link to="/contact" className="btn bg-white text-[#064E3B] hover:bg-gray-100 px-8 py-4">
+            Book Free Consultation
+          </Link>
+        </div>
+      </section>
+      
       <MiniCTABar />
-    </>
+    </div>
   );
 }

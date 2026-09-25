@@ -1,30 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Hero from '../components/shared/Hero';
-import FinalCTA from '../components/shared/FinalCTA';
+import { Link } from 'react-router-dom';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { useReveal } from '../hooks/useReveal';
 
 const programs = [
-  { h3: 'Foundation Course', accent: 'coral', desc: 'For beginners. Build strong fundamentals across all four skills with comprehensive study materials.', points: ['60 hours of structured learning', 'Grammar & vocabulary building', 'Basic test strategies', 'Weekly progress assessments'] },
-  { h3: 'Intensive Coaching', accent: 'blue', desc: 'Fast-track for quick score improvement. Intensive practice with expert one-on-one feedback.', points: ['40 hours of intensive training', 'Advanced test techniques', 'Mock tests & full analysis', 'Personal mentor support'] },
-  { h3: 'One-on-One Coaching', accent: 'green', desc: 'Fully personalised coaching tailored to your specific needs and learning pace.', points: ['Customised study plan', 'Flexible scheduling', 'Individual attention', 'Targeted skill improvement'] },
-  { h3: 'Online Masterclass', accent: 'dark', desc: 'Learn from anywhere with comprehensive online sessions and digital resources.', points: ['Live online sessions', 'Digital study materials', '24/7 platform access', 'Interactive practice tools'] },
+  { h3: 'Foundation Assessment', accent: 'text-coral', desc: 'We start by evaluating your current proficiency. Build strong fundamentals across all four skills with our comprehensive diagnostic approach.', points: ['Detailed baseline testing', 'Grammar & vocabulary gap analysis', 'Basic test strategies introduction', 'Personalised study roadmap'], img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80' },
+  { h3: 'Intensive Training', accent: 'text-blue-acc', desc: 'Fast-track your learning. Dive deep into intensive practice sessions with expert one-on-one feedback focusing on high-weightage topics.', points: ['Targeted skill workshops', 'Advanced test techniques', 'Time management drills', 'Personal mentor support'], img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80' },
+  { h3: 'Mock & Progress', accent: 'text-green-em', desc: 'Simulate the real test environment. Regular mock tests build stamina and familiarity, ensuring no surprises on test day.', points: ['Full-length timed mock tests', 'Detailed performance analytics', 'Speaking module simulations', 'Writing task evaluations'], img: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&q=80' },
+  { h3: 'Final Polish & Results', accent: 'text-charcoal', desc: 'The final stretch before test day. We focus entirely on error elimination and psychological readiness to maximize your final score.', points: ['Confidence building sessions', 'Last-minute error correction', 'Test day logistics planning', 'Final target score verification'], img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80' },
 ];
 
 const extras = [
-  { h: 'Mock Tests',       body: 'Regular practice tests with detailed performance analysis to track improvement.' },
-  { h: 'Speaking Practice', body: 'One-on-one sessions with certified trainers to build fluency and confidence.' },
-  { h: 'Writing Feedback', body: 'Detailed feedback with model answers and improvement tips for every task.' },
-  { h: 'Listening Skills', body: 'Specialised training for comprehension and note-taking in real test conditions.' },
-  { h: 'Reading Strategies', body: 'Effective reading techniques and time management for high-scoring performance.' },
-  { h: 'Study Abroad Guidance', body: 'Complete support for Australian university applications and the admissions process.' },
+  { h: 'Speaking Practice', body: 'One-on-one sessions with certified trainers to build fluency, reduce hesitation, and improve pronunciation for the speaking module.' },
+  { h: 'Writing Feedback', body: 'Detailed line-by-line feedback with model answers. Learn exactly how examiners grade Task 1 and Task 2.' },
+  { h: 'Listening Strategies', body: 'Specialised training for comprehension of different accents and effective note-taking under time pressure.' },
+  { h: 'Reading Techniques', body: 'Master skimming and scanning. Learn how to quickly locate answers without reading every word of the passage.' },
 ];
 
-const accentTextMap: Record<string, string> = {
-  coral: 'text-coral', blue: 'text-blue-acc', green: 'text-green-em', dark: 'text-white/60',
-};
-
-function RevealItem({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) {
+function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: { children: React.ReactNode, delay?: number, className?: string, type?: 'fade-up' | 'fade-in' | 'slide-left' | 'slide-right' }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -32,14 +25,21 @@ function RevealItem({ children, delay = 0, className = '' }: { children: React.R
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         el.style.transitionDelay = `${delay}ms`;
-        el.classList.add('opacity-100', '!translate-y-0');
+        el.classList.add('opacity-100', '!translate-y-0', '!translate-x-0', '!scale-100');
         obs.unobserve(el);
       }
     }, { threshold: 0.15 });
     obs.observe(el);
     return () => obs.disconnect();
   }, [delay]);
-  return <div ref={ref} className={`opacity-0 translate-y-10 transition-all duration-[900ms] ease-out ${className}`}>{children}</div>;
+
+  let baseClass = 'opacity-0 transition-all ease-out ';
+  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
+  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
+  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
+  if (type === 'slide-right') baseClass += 'translate-x-12 duration-[1000ms]';
+
+  return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
 
 function BookingForm() {
@@ -50,182 +50,246 @@ function BookingForm() {
     setTimeout(() => { setSuccess(true); formRef.current?.reset(); }, 1200);
   };
   return (
-    <div className="bg-white rounded-2xl p-10 max-w-2xl mx-auto shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-bdr">
-      <form ref={formRef} onSubmit={handleSubmit} noValidate>
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div><label className="form-label">First Name *</label><input className="form-input" placeholder="John" required /></div>
-          <div><label className="form-label">Last Name *</label><input className="form-input" placeholder="Smith" required /></div>
+    <form ref={formRef} onSubmit={handleSubmit} noValidate className="w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">First Name</label>
+          <input className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="John" required />
         </div>
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div><label className="form-label">Email *</label><input type="email" className="form-input" placeholder="john@example.com" required /></div>
-          <div><label className="form-label">Phone *</label><input type="tel" className="form-input" placeholder="+91 9xxxxxxxxx" required /></div>
+        <div>
+          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Last Name</label>
+          <input className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="Smith" required />
         </div>
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div><label className="form-label">Test Type *</label>
-            <select className="form-input" required>
-              <option value="">Select</option><option>IELTS</option><option>PTE</option><option>Both IELTS & PTE</option>
-            </select>
-          </div>
-          <div><label className="form-label">Current Score (if any)</label><input className="form-input" placeholder="e.g. IELTS 5.5" /></div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Email Address</label>
+          <input type="email" className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="john@example.com" required />
         </div>
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div><label className="form-label">Target Score *</label><input className="form-input" placeholder="e.g. Band 7.0" required /></div>
-          <div><label className="form-label">Preferred Test Date</label><input type="date" className="form-input" /></div>
+        <div>
+          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Phone Number</label>
+          <input type="tel" className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="+91 9xxxxxxxxx" required />
         </div>
-        <div className="mb-5"><label className="form-label">Additional Information</label><textarea className="form-input min-h-[90px] resize-y" placeholder="Tell us about areas you want to focus on..." /></div>
-        <button type="submit" className="btn btn-coral w-full justify-center text-base py-3.5">Book Free Consultation</button>
-        {success && <div className="mt-4 bg-emerald-50 border border-green-em text-emerald-700 font-medium text-sm rounded-lg px-4 py-3">✓ Thank you! We will contact you within 24 hours.</div>}
-      </form>
-    </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Test Type</label>
+          <select className="w-full bg-[#082f23] border border-white/10 rounded-none px-4 py-3.5 text-white focus:outline-none focus:border-emerald-400 transition-colors appearance-none" required>
+            <option value="">Select Test</option>
+            <option>IELTS Academic</option>
+            <option>PTE Academic</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Target Score</label>
+          <input className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="e.g. Band 7.0 or 65+" required />
+        </div>
+      </div>
+      <div className="mb-8">
+        <label className="block text-xs uppercase tracking-widest text-white/50 mb-2 font-medium">Your Goals</label>
+        <textarea className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors min-h-[100px] resize-y" placeholder="Briefly describe your timeline and specific struggles..." />
+      </div>
+      <button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-poppins font-bold uppercase tracking-widest text-sm py-5 transition-colors">
+        Book Assessment Call
+      </button>
+      {success && <div className="mt-6 bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 font-medium text-sm px-4 py-4 text-center">Your request has been received. We will contact you shortly.</div>}
+    </form>
   );
 }
 
 export default function Coaching() {
-  const revealIelts = useReveal();
+  const revealScore = useReveal();
   const revealProg = useReveal();
   const revealExtra = useReveal();
   const revealForm = useReveal();
 
   return (
-    <>
-      <Hero
-        imageSrc="/Uploads/computer science.jpg"
-        videoSrc="https://videos.pexels.com/video-files/5198399/5198399-uhd_2732_1440_25fps.mp4"
-        imageAlt="IELTS PTE Coaching"
-        italicLine="Your Score. Our Expertise."
-        heading={<>Master IELTS &amp; PTE<br />with Expert Coaching.</>}
-        subText="95% of our students hit their target score on the first attempt."
-        ctaLabel="Start Your Journey"
-        ctaTo="#coaching-form"
-        short
-      >
-        <div className="px-8 md:px-20 pb-12 w-full mt-6">
-          <div className="flex flex-wrap gap-8 items-center border-t border-white/20 pt-6">
-            {[
-              ['Band 7+', 'Target IELTS'],
-              ['65+', 'Target PTE'],
-              ['95%', 'First-Attempt Success']
-            ].map(([val, label], i) => (
-              <div key={label} className="flex items-center gap-3">
-                <div className="font-poppins font-black text-xl text-white">{val}</div>
-                <div className="text-xs text-white/70 uppercase tracking-wider">{label}</div>
-                {i < 2 && <div className="w-px h-6 bg-white/20 ml-5" />}
+    <div className="bg-white">
+      {/* Education Landing Hero */}
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 border-b border-bdr">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <RevealItem delay={0} type="fade-up">
+            <span className="font-poppins uppercase tracking-widest text-coral text-xs lg:text-sm font-bold mb-6 block">Premium Test Preparation</span>
+            <h1 className="font-playfair text-[50px] md:text-[64px] lg:text-[80px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-4xl mx-auto">
+              Master IELTS & PTE.<br />
+              <span className="italic text-charcoal/80">Unlock Your Future.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
+              Achieve your target score on the first attempt with data-driven diagnostics, intensive training, and certified expert coaches.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#assessment" className="btn btn-coral px-8 py-4">Book Free Assessment</a>
+              <a href="#methodology" className="btn bg-gray-100 text-charcoal hover:bg-gray-200 px-8 py-4">Explore Methodology</a>
+            </div>
+          </RevealItem>
+          
+          <RevealItem delay={300} type="fade-in" className="mt-20">
+            <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden relative">
+              <video 
+                src="https://videos.pexels.com/video-files/5198399/5198399-uhd_2732_1440_25fps.mp4"
+                poster="/Uploads/computer science.jpg"
+                autoPlay muted loop playsInline
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto text-left">
+              <div className="border-l-2 border-emerald-400 pl-6">
+                <div className="font-poppins font-black text-3xl text-[#064E3B] mb-1">95%</div>
+                <div className="text-xs uppercase tracking-widest text-muted">First-Attempt Success</div>
               </div>
-            ))}
-          </div>
-        </div>
-      </Hero>
-
-      {/* Score Visual — white */}
-      <section ref={revealIelts} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left: Score Visuals */}
-            <div>
-              <span className="font-playfair italic text-[20px] text-green-em mb-2 block">Numbers Don't Lie.</span>
-              <h2 className="mb-8">IELTS vs PTE: Choose Your Path</h2>
-              
-              <div className="flex flex-col gap-6">
-                <div className="border-t-4 border-t-blue-acc bg-gray-50 rounded-b-xl p-6 shadow-sm">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-poppins font-bold text-lg">IELTS Scale (0-9)</h3>
-                    <span className="bg-blue-acc text-white text-xs px-2 py-1 rounded">Target Zone: 7+</span>
-                  </div>
-                  {/* Visual Bar */}
-                  <div className="h-6 w-full bg-gray-200 rounded-full overflow-hidden flex relative mb-4">
-                    <div className="w-[70%] bg-blue-acc/30 border-r border-white"></div>
-                    <div className="w-[30%] bg-green-em"></div>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    <span className="text-xs text-charcoal bg-white border border-bdr px-2 py-1 rounded">2 hrs 45 mins</span>
-                    <span className="text-xs text-charcoal bg-white border border-bdr px-2 py-1 rounded">Paper or Computer</span>
-                    <span className="text-xs text-charcoal bg-white border border-bdr px-2 py-1 rounded">Human Examiner</span>
-                  </div>
-                </div>
-
-                <div className="border-t-4 border-t-green-em bg-gray-50 rounded-b-xl p-6 shadow-sm">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-poppins font-bold text-lg">PTE Scale (10-90)</h3>
-                    <span className="bg-green-em text-white text-xs px-2 py-1 rounded">Target Zone: 65+</span>
-                  </div>
-                  {/* Visual Bar */}
-                  <div className="h-6 w-full bg-gray-200 rounded-full overflow-hidden flex relative mb-4">
-                    <div className="w-[65%] bg-green-em/30 border-r border-white"></div>
-                    <div className="w-[35%] bg-green-em"></div>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    <span className="text-xs text-charcoal bg-white border border-bdr px-2 py-1 rounded">2 hrs</span>
-                    <span className="text-xs text-charcoal bg-white border border-bdr px-2 py-1 rounded">Computer Only</span>
-                    <span className="text-xs text-charcoal bg-white border border-bdr px-2 py-1 rounded">AI Scoring</span>
-                  </div>
-                </div>
+              <div className="border-l-2 border-blue-400 pl-6">
+                <div className="font-poppins font-black text-3xl text-[#064E3B] mb-1">Band 7+</div>
+                <div className="text-xs uppercase tracking-widest text-muted">Average IELTS Score</div>
+              </div>
+              <div className="border-l-2 border-orange-400 pl-6">
+                <div className="font-poppins font-black text-3xl text-[#064E3B] mb-1">65+</div>
+                <div className="text-xs uppercase tracking-widest text-muted">Average PTE Score</div>
               </div>
             </div>
-
-            {/* Right: Student Result Card */}
-            <div>
-              <div className="bg-dark-section rounded-2xl p-10 md:p-14 text-center text-white shadow-xl">
-                <div className="mb-6 font-poppins font-semibold text-lg text-emerald-300 uppercase tracking-widest">Student Success</div>
-                <h3 className="text-[22px] font-normal mb-8 leading-snug">"Arjun went from IELTS 5.5 to 7.5 in 6 weeks."</h3>
-                <div className="font-poppins font-black text-[52px] text-green-em mb-8 tracking-tighter">
-                  5.5 <span className="text-white/30 text-4xl mx-2">→</span> 7.5
-                </div>
-                <div className="font-playfair italic text-[18px] text-white/70">
-                  "The mock tests made all the difference. My coach identified exactly where I was losing marks."
-                </div>
-              </div>
-            </div>
-          </div>
+          </RevealItem>
         </div>
       </section>
 
-      {/* Programs — dark green */}
-      <section ref={revealProg} className="py-20 bg-dark-section opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-12">
-            <span className="font-playfair italic text-lg text-emerald-300 block mb-2">Find Your Program.</span>
-            <h2 className="text-white">Our Coaching Programs</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {programs.map(({ h3, accent, desc, points }, i) => (
-              <RevealItem key={h3} delay={i * 180} className="bg-white/5 border border-white/10 rounded-xl p-7 hover:bg-white/10 transition-all duration-300 h-full flex flex-col backdrop-blur-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className={`font-poppins font-black text-[32px] leading-none ${accentTextMap[accent]}`}>0{i + 1}</div>
-                  <h3 className="text-[19px] text-white mt-1">{h3}</h3>
-                </div>
-                <p className="text-white/60 text-[14.5px] mb-6">{desc}</p>
-                <ul className="flex flex-col gap-3 mt-auto">
-                  {points.map(p => (
-                    <li key={p} className="flex items-center gap-3 text-[13.5px] text-white/80">
-                      <span className="w-5 h-5 bg-white/10 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0">✓</span>{p}
-                    </li>
-                  ))}
-                </ul>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Extra services — cream */}
-      <section ref={revealExtra} className="py-20 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-12 lg:gap-20 items-start">
-            <div className="lg:sticky lg:top-24">
-              <span className="eyebrow-italic">Beyond the Classroom.</span>
-              <h2>Additional Services</h2>
-              <p className="mt-4 text-muted leading-relaxed">Comprehensive support to ensure you are fully prepared for every aspect of your journey.</p>
-            </div>
-            <div className="flex flex-col">
-              {extras.map(({ h, body }, i) => (
-                <RevealItem key={h} delay={i * 180} className="border-b border-bdr last:border-b-0 py-5 first:pt-0 last:pb-0">
-                  <div className="flex items-start gap-4">
-                    <div className="font-poppins font-black text-[24px] text-green-em leading-none mt-0.5">—</div>
+      {/* Score Visuals & Journey */}
+      <section ref={revealScore} className="py-24 bg-[#FAF9F6] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            <div className="order-2 lg:order-1">
+              <div className="bg-white p-8 lg:p-10 shadow-xl border border-bdr">
+                <div className="mb-12">
+                  <div className="flex justify-between items-end mb-4">
                     <div>
-                      <h3 className="font-poppins font-semibold text-[17px] mb-1">{h}</h3>
-                      <p className="font-inter text-[14.5px] text-muted">{body}</p>
+                      <h3 className="font-poppins font-bold text-xl text-[#064E3B]">IELTS Target</h3>
+                      <p className="text-sm text-muted">Paper or Computer-delivered</p>
+                    </div>
+                    <span className="font-poppins font-black text-3xl text-emerald-500">7.5</span>
+                  </div>
+                  <div className="h-4 w-full bg-gray-100 rounded-full overflow-hidden flex">
+                    <div className="w-[75%] bg-emerald-500 relative">
+                      <div className="absolute inset-0 bg-white/20 w-full animate-[pulse_2s_ease-in-out_infinite]" />
                     </div>
                   </div>
+                  <div className="flex justify-between mt-2 text-[10px] uppercase tracking-widest text-muted font-bold">
+                    <span>Band 0</span><span>Target Zone</span><span>Band 9</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-end mb-4">
+                    <div>
+                      <h3 className="font-poppins font-bold text-xl text-[#064E3B]">PTE Target</h3>
+                      <p className="text-sm text-muted">Computer-based AI Scoring</p>
+                    </div>
+                    <span className="font-poppins font-black text-3xl text-blue-500">65+</span>
+                  </div>
+                  <div className="h-4 w-full bg-gray-100 rounded-full overflow-hidden flex">
+                    <div className="w-[65%] bg-blue-500 relative">
+                      <div className="absolute inset-0 bg-white/20 w-full animate-[pulse_2s_ease-in-out_infinite]" />
+                    </div>
+                  </div>
+                  <div className="flex justify-between mt-2 text-[10px] uppercase tracking-widest text-muted font-bold">
+                    <span>10 Points</span><span>Target Zone</span><span>90 Points</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-6">Know Your Target. Hit Your Score.</h2>
+              <p className="text-lg text-muted mb-8 leading-relaxed">
+                Whether you choose the human-examined IELTS or the AI-scored PTE, our methodology breaks down the scoring criteria so you know exactly how to earn points in every module.
+              </p>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 mt-1">✓</div>
+                  <p className="text-charcoal"><strong>Diagnostic Testing:</strong> We identify your baseline before you start.</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 mt-1">✓</div>
+                  <p className="text-charcoal"><strong>Algorithmic Focus:</strong> We train you on exactly what the examiners (or AI) look for.</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 mt-1">✓</div>
+                  <p className="text-charcoal"><strong>Continuous Evaluation:</strong> Weekly mock tests track your trajectory.</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Methodology Journey */}
+      <section id="methodology" ref={revealProg} className="py-24 lg:py-32 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <div className="text-center mb-24">
+            <span className="font-poppins uppercase tracking-widest text-green-em text-xs mb-3 block">Our Methodology</span>
+            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B]">The Four-Stage Learning Journey</h2>
+          </div>
+          
+          <div className="flex flex-col gap-24 lg:gap-32 relative">
+            <div className="absolute left-[24px] lg:left-1/2 top-0 bottom-0 w-px bg-bdr lg:-translate-x-1/2 hidden md:block" />
+            
+            {programs.map((prog, i) => (
+              <div key={prog.h3} className={`relative flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-16 items-center`}>
+                
+                {/* Visual side */}
+                <RevealItem delay={0} type={i % 2 === 0 ? 'slide-left' : 'slide-right'} className="w-full md:w-1/2 relative z-10">
+                  <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg relative">
+                    <img src={prog.img} alt={prog.h3} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                </RevealItem>
+
+                {/* Center marker (desktop only) */}
+                <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-bdr rounded-full items-center justify-center z-20 shadow-sm font-playfair italic text-lg text-green-em">
+                  {i+1}
+                </div>
+                
+                {/* Text side */}
+                <RevealItem delay={150} type="fade-up" className="w-full md:w-1/2 relative z-10 md:py-8">
+                  <div className={`font-poppins font-black text-6xl opacity-10 absolute -top-8 -left-4 pointer-events-none ${prog.accent}`}>
+                    0{i+1}
+                  </div>
+                  <h3 className="font-playfair text-3xl text-[#064E3B] mb-4 relative z-10">{prog.h3}</h3>
+                  <p className="text-muted leading-relaxed mb-6 relative z-10">{prog.desc}</p>
+                  <ul className="flex flex-col gap-2.5 relative z-10">
+                    {prog.points.map(p => (
+                      <li key={p} className="flex items-start gap-3 text-sm text-charcoal/80">
+                        <span className={`mt-0.5 font-bold ${prog.accent}`}>—</span>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </RevealItem>
+                
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Services — Editorial List */}
+      <section ref={revealExtra} className="py-24 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-16 items-start">
+            <div className="lg:sticky lg:top-32">
+              <h2 className="font-playfair text-4xl text-[#064E3B] mb-6">Targeted Interventions</h2>
+              <p className="text-lg text-muted leading-relaxed mb-8">
+                Struggling with a specific module? Our targeted interventions isolate your weaknesses and turn them into strengths before test day.
+              </p>
+              <div className="hidden lg:block w-16 h-px bg-green-em" />
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
+              {extras.map((extra, i) => (
+                <RevealItem key={extra.h} delay={i * 100} type="fade-up">
+                  <div className="font-poppins font-bold text-sm tracking-widest uppercase text-emerald-500 mb-3">Module Support</div>
+                  <h3 className="font-playfair text-2xl text-[#064E3B] mb-3">{extra.h}</h3>
+                  <p className="text-muted text-sm leading-relaxed">{extra.body}</p>
                 </RevealItem>
               ))}
             </div>
@@ -233,28 +297,45 @@ export default function Coaching() {
         </div>
       </section>
 
-      {/* Booking form — white */}
-      <section ref={revealForm} id="coaching-form" className="py-20 bg-white opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="text-center mb-8">
-            <span className="eyebrow-italic">Get Started Today.</span>
-            <h2>Book Your Free Consultation</h2>
+      {/* Conversion Section */}
+      <section id="assessment" ref={revealForm} className="py-0 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[800px]">
+          
+          <div className="relative p-12 lg:p-24 flex flex-col justify-center">
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+            <div className="relative z-10">
+              <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs mb-4 block">Take The First Step</span>
+              <h2 className="font-playfair text-4xl lg:text-5xl text-white mb-6">Book Your Free Assessment Call</h2>
+              <p className="text-lg text-white/70 leading-relaxed mb-12 max-w-md">
+                Discuss your study abroad goals, test history, and target scores with a certified expert. We'll outline a realistic timeline and recommend the exact programme you need.
+              </p>
+              
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/10 flex items-center justify-center font-playfair italic text-xl text-emerald-300">1</div>
+                  <div className="text-white">Submit your details</div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/10 flex items-center justify-center font-playfair italic text-xl text-emerald-300">2</div>
+                  <div className="text-white">Receive a call within 24 hours</div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/10 flex items-center justify-center font-playfair italic text-xl text-emerald-300">3</div>
+                  <div className="text-white">Get your personalized roadmap</div>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div className="flex justify-center flex-wrap gap-4 md:gap-8 mb-10 text-charcoal font-inter text-[13px] font-medium">
-            {['95% Success Rate', 'Expert Trainers', 'Proven Methods', '24/7 Support'].map(t => (
-              <span key={t} className="flex items-center gap-2">
-                <span className="text-green-em font-bold">✓</span> {t}
-              </span>
-            ))}
+          <div className="bg-[#053d2e] p-12 lg:p-24 flex items-center justify-center border-t lg:border-t-0 lg:border-l border-white/10">
+            <BookingForm />
           </div>
-
-          <BookingForm />
+          
         </div>
       </section>
 
-      <FinalCTA heading={<>Achieve Your Target Score.<br />Open Every Door.</>} italic="Your Score. Your Future." />
-      <MiniCTABar text="Book a free consultation with one of our expert IELTS/PTE coaches." />
-    </>
+      {/* No FinalCTA component used - the booking form serves as the finale */}
+      <MiniCTABar text="Book a free assessment with our certified IELTS/PTE coaches today." />
+    </div>
   );
 }

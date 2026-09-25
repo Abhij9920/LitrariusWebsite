@@ -1,8 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Hero from '../components/shared/Hero';
-import StudentCard from '../components/shared/StudentCard';
-import FinalCTA from '../components/shared/FinalCTA';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { useReveal } from '../hooks/useReveal';
 
@@ -16,19 +13,19 @@ const whyUs = [
 const teamStudents = [
   { name: 'Priya Sharma',  university: 'University of Melbourne', course: 'MBA · Class of 2025',              img: '/Uploads/australia.jpg' },
   { name: 'Arjun Patel',   university: 'UNSW Sydney',             course: 'Computer Science · Class of 2025',  img: '/Uploads/computer science.jpg' },
-  { name: 'Meera Iyer',    university: 'Monash University',        course: 'Business Management · Scholarship', img: '/Uploads/business manegement.jpg', badge: 'Scholarship Recipient' },
+  { name: 'Meera Iyer',    university: 'Monash University',        course: 'Business Management · Scholarship', img: '/Uploads/business manegement.jpg' },
 ];
 
 const milestones = [
-  { year: '2008', text: 'Founded in Mumbai with a single mission: make Australia accessible' },
-  { year: '2012', text: 'Reached 100+ successful student placements' },
-  { year: '2016', text: 'Expanded IELTS and PTE coaching programmes' },
-  { year: '2019', text: '500+ students placed at Australian universities' },
-  { year: '2022', text: 'Launched dedicated post-landing support programme' },
-  { year: '2024', text: '1,000+ placements milestone — 95% visa success rate' },
+  { year: '2008', text: 'Founded in Mumbai with a single mission: make Australia accessible.' },
+  { year: '2012', text: 'Reached 100+ successful student placements across Group of Eight universities.' },
+  { year: '2016', text: 'Expanded IELTS and PTE coaching programmes to provide end-to-end support.' },
+  { year: '2019', text: '500+ students placed at Australian universities, opening our second branch.' },
+  { year: '2022', text: 'Launched dedicated post-landing support programme in Melbourne and Sydney.' },
+  { year: '2024', text: '1,000+ placements milestone achieved with an unparalleled 95% visa success rate.' },
 ];
 
-function RevealItem({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) {
+function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: { children: React.ReactNode, delay?: number, className?: string, type?: 'fade-up' | 'fade-in' | 'slide-left' }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -36,14 +33,20 @@ function RevealItem({ children, delay = 0, className = '' }: { children: React.R
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         el.style.transitionDelay = `${delay}ms`;
-        el.classList.add('opacity-100', '!translate-y-0');
+        el.classList.add('opacity-100', '!translate-y-0', '!translate-x-0', '!scale-100');
         obs.unobserve(el);
       }
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     obs.observe(el);
     return () => obs.disconnect();
   }, [delay]);
-  return <div ref={ref} className={`opacity-0 translate-y-10 transition-all duration-[900ms] ease-out ${className}`}>{children}</div>;
+
+  let baseClass = 'opacity-0 transition-all ease-out ';
+  if (type === 'fade-up') baseClass += 'translate-y-12 duration-[1000ms]';
+  if (type === 'fade-in') baseClass += 'scale-[0.98] duration-[1200ms]';
+  if (type === 'slide-left') baseClass += '-translate-x-12 duration-[1000ms]';
+
+  return <div ref={ref} className={`${baseClass} ${className}`}>{children}</div>;
 }
 
 function AnimatedNumber({ value, prefix = '', suffix = '', className = '' }: { value: number; prefix?: string; suffix?: string, className?: string }) {
@@ -81,59 +84,152 @@ export default function About() {
   const revealWhy = useReveal();
 
   return (
-    <>
-      <Hero
-        imageSrc="/Uploads/Group1.webp"
-        videoSrc="https://videos.pexels.com/video-files/7310207/7310207-uhd_2732_1440_25fps.mp4"
-        imageAlt="Literarius counsellors team"
-        italicLine="India's Most Trusted Partner."
-        heading={<>15+ Years Turning Australian Dreams Into Reality.</>}
-        subText="We have helped 1,000+ students begin their Australian journey. Certified counsellors. Real results. Genuine support."
-        ctaLabel="Get Started"
-        ctaTo="/contact"
-        short
-      />
-
-      {/* Mission Statement — cream */}
-      <section ref={revealMission} className="py-24 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6 text-center">
-          <h2 className="font-playfair italic text-[24px] text-green-em leading-snug max-w-3xl mx-auto mb-10 font-normal">
-            "We believe every Indian student deserves access to the world's best education — regardless of background or budget."
-          </h2>
-          <div className="flex items-center justify-center gap-4 text-ink font-poppins font-bold text-sm tracking-widest uppercase mb-8">
-            <span>Accessibility</span>
-            <span className="text-green-em">•</span>
-            <span>Integrity</span>
-            <span className="text-green-em">•</span>
-            <span>Excellence</span>
-          </div>
-          <p className="text-muted max-w-xl mx-auto text-[15px] leading-relaxed">
-            At Literarius, our mission is to simplify the complex journey of studying abroad. We provide honest, transparent, and expert guidance to ensure you reach your dream university in Australia.
-          </p>
+    <div className="bg-[#FAF9F6]">
+      {/* Institutional Hero */}
+      <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden border-b border-bdr">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <RevealItem delay={0} type="fade-up">
+            <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-6 block">Who We Are</span>
+            <h1 className="font-playfair text-[50px] md:text-[72px] lg:text-[90px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-5xl mx-auto">
+              India's Most Trusted<br />
+              <span className="italic text-charcoal/80">Australian Partner.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-16 leading-relaxed">
+              For over 15 years, we have been quietly turning Australian dreams into reality through genuine support, certified expertise, and real results.
+            </p>
+          </RevealItem>
+          
+          <RevealItem delay={300} type="fade-in">
+            <div className="w-full h-[50vh] lg:h-[70vh] rounded-none overflow-hidden relative">
+              <video 
+                src="https://videos.pexels.com/video-files/7310207/7310207-uhd_2732_1440_25fps.mp4"
+                poster="/Uploads/Group1.webp"
+                autoPlay muted loop playsInline
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </RevealItem>
         </div>
       </section>
 
-      {/* Timeline — white */}
-      <section ref={revealTimeline} className="py-24 bg-white opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6 text-center">
-          <span className="eyebrow-italic">How We Got Here.</span>
-          <h2>Our Story</h2>
+      {/* Mission Statement — Generous Whitespace */}
+      <section ref={revealMission} className="py-32 lg:py-48 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-12 block">Why We Exist</span>
+          <h2 className="font-playfair text-[32px] md:text-[48px] lg:text-[64px] text-[#064E3B] leading-[1.2] max-w-5xl mx-auto mb-16 font-normal">
+            "We believe every ambitious student deserves access to the world's best education — <span className="italic text-charcoal/60">regardless of background or budget.</span>"
+          </h2>
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-charcoal font-poppins font-bold text-sm tracking-widest uppercase">
+            <span>Accessibility</span>
+            <span className="text-green-em hidden md:block">•</span>
+            <span>Integrity</span>
+            <span className="text-green-em hidden md:block">•</span>
+            <span>Excellence</span>
+          </div>
+        </div>
+      </section>
 
-          <div className="relative max-w-[680px] mx-auto mt-16">
-            {/* Center Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-bdr -translate-x-1/2" />
-            
+      {/* Our Story — Sticky Scroll Journey */}
+      <section ref={revealTimeline} className="py-32 bg-[#FAF9F6] border-y border-bdr opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out relative">
+        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+          
+          {/* Sticky Left Column */}
+          <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+            <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Our Journey</span>
+            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-6">Building a Legacy</h2>
+            <p className="text-muted leading-relaxed">
+              From our humble beginnings in Mumbai to placing over a thousand students, every milestone represents another student's dream fulfilled.
+            </p>
+          </div>
+          
+          {/* Scrolling Timeline */}
+          <div className="lg:col-span-8 flex flex-col gap-24 lg:pl-16">
             {milestones.map((m, i) => (
-              <RevealItem key={m.year} delay={i * 200} className={`relative flex items-center justify-between mb-8 last:mb-0 ${i % 2 === 0 ? 'flex-row-reverse' : ''}`}>
-                <div className="w-[calc(50%-32px)]" /> {/* Spacer */}
-                
-                {/* Dot */}
-                <div className="absolute left-1/2 w-4 h-4 bg-green-em rounded-full -translate-x-1/2 border-4 border-white shadow-sm z-10" />
-                
-                {/* Card */}
-                <div className="w-[calc(50%-32px)] bg-white border border-bdr rounded-xl p-6 shadow-sm text-left hover:border-green-em transition-colors">
-                  <div className="font-poppins font-bold text-2xl text-green-em mb-2">{m.year}</div>
-                  <p className="font-inter text-[14.5px] text-charcoal">{m.text}</p>
+              <RevealItem key={m.year} delay={100} type="fade-up" className="relative">
+                <div className="flex flex-col md:flex-row items-start gap-8">
+                  <div className="font-poppins font-black text-6xl md:text-7xl lg:text-8xl text-emerald-100 leading-none">
+                    {m.year}
+                  </div>
+                  <div className="md:pt-4">
+                    <p className="text-xl md:text-2xl font-playfair text-[#064E3B] leading-relaxed">
+                      {m.text}
+                    </p>
+                  </div>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+          
+        </div>
+      </section>
+
+      {/* Our Foundation — Visual Proof */}
+      <section ref={revealTeam} className="py-32 bg-[#064E3B] text-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="mb-20">
+            <span className="font-poppins uppercase tracking-widest text-emerald-300 text-xs font-bold mb-4 block">Our Results</span>
+            <h2 className="font-playfair text-4xl lg:text-5xl text-white">The Foundation of Trust</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Stats Block */}
+            <div className="grid grid-cols-2 gap-8 lg:gap-12">
+              {[
+                { val: 15, suf: '+', l: 'Years Experience' },
+                { val: 1000, suf: '+', l: 'Students Placed' },
+                { val: 42, suf: '+', l: 'Partner Universities' },
+                { val: 95, suf: '%', l: 'Visa Success Rate' }
+              ].map(({ val, suf, l }, i) => (
+                <RevealItem key={l} delay={i * 120} type="fade-up" className="border-l border-white/20 pl-6">
+                  <AnimatedNumber value={val} suffix={suf} className="font-poppins font-black text-4xl md:text-5xl text-emerald-300 leading-none mb-3" />
+                  <div className="text-xs uppercase tracking-widest text-white/60">{l}</div>
+                </RevealItem>
+              ))}
+            </div>
+            
+            {/* Image Gallery overlapping */}
+            <div className="relative h-[500px] md:h-[600px] w-full">
+              <RevealItem delay={200} type="slide-left" className="absolute top-0 right-0 w-[60%] h-[50%] z-10 shadow-2xl">
+                <img src={teamStudents[0].img} alt="Student" className="w-full h-full object-cover" />
+                <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold">
+                  {teamStudents[0].name}
+                </div>
+              </RevealItem>
+              <RevealItem delay={400} type="fade-in" className="absolute bottom-12 left-0 w-[55%] h-[60%] z-20 shadow-2xl">
+                <img src={teamStudents[1].img} alt="Student" className="w-full h-full object-cover" />
+                <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold">
+                  {teamStudents[1].name}
+                </div>
+              </RevealItem>
+              <RevealItem delay={600} type="slide-left" className="absolute bottom-0 right-12 w-[45%] h-[40%] z-30 shadow-2xl">
+                <img src={teamStudents[2].img} alt="Student" className="w-full h-full object-cover" />
+                <div className="absolute bottom-4 left-4 bg-emerald-500 text-white px-3 py-1.5 text-xs font-poppins font-bold">
+                  Scholarship
+                </div>
+              </RevealItem>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Why Students Trust Us — Clean Editorial Sequence */}
+      <section ref={revealWhy} className="py-32 bg-white opacity-0 translate-y-10 transition-all duration-[1000ms] ease-out">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <div className="text-center mb-24">
+            <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Why Literarius</span>
+            <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B]">Why Students Trust Us</h2>
+          </div>
+          
+          <div className="flex flex-col gap-12">
+            {whyUs.map(({ title, body }, i) => (
+              <RevealItem key={title} delay={i * 150} type="fade-up" className="flex flex-col md:flex-row gap-6 md:gap-16 border-t border-bdr pt-12">
+                <div className="md:w-1/3">
+                  <h3 className="font-poppins font-bold text-2xl text-[#064E3B]">{title}</h3>
+                </div>
+                <div className="md:w-2/3">
+                  <p className="text-lg text-muted leading-relaxed">{body}</p>
                 </div>
               </RevealItem>
             ))}
@@ -141,72 +237,20 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team — dark green */}
-      <section ref={revealTeam} className="py-24 bg-dark-section opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <span className="font-playfair italic text-lg text-emerald-300 block mb-2">Our Foundation.</span>
-              <h2 className="text-white mb-4">15+ Years Guiding Students to Australia</h2>
-              <p className="text-white/65 text-[16px] leading-relaxed mb-10">
-                Since our founding, Literarius has been committed to making Australian education accessible to ambitious Indian students. Our certified counsellors and visa experts have helped over 1,000 students begin their Australian journey.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { val: 15, suf: '+', l: 'Years Experience' },
-                  { val: 1000, suf: '+', l: 'Students Placed' },
-                  { val: 42, suf: '+', l: 'Partner Universities in Australia' },
-                  { val: 95, suf: '%', l: 'Visa Success Rate' }
-                ].map(({ val, suf, l }, i) => (
-                  <RevealItem key={l} delay={i * 120} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center backdrop-blur-sm">
-                    <AnimatedNumber value={val} suffix={suf} className="font-poppins font-black text-[32px] text-emerald-300 leading-none" />
-                    <div className="text-[11px] text-white/50 uppercase tracking-wider mt-3">{l}</div>
-                  </RevealItem>
-                ))}
-              </div>
-              <Link to="/contact" className="btn btn-coral mt-10 inline-flex">Book Free Consultation</Link>
-            </div>
-            <div className="flex flex-col gap-5 lg:pt-8">
-              {teamStudents.map(({ name, university, course, img, badge }, i) => (
-                <StudentCard key={name} name={name} university={university} course={course} imageSrc={img} badge={badge} delay={i * 180} />
-              ))}
-            </div>
-          </div>
+      {/* Team CTA */}
+      <section className="relative py-32 bg-[#FAF9F6] border-t border-bdr text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="font-playfair text-4xl lg:text-5xl text-[#064E3B] mb-6">Speak With Our Experts</h2>
+          <p className="text-lg text-muted mb-10 leading-relaxed">
+            Our certified counsellors are ready to guide you through every step of your Australian education journey. Let's make it happen.
+          </p>
+          <Link to="/contact" className="btn btn-coral px-8 py-4">
+            Meet The Team
+          </Link>
         </div>
       </section>
-
-      {/* Why Literarius — cream */}
-      <section ref={revealWhy} className="py-24 bg-cream opacity-0 translate-y-10 transition-all duration-[900ms] ease-out">
-        <div className="max-w-content mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-12 lg:gap-20 items-start">
-            <div className="lg:sticky lg:top-24">
-              <span className="eyebrow-italic">Why Literarius?</span>
-              <h2>Why Choose Us</h2>
-              <p className="mt-4 text-muted leading-relaxed">We take a personalised, transparent, and deeply supportive approach to your overseas education journey.</p>
-            </div>
-            <div className="flex flex-col">
-              {whyUs.map(({ title, body }, i) => (
-                <RevealItem key={title} delay={i * 150} className="border-b border-bdr last:border-b-0 py-6 first:pt-0 last:pb-0">
-                  <div className="flex items-start gap-5">
-                    <div className="font-poppins font-black text-[44px] text-green-em leading-none mt-0.5 tracking-tighter">0{i + 1}</div>
-                    <div>
-                      <h3 className="font-poppins font-semibold text-[19px] mb-2">{title}</h3>
-                      <p className="font-inter text-[14.5px] text-muted">{body}</p>
-                    </div>
-                  </div>
-                </RevealItem>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <FinalCTA
-        heading={<>Ready to Start Your<br />Australian Journey?</>}
-        italic="We Are Here for You."
-        btnLabel="Book Free Consultation"
-      />
+      
       <MiniCTABar />
-    </>
+    </div>
   );
 }
