@@ -26,7 +26,7 @@ export default function Hero({
   children,
 }: HeroProps) {
   return (
-    <section className={`relative flex flex-col overflow-hidden ${short ? 'min-h-[52vh]' : 'min-h-[100vh] md:min-h-[75vh] lg:min-h-[80vh]'}`}>
+    <section className={`relative flex flex-col overflow-hidden ${short ? 'min-h-[52vh]' : 'min-h-[85vh] md:min-h-[65vh] lg:min-h-[70vh]'}`}>
       {/* Background image or video */}
       <div className="absolute inset-0 z-0">
         {videoSrc ? (
