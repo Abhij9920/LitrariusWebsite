@@ -30,7 +30,7 @@ export const articles = [
   },
   {
     slug: 'ielts-vs-pte-australia',
-    title: 'IELTS vs PTE: Which Should You Take for Your Australian Visa?',
+    title: 'IELTS vs PTE: Which Should You Take for Your Australian University Application?',
     excerpt: 'We analyze scoring systems, test formats, and university acceptance rates to help you decide which English test aligns with your strengths.',
     category: 'IELTS & PTE',
     date: 'Sep 18, 2026',
@@ -38,7 +38,7 @@ export const articles = [
     img: '/images/coaching-mock.webp',
     featured: false,
     content: `
-      <p>One of the most common questions we get from students is whether they should take the IELTS or PTE Academic. Both are universally accepted by Australian universities and the Department of Home Affairs for visa purposes, but their formats and scoring systems cater to different types of test-takers.</p>
+      <p>One of the most common questions we get from students is whether they should take the IELTS or PTE Academic. Both are universally accepted by Australian universities, but their formats and scoring systems cater to different types of test-takers.</p>
       
       <h2>Understanding the Differences</h2>
       <p>The primary difference lies in the testing format. IELTS (International English Language Testing System) offers both paper-based and computer-based options, and features a face-to-face speaking test with a human examiner. PTE Academic (Pearson Test of English) is entirely computer-based, including the speaking section, which is evaluated by AI.</p>
@@ -102,56 +102,53 @@ export const articles = [
     author: 'Literarius STEM Advisors'
   },
   {
-    slug: 'student-visa-application-guide',
-    title: 'Australian Student Visa Application Guide 2026',
-    excerpt: 'Step-by-step instructions on compiling your Genuine Student (GS) documents, financial evidence, and navigating the new visa rules.',
-    category: 'Student Visa',
+    slug: 'how-to-apply-australian-university',
+    title: 'How to Apply to an Australian University: A Step-by-Step Guide',
+    excerpt: 'From choosing the right course and institution to submitting a standout application — everything you need to know about the admissions process.',
+    category: 'Admissions',
     date: 'Aug 28, 2026',
     readTime: '10 min read',
     img: '/images/student-5.webp',
     featured: false,
     content: `
-      <p>Securing a Subclass 500 Student Visa is the final and most critical step in your journey to Australia. The Department of Home Affairs frequently updates its requirements, making the process complex for independent applicants. Here is what you need to know for the 2026 intake.</p>
+      <p>Applying to an Australian university is a structured process that rewards careful planning and early preparation. With thousands of international students competing for coveted places at Group of Eight and top-tier institutions, a well-crafted application makes all the difference.</p>
       
-      <h2>The Genuine Student (GS) Requirement</h2>
-      <p>Replacing the old GTE requirement, the new Genuine Student test focuses on targeted questions about your circumstances, your choice of course, and what benefit it provides to your future career. You must provide concrete evidence that the investment in Australian education makes logical sense for your career trajectory in India (or globally).</p>
+      <h2>Step 1: Research and Shortlist</h2>
+      <p>Begin by identifying the right course and institution for your career goals. Consider QS rankings in your specific subject area, industry connections, campus location, and scholarship opportunities. Don't apply to the highest-ranked university simply because of its name — apply to the one that fits your profile and goals best.</p>
       
-      <h2>Financial Capacity</h2>
-      <p>As of 2024, the financial requirement to prove you can support yourself has increased to approximately AUD 29,710 for a single student. You must show that these funds are genuinely available, either through education loans from approved financial institutions or acceptable savings history.</p>
+      <h2>Step 2: Check Eligibility Requirements</h2>
+      <p>Each university sets its own academic entry requirements. For undergraduate entry, your Class 12 percentage or equivalent qualification is evaluated. For postgraduate programs, your undergraduate GPA, work experience, and any relevant professional qualifications will be assessed. Always check the specific course entry requirements on the university website.</p>
       
-      <blockquote>"A meticulous, well-documented visa application is processed faster and has a significantly higher chance of approval."</blockquote>
+      <blockquote>"A meticulous, well-documented application is processed faster and has a significantly higher chance of success."</blockquote>
       
-      <h2>Common Mistakes to Avoid</h2>
-      <p>The most frequent reasons for visa refusal are vague GS statements, unexplained gaps in education, and unverifiable financial documents. At Literarius, our dedicated visa compliance team audits your entire document package before submission to ensure it meets the highest evidentiary standards.</p>
+      <h2>Step 3: Prepare Your Documents</h2>
+      <p>Typical documents include: certified academic transcripts, a Statement of Purpose (SOP), letters of recommendation, proof of English proficiency (IELTS/PTE), a current CV, and any relevant portfolio or work samples. At Literarius, our admissions team audits your entire document package before submission to ensure it meets the highest standards.</p>
     `,
-    author: 'Literarius Visa Compliance Team'
+    author: 'Literarius Admissions Team'
   },
   {
-    slug: 'post-study-work-options',
-    title: 'Post-Study Work Options: Pathway to Permanent Residency',
-    excerpt: 'Understanding the Temporary Graduate visa (subclass 485) and how regional study can extend your right to work in Australia.',
-    category: 'Study in Australia',
+    slug: 'scholarship-strategy-australia',
+    title: 'Scholarship Strategy: How to Maximise Your Funding for Australian Study',
+    excerpt: 'Understanding the Australia Awards, Destination Australia program, and university merit scholarships — and how to position your application for success.',
+    category: 'Scholarships',
     date: 'Aug 15, 2026',
     readTime: '7 min read',
     img: '/images/campus-unsw.webp',
     featured: false,
     content: `
-      <p>For many international students, the ability to gain international work experience after graduation is a primary reason for choosing Australia. The Temporary Graduate visa (Subclass 485) allows you to live, study, and work in Australia temporarily after you have finished your studies.</p>
+      <p>Securing scholarship funding can dramatically reduce the financial burden of an Australian education. The good news: there is more funding available for international students than most people realise. The challenge is knowing where to look and how to apply strategically.</p>
       
-      <h2>Current Post-Study Work Durations</h2>
-      <p>The standard duration for the Post-Study Work stream depends on your qualification:</p>
-      <ul>
-        <li>Bachelor Degree (including Honours): up to 2 years</li>
-        <li>Masters by Coursework: up to 2 years</li>
-        <li>Masters by Research or PhD: up to 3 years</li>
-      </ul>
+      <h2>Government Scholarships</h2>
+      <p>The Australia Awards and the Destination Australia program are the most prominent government-funded options. The Destination Australia program offers up to AUD 15,000 per year for students who choose to study at regional campuses — which also tends to offer lower living costs and a more integrated community experience.</p>
       
-      <h2>The Regional Advantage</h2>
-      <p>If you choose to study and live in a designated regional area (which includes major cities like Adelaide, Perth, and the Gold Coast), you may be eligible for an additional 1-2 years on your Temporary Graduate visa. This extra time is invaluable for gaining the work experience often required for points-based skilled migration pathways.</p>
+      <h2>University Merit Scholarships</h2>
+      <p>Almost every major Australian university offers Vice-Chancellor's International Scholarships. These are based purely on your academic history. For students with strong Class 12 or undergraduate results, automatic tuition fee reductions of 10% to 50% are often available. The key is applying before the scholarship deadline, which is typically months before the standard course deadline.</p>
       
-      <h2>Planning from Day One</h2>
-      <p>Your pathway to post-study work and potential permanent residency begins with your course selection. Choosing a degree on the Medium and Long-term Strategic Skills List (MLTSSL) significantly broadens your long-term visa options. Our counsellors map out this entire trajectory during your initial consultation.</p>
+      <blockquote>"Don't wait until you receive an offer to start looking for scholarships. The search should begin the moment you decide to apply."</blockquote>
+      
+      <h2>How Literarius Helps</h2>
+      <p>Our admissions team automatically assesses your profile for every available scholarship opportunity during the application process. We ensure your application is structured to maximise your eligibility and submitted well before crucial scholarship deadlines.</p>
     `,
-    author: 'Literarius Editorial Team'
+    author: 'Literarius Admissions Team'
   }
 ];

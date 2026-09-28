@@ -25,14 +25,17 @@ export default function Header() {
 
   return (
     <header
-      className={`bg-white sticky top-0 z-50 border-b border-bdr transition-shadow duration-300 ${
-        scrolled ? 'shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-transparent' : ''
-      }`}
+      className={`bg-white sticky top-0 z-50 border-b border-bdr transition-shadow duration-300 ${scrolled ? 'shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-transparent' : ''
+        }`}
     >
       <nav className="max-w-content mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link to="/" className="font-playfair font-black text-2xl text-green-logo tracking-tight flex items-center gap-1.5">
-          LITERARIUS
+        <Link to="/" className="flex items-center shrink-0 relative z-10">
+          <img
+            src="/images/literarius-logo.png"
+            alt="Literarius International"
+            className="h-24 w-auto max-w-[400px] object-contain"
+          />
         </Link>
 
         {/* Desktop nav links */}
@@ -77,18 +80,16 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden bg-white border-t border-bdr overflow-hidden transition-all duration-400 ease-in-out ${
-          mobileOpen ? 'max-h-96' : 'max-h-0'
-        }`}
+        className={`lg:hidden bg-white border-t border-bdr overflow-hidden transition-all duration-400 ease-in-out ${mobileOpen ? 'max-h-96' : 'max-h-0'
+          }`}
       >
         <div className="px-6 py-4 flex flex-col gap-1">
           {navLinks.map(({ to, label }) => (
             <Link
               key={to}
               to={to}
-              className={`text-sm py-2.5 border-b border-bdr block ${
-                location.pathname === to ? 'text-green-em font-semibold' : 'text-charcoal'
-              }`}
+              className={`text-sm py-2.5 border-b border-bdr block ${location.pathname === to ? 'text-green-em font-semibold' : 'text-charcoal'
+                }`}
             >
               {label}
             </Link>

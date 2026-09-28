@@ -4,10 +4,10 @@ import MiniCTABar from '../components/shared/MiniCTABar';
 import { useReveal } from '../hooks/useReveal';
 
 const whyUs = [
-  { title: 'Expert Team',         body: 'Certified consultants with deep experience in Australian university admissions and visa processes.' },
-  { title: 'Proven Track Record', body: '1,000+ students placed at Australian universities with a 95% visa success rate.' },
-  { title: 'Personalised Approach', body: 'Every student receives a tailored roadmap — from profile assessment to visa approval.' },
-  { title: 'Ongoing Support',     body: 'We support you from your first enquiry all the way through to your arrival in Australia.' },
+  { title: 'Expert Team',         body: 'Certified consultants with deep experience in Australian university admissions and academic programme selection.' },
+  { title: 'Proven Track Record', body: '1,000+ students placed at Australia\'s leading universities with industry-leading admission success.' },
+  { title: 'Personalised Approach', body: 'Every student receives a tailored roadmap — from profile assessment and university shortlisting to the final admission offer.' },
+  { title: 'Ongoing Support',     body: 'We support you from your first enquiry all the way through course selection, scholarship applications, and admission.' },
 ];
 
 const teamStudents = [
@@ -17,12 +17,12 @@ const teamStudents = [
 ];
 
 const milestones = [
-  { year: '2008', text: 'Founded in Mumbai with a single mission: make Australia accessible.', img: '/images/campus-uwa.webp' },
+  { year: '2008', text: 'Founded with a single mission: make Australia accessible to ambitious students worldwide.', img: '/images/campus-uwa.webp' },
   { year: '2012', text: 'Reached 100+ successful student placements across Group of Eight universities.' },
-  { year: '2016', text: 'Expanded IELTS and PTE coaching programmes to provide end-to-end support.', img: '/images/coaching-intensive.webp' },
+  { year: '2016', text: 'Expanded IELTS and PTE coaching programmes to provide end-to-end academic preparation.', img: '/images/coaching-intensive.webp' },
   { year: '2019', text: '500+ students placed at Australian universities, opening our second branch.' },
-  { year: '2022', text: 'Launched dedicated post-landing support programme in Melbourne and Sydney.' },
-  { year: '2024', text: '1,000+ placements milestone achieved with an unparalleled 95% visa success rate.', img: '/images/student-group.webp' },
+  { year: '2022', text: 'Launched dedicated student support services in partnership with leading Australian universities.' },
+  { year: '2024', text: '1,000+ placements milestone achieved — guiding students to Australia\'s top universities.', img: '/images/student-group.webp' },
 ];
 
 function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: { children: React.ReactNode, delay?: number, className?: string, type?: 'fade-up' | 'fade-in' | 'slide-left' }) {
@@ -179,7 +179,7 @@ export default function About() {
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Our Journey</span>
             <h2 className="font-playfair text-[44px] md:text-[56px] text-[#064E3B] mb-6 tracking-tight">Building a Legacy</h2>
             <p className="text-muted leading-relaxed">
-              From our humble beginnings in Mumbai to placing over a thousand students, every milestone represents another student's dream fulfilled.
+              From our humble beginnings to placing over a thousand students, every milestone represents another student's dream fulfilled.
             </p>
           </div>
           
@@ -210,7 +210,7 @@ export default function About() {
                 { val: 15, suf: '+', l: 'Years Experience' },
                 { val: 1000, suf: '+', l: 'Students Placed' },
                 { val: 42, suf: '+', l: 'Partner Universities' },
-                { val: 95, suf: '%', l: 'Visa Success Rate' }
+                { val: 200, suf: '+', l: 'Scholarship Recipients' }
               ].map(({ val, suf, l }, i) => (
                 <RevealItem key={l} delay={i * 120} type="fade-up" className="border-l border-white/20 pl-6">
                   <AnimatedNumber value={val} suffix={suf} className="font-poppins font-black text-4xl md:text-5xl text-emerald-300 leading-none mb-3" />

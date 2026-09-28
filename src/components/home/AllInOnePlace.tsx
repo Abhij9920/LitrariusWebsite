@@ -19,8 +19,8 @@ const subs = [
     body: 'With personalised coaching, mock tests, and expert feedback — our students consistently achieve Band 7+ in IELTS and 65+ in PTE on their first attempt.',
   },
   {
-    h3: 'Seamless Visa and Post-Landing Support',
-    body: 'From student visa documentation to OSHC and accommodation guidance — we support you even after you land in Australia.',
+    h3: 'From Application to Admission',
+    body: 'We support you from your first enquiry through university selection, course planning, scholarship applications, and your final admission offer.',
   },
 ];
 
@@ -63,8 +63,8 @@ export default function AllInOnePlace() {
             </RevealItem>
             <RevealItem delay={300} type="slide-left">
               <p className="text-lg text-muted leading-relaxed mb-10">
-                We guide students through every step — from university selection to visa approval.
-                Trusted by 1,000+ Indian students at Australia's top universities.
+                We guide students through every step — from university selection and course planning to application and admission.
+                Trusted by 1,000+ students at Australia's top universities.
               </p>
             </RevealItem>
             

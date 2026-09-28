@@ -4,8 +4,8 @@ const items = [
   { num: '42+',        lbl: 'Partner Universities' },
   { num: '1,000+',     lbl: 'Students Placed' },
   { num: '700,000+',   lbl: 'Intl Students in AU' },
-  { num: '95%',        lbl: 'Visa Success Rate' },
-  { num: 'Extended',    lbl: 'Post-Study Work Visa' },
+  { num: '200+',       lbl: 'Scholarship Recipients' },
+  { num: '9',          lbl: 'Universities in Global Top 100' },
   { num: 'AUD 20–45k', lbl: 'Annual Tuition Range' },
 ];
 

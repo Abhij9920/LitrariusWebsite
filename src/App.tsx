@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import AnnouncementBar from './components/layout/AnnouncementBar';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
@@ -20,7 +19,6 @@ function ScrollToTop() {
 function Layout() {
   return (
     <>
-      <AnnouncementBar />
       <Header />
       <main>
         <Routes>

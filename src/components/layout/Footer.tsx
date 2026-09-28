@@ -20,9 +20,8 @@ const cols = [
   {
     title: 'Contact',
     links: [
-      { label: '+91 9607621025', to: 'tel:+919607621025' },
-      { label: '+91 8600068599', to: 'tel:+918600068599' },
-      { label: 'hello@literarius.com', to: 'mailto:hello@literarius.com' },
+      { label: '+61 459 038 427', to: 'tel:+61459038427' },
+      { label: 'info@literarius.com.au', to: 'mailto:info@literarius.com.au' },
     ],
   },
 ];
@@ -34,7 +33,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-bdr">
           {/* Brand */}
           <div>
-            <div className="font-playfair font-black text-2xl tracking-tight text-green-logo mb-3">LITERARIUS</div>
+            <div className="mb-3">
+              <img
+                src="/images/literarius-logo.png"
+                alt="Literarius International"
+                className="h-10 w-auto max-w-[180px] object-contain"
+              />
+            </div>
             <p className="text-sm text-muted leading-relaxed max-w-[240px]">
               Your Gateway to World-Class Australian Education. Expert counselling for university admissions and IELTS/PTE coaching.
             </p>
@@ -57,7 +62,7 @@ export default function Footer() {
           <div>
             <h4 className="font-poppins font-semibold text-sm text-ink mb-4">Address</h4>
             <p className="text-sm text-muted leading-relaxed">
-              245, Ijmima Building, Mindspace,<br />Malad West, Mumbai 400064
+              U 1 16, Campbell St.<br />Parramatta, NSW – 2150
             </p>
           </div>
         </div>

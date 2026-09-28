@@ -14,7 +14,7 @@ const whyCards = [
   { title: 'Diverse Academic Landscape',     body: '4,000+ accredited institutions offering specialised programs in marine biology, renewable energy, and indigenous studies.', img: '/images/campus-uq.webp' },
   { title: 'Work While You Study',           body: 'Work up to 48 hours per fortnight during term and full-time during breaks. Gain real-world experience while covering living costs.', img: '/images/student-3.webp' },
   { title: 'Innovation & Research Hub',      body: 'Global leader in climate science, AI, medical research, and sustainable technologies with world-class facilities.', img: '/images/campus-anu.webp' },
-  { title: 'Post-Study Work Visa',           body: 'Gain valuable post-study work experience on a Temporary Graduate visa — a clear pathway to permanent residency.', img: '/images/student-2.webp' },
+  { title: 'Scholarship Opportunities',      body: 'Millions of dollars in scholarships and grants available for international students through government and university programs.', img: '/images/student-2.webp' },
 ];
 
 const universities = [
@@ -40,7 +40,7 @@ const faqs = [
   { q: 'What are the English language requirements?', a: 'Most universities require IELTS (Band 6.0–7.5) or PTE Academic. Literarius provides expert IELTS and PTE coaching to help you reach your target score.' },
   { q: 'Can I work while studying in Australia?', a: 'Yes. International students can work up to 20 hours per week during studies and full-time during semester breaks.' },
   { q: 'What is the cost of living in Australia?', a: 'Average AUD 20,000–30,000 per year depending on lifestyle and location, including accommodation (AUD 800–1,500/month), food, and transport.' },
-  { q: 'How can I apply for a student visa?', a: 'Apply online via the Australian Department of Home Affairs. You need an offer letter, health and character checks, funds proof, and English test results. Literarius provides end-to-end support.' },
+  { q: 'How do I apply to an Australian university?', a: 'You apply directly to the university or through an authorised representative. Literarius guides you through profile assessment, university selection, course shortlisting, document preparation, and the full application process.' },
 ];
 
 const scholarshipsList = [
@@ -50,14 +50,6 @@ const scholarshipsList = [
   { name: 'Research Training Program (RTP)', desc: 'Block grants provided to universities to support both domestic and overseas students undertaking Research degrees.' }
 ];
 
-const timeline = [
-  ['Arrange OSHC Cover', 'Valid Overseas Student Health Cover before applying.'],
-  ['Prepare Academic Documents', 'All transcripts, certificates, and resumes.'],
-  ['Gather Work Experience Docs', 'Relevant documents if you have a gap year.'],
-  ['Prepare GS Statement', 'Proof of Genuine Student — critical for approval.'],
-  ['Schedule Visa Interview', 'Book with the Australian embassy.'],
-  ['Await Visa Decision', 'Processing: 2–6 weeks. We track every step.'],
-];
 
 function RevealItem({ children, delay = 0, className = '', type = 'fade-up' }: { children: React.ReactNode, delay?: number, className?: string, type?: 'fade-up' | 'fade-in' | 'slide-left' }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -117,7 +109,6 @@ export default function Australia() {
   const revealCourses = useReveal();
   const revealCosts = useReveal();
   const revealSchol = useReveal();
-  const revealVisa = useReveal();
   const revealFaq = useReveal();
 
   return (
@@ -139,11 +130,11 @@ export default function Australia() {
               <div className="mt-16 grid grid-cols-2 gap-8 border-t border-bdr pt-8">
                 <div>
                   <div className="font-poppins font-black text-3xl text-green-em mb-1">42+</div>
-                  <div className="text-xs uppercase tracking-widest text-charcoal/60">Universities</div>
+                  <div className="text-xs uppercase tracking-widest text-charcoal/60">Partner Universities</div>
                 </div>
                 <div>
-                  <div className="font-poppins font-black text-3xl text-green-em mb-1">Post-Study</div>
-                  <div className="text-xs uppercase tracking-widest text-charcoal/60">Work Visas</div>
+                  <div className="font-poppins font-black text-3xl text-green-em mb-1">1,000+</div>
+                  <div className="text-xs uppercase tracking-widest text-charcoal/60">Students Placed</div>
                 </div>
               </div>
             </RevealItem>
@@ -341,51 +332,6 @@ export default function Australia() {
         </div>
       </section>
 
-      {/* Visa — Visual Process */}
-      <section ref={revealVisa} className="py-24 bg-[#064E3B] opacity-0 translate-y-10 transition-all duration-[800ms] ease-out relative">
-        <div className="absolute inset-0 bg-[url('/images/bg-pattern.webp')] opacity-10 mix-blend-overlay pointer-events-none" />
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="text-center mb-20">
-            <span className="font-poppins uppercase tracking-widest text-emerald-400 text-xs font-bold mb-4 block">The Process</span>
-            <h2 className="font-playfair text-[44px] md:text-[56px] text-white mb-4 tracking-tight">Your Visa Pathway</h2>
-            <p className="text-white/80">A structured, secure process to your Australian Student Visa.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative">
-            {/* Sticky Visual Anchor */}
-            <div className="hidden lg:block">
-              <div className="sticky top-32 rounded-2xl overflow-hidden shadow-2xl h-[600px] w-full">
-                <img src="/images/student-5.webp" alt="Student Visa Process" className="w-full h-full object-cover transition-transform duration-[1200ms] hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B] via-transparent to-transparent opacity-60" />
-              </div>
-            </div>
-            
-            {/* Scrolling Timeline */}
-            <div className="flex flex-col relative pb-32">
-              {/* Progress Line */}
-              <div className="absolute left-6 top-10 bottom-0 w-px bg-white/10 hidden md:block" />
-              
-              {timeline.map(([title, desc], i) => (
-                <div key={title} className="relative flex gap-12 md:gap-16 items-start group mb-16 last:mb-0">
-                  {/* Timeline Node */}
-                  <div className="hidden md:flex flex-col items-center relative z-10 pt-2">
-                    <div className="w-4 h-4 rounded-full bg-[#064E3B] border-2 border-emerald-400 group-hover:bg-emerald-400 transition-colors duration-500 shadow-[0_0_15px_rgba(52,211,153,0)] group-hover:shadow-[0_0_15px_rgba(52,211,153,0.4)]" />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 group-hover:bg-white/10 transition-colors duration-500">
-                    <div className="font-playfair italic text-5xl text-emerald-400/30 group-hover:text-emerald-400 mb-4 transition-colors duration-500">
-                      0{i+1}
-                    </div>
-                    <h3 className="font-poppins font-bold text-white text-2xl mb-3">{title}</h3>
-                    <p className="text-white/70 text-base leading-relaxed">{desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ — Keep Component */}
       <section ref={revealFaq} className="py-24 bg-[#FAF9F6] opacity-0 translate-y-10 transition-all duration-[800ms] ease-out">

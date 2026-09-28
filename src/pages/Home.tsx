@@ -15,9 +15,9 @@ export default function Home() {
       <Hero
         imageSrc="/images/hero-home.webp"
         imageAlt="Beautiful Australian university campus"
-        italicLine="Thousands Apply. Few Get Placed."
-        heading={<>We'll Get You Into<br />Australia's Best<br />Universities.</>}
-        subText="India's most trusted admissions partner with 1,000+ successful Australian university placements and 95% visa success rate."
+        italicLine="Connecting Ambitious Students"
+        heading={<>with World-Class Education<br />Opportunities.</>}
+        subText="India's most trusted admissions partner — guiding 1,000+ students to Australia's best universities through expert counselling and IELTS/PTE coaching."
         ctaLabel="Book Free Consultation"
         ctaTo="/contact"
         secondaryLabel="View Our Results"

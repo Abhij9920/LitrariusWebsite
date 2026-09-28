@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import MiniCTABar from '../components/shared/MiniCTABar';
 import { articles } from '../data/articles';
 
-const categories = ['All', 'Study in Australia', 'Universities', 'IELTS & PTE', 'Scholarships', 'Student Visa', 'Courses', 'Student Life'];
+const categories = ['All', 'Study in Australia', 'Universities', 'IELTS & PTE', 'Scholarships', 'Courses', 'Student Life', 'Admissions'];
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -31,7 +31,7 @@ export default function Blog() {
               <span className="italic text-charcoal/80">Insights that move you forward.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted leading-relaxed">
-              Expert advice, policy updates, and strategic guidance on university admissions, visa processing, and building a life in Australia.
+              Expert advice, strategic guidance, and insights on university admissions, scholarships, and building your academic future in Australia.
             </p>
           </div>
         </div>

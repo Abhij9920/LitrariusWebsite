@@ -24,7 +24,7 @@ function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div>
           <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Phone Number *</label>
-          <input type="tel" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors" placeholder="+91 9xxxxxxxxx" required />
+          <input type="tel" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors" placeholder="+61 4xx xxx xxx" required />
         </div>
         <div>
           <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Service Needed *</label>
@@ -119,26 +119,25 @@ export default function Contact() {
             <div className="flex flex-col gap-8">
               <div>
                 <div className="font-poppins font-bold text-[10px] text-charcoal/40 uppercase tracking-widest mb-2">Phone</div>
-                <div className="font-playfair text-xl text-[#064E3B]">+91 9607621025</div>
-                <div className="font-playfair text-xl text-[#064E3B]">+91 8600068599</div>
+                <a href="tel:+61459038427" className="font-playfair text-xl text-[#064E3B] hover:text-green-em transition-colors block">+61 459 038 427</a>
               </div>
               
               <div>
                 <div className="font-poppins font-bold text-[10px] text-charcoal/40 uppercase tracking-widest mb-2">Email</div>
-                <div className="font-playfair text-xl text-[#064E3B]">hello@literarius.com</div>
+                <a href="mailto:info@literarius.com.au" className="font-playfair text-xl text-[#064E3B] hover:text-green-em transition-colors block">info@literarius.com.au</a>
               </div>
               
               <div>
                 <div className="font-poppins font-bold text-[10px] text-charcoal/40 uppercase tracking-widest mb-2">Address</div>
                 <div className="font-inter text-[15px] text-charcoal/80 leading-relaxed max-w-[250px]">
-                  245, Ijmima Building, Mindspace,<br />Malad West, Mumbai 400064
+                  U 1 16, Campbell St.<br />Parramatta, NSW – 2150
                 </div>
               </div>
               
               <div>
                 <div className="font-poppins font-bold text-[10px] text-charcoal/40 uppercase tracking-widest mb-2">Hours</div>
                 <div className="font-inter text-[15px] text-charcoal/80 leading-relaxed">
-                  Monday–Saturday<br />9 AM – 7 PM IST
+                  Monday–Saturday<br />9 AM – 6 PM AEST
                 </div>
               </div>
             </div>
