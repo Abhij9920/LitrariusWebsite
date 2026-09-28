@@ -46,7 +46,6 @@ export default function Header() {
               src="/images/literarius-logo.png"
               alt="Literarius International"
               className="w-[175px] lg:w-[250px] h-auto object-contain transition-all duration-400"
-              style={{ filter: isTransparent ? 'brightness(0) invert(1)' : 'none' }}
             />
           </Link>
         </div>
