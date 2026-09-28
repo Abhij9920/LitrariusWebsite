@@ -44,7 +44,7 @@ export default function ProofSection() {
               <div className="font-poppins font-semibold text-[15px] text-white">Priya S.</div>
               <div className="text-xs text-emerald-300 mb-1.5">University of Melbourne, 2025</div>
               <p className="font-playfair italic text-xs text-white/65">
-                "95% of our students are admitted to at least 1 of their top 3 Australian choices."
+                "The vast majority of our students secure admission to their preferred Australian universities."
               </p>
             </div>
           </div>

@@ -30,11 +30,11 @@ export default function Header() {
     >
       <nav className="max-w-content mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link to="/" className="flex items-center shrink-0 relative z-10">
+        <Link to="/" className="flex items-center shrink-0">
           <img
             src="/images/literarius-logo.png"
             alt="Literarius International"
-            className="h-24 w-auto max-w-[400px] object-contain"
+            className="h-12 w-auto object-contain"
           />
         </Link>
 

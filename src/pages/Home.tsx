@@ -15,8 +15,8 @@ export default function Home() {
       <Hero
         imageSrc="/images/hero-home.webp"
         imageAlt="Beautiful Australian university campus"
-        italicLine="Connecting Ambitious Students"
-        heading={<>with World-Class Education<br />Opportunities.</>}
+        italicLine=""
+        heading={<>Connecting Ambitious<br />Students with World-Class<br />Education Opportunities.</>}
         subText="India's most trusted admissions partner — guiding 1,000+ students to Australia's best universities through expert counselling and IELTS/PTE coaching."
         ctaLabel="Book Free Consultation"
         ctaTo="/contact"

@@ -16,7 +16,7 @@ export const articles = [
       <p>When you graduate from a Go8 university, you carry a brand that is instantly recognized by employers from Silicon Valley to Bangalore.</p>
       
       <h2>Cost vs. Value</h2>
-      <p>While Go8 universities carry a premium tuition fee (typically ranging from AUD 45,000 to AUD 55,000 annually), the post-study work rights and the sheer quality of the alumni network often offset the initial investment. Furthermore, institutions like the University of Melbourne and UNSW Sydney offer substantial merit-based scholarships specifically designed for high-achieving South Asian applicants.</p>
+      <p>While Go8 universities carry a premium tuition fee (typically ranging from AUD 45,000 to AUD 55,000 annually), the practical industry exposure and the sheer quality of the alumni network often offset the initial investment. Furthermore, institutions like the University of Melbourne and UNSW Sydney offer substantial merit-based scholarships specifically designed for high-achieving South Asian applicants.</p>
       
       <h2>Emerging Tech Hubs</h2>
       <p>Beyond the Go8, universities like RMIT, UTS, and Macquarie University are gaining massive popularity among Indian students. Why? Their deep integration with industry. These universities often co-design their curriculums with tech giants, ensuring that graduates possess exactly the skills required by the current market.</p>
@@ -66,7 +66,7 @@ export const articles = [
       <p>Studying in Australia is a significant financial investment, but it's one that can be mitigated through strategic scholarship applications. Millions of dollars in funding are awarded to international students every year, often going unclaimed because students simply don't know where to look.</p>
       
       <h2>Government Scholarships</h2>
-      <p>The most prestigious government offerings include the Australia Awards and the Destination Australia program. The Destination Australia program is particularly lucrative, offering up to AUD 15,000 per year for students who choose to study at regional campuses—which also provides extended post-study work rights.</p>
+      <p>The most prestigious government offerings include the Australia Awards and the Destination Australia program. The Destination Australia program is particularly lucrative, offering up to AUD 15,000 per year for students who choose to study at regional campuses—which also provides a more integrated community experience.</p>
       
       <h2>University Merit Awards</h2>
       <p>Almost every major Australian university offers Vice-Chancellor's International Scholarships. These are highly competitive and are based purely on your academic history. For Indian students, a high percentage in Class 12 (CBSE/ICSE) or a strong undergraduate GPA can automatically qualify you for tuition fee reductions ranging from 10% to 50%.</p>

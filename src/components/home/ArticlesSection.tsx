@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const articles = [
   { date: 'August 2026',     title: 'Top 9 Australian Universities — QS Rankings 2025 Guide' },
-  { date: 'August 2026',     title: 'IELTS vs PTE: Which Should You Take for Australian Visa?' },
-  { date: 'July 2026',       title: 'Australia Post-Study Work Visa: Everything Indian Students Need to Know' },
+  { date: 'August 2026',     title: 'How to Apply to an Australian University: A Step-by-Step Guide' },
+  { date: 'July 2026',       title: 'Scholarship Strategy: How to Maximise Your Funding for Australian Study' },
 ];
 
 export default function ArticlesSection() {

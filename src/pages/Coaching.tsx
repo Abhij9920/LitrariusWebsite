@@ -68,7 +68,7 @@ function BookingForm() {
         </div>
         <div>
           <label className="block text-xs uppercase tracking-widest text-white/80 mb-2 font-medium">Phone Number</label>
-          <input type="tel" className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="+91 9xxxxxxxxx" required />
+          <input type="tel" className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-emerald-400 transition-colors" placeholder="+61 4XX XXX XXX" required />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -136,8 +136,8 @@ export default function Coaching() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto text-left">
               <div className="border-l-2 border-emerald-400 pl-6">
-                <div className="font-poppins font-black text-3xl text-[#064E3B] mb-1">95%</div>
-                <div className="text-xs uppercase tracking-widest text-muted">First-Attempt Success</div>
+                <div className="font-poppins font-black text-3xl text-[#064E3B] mb-1">Proven</div>
+                <div className="text-xs uppercase tracking-widest text-muted">Coaching Methods</div>
               </div>
               <div className="border-l-2 border-blue-400 pl-6">
                 <div className="font-poppins font-black text-3xl text-[#064E3B] mb-1">Band 7+</div>
