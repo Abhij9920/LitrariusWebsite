@@ -43,6 +43,7 @@ export default function Hero({
           <img src={imageSrc} alt={imageAlt} className="w-full h-full object-cover" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,30,20,0.95)] via-[rgba(6,30,20,0.6)] to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-[160px] bg-gradient-to-b from-white/90 via-white/40 to-transparent" />
       </div>
 
       {/* Content */}
