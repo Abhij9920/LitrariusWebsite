@@ -26,7 +26,7 @@ export default function Hero({
   children,
 }: HeroProps) {
   return (
-    <section className={`relative flex flex-col overflow-hidden ${short ? 'min-h-[52vh]' : 'min-h-[85vh] md:min-h-[65vh] lg:min-h-[70vh]'}`}>
+    <section className={`relative flex flex-col overflow-hidden ${short ? 'min-h-[60vh]' : 'min-h-[100vh]'}`}>
       {/* Background image or video */}
       <div className="absolute inset-0 z-0">
         {videoSrc ? (
@@ -46,10 +46,10 @@ export default function Hero({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center">
-        <div className={`pt-[120px] pb-16 px-6 md:px-20 max-w-[800px] ${short ? 'pb-12' : 'pb-20'}`}>
+      <div className="relative z-10 flex-1 flex flex-col justify-end">
+        <div className={`pt-32 pb-24 lg:pb-32 px-6 md:px-20 max-w-[800px] ${short ? 'pb-16' : ''}`}>
           <p className="font-playfair italic text-xl md:text-2xl text-white/90 mb-4">{italicLine}</p>
-          <h1 className="font-playfair text-[38px] md:text-[50px] lg:text-[58px] xl:text-[62px] text-white leading-[1.1] mb-6 tracking-tight drop-shadow-sm">{heading}</h1>
+          <h1 className="font-playfair text-[32px] md:text-[42px] lg:text-[52px] xl:text-[54px] text-white leading-[1.1] mb-6 tracking-tight drop-shadow-sm">{heading}</h1>
           {subText && (
             <p className="text-[17px] md:text-[19px] text-white/80 max-w-[620px] mb-10 leading-relaxed">{subText}</p>
           )}
