@@ -34,7 +34,7 @@ export default function Header() {
           <img
             src="/images/literarius-logo.png"
             alt="Literarius International"
-            className="h-[48px] lg:h-[72px] w-auto object-contain"
+            className="w-[160px] lg:w-[220px] h-auto object-contain"
           />
         </Link>
 
