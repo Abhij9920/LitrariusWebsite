@@ -63,7 +63,7 @@ export default function BlogPost() {
       />
 
       {/* Editorial Article Hero */}
-      <section className="pt-32 pb-16 lg:pt-48 lg:pb-20 px-6 max-w-[1000px] mx-auto text-center opacity-0 animate-fadeUp" style={{ animationDelay: '100ms' }}>
+      <section className="pt-28 pb-16 lg:pt-[130px] lg:pb-16 px-6 max-w-[1000px] mx-auto text-center opacity-0 animate-fadeUp" style={{ animationDelay: '100ms' }}>
         <div className="flex items-center justify-center gap-3 text-xs font-poppins font-bold uppercase tracking-widest mb-8">
           <span className="text-[#064E3B] bg-emerald-100 px-3 py-1.5 rounded-sm">{article.category}</span>
           <span className="text-muted">{article.date}</span>
@@ -71,7 +71,7 @@ export default function BlogPost() {
           <span className="text-muted">{article.readTime}</span>
         </div>
         
-        <h1 className="font-playfair text-[44px] md:text-[64px] lg:text-[76px] leading-[1.05] text-[#064E3B] mb-12 tracking-tight">
+        <h1 className="font-playfair text-[38px] md:text-[52px] lg:text-[64px] leading-[1.05] text-[#064E3B] mb-12 tracking-tight">
           {article.title}
         </h1>
         

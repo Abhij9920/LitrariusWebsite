@@ -21,12 +21,12 @@ export default function Blog() {
   return (
     <div className="bg-[#FAF9F6] min-h-screen">
       {/* Blog Editorial Hero */}
-      <section className="pt-32 pb-16 lg:pt-48 lg:pb-24 px-6 border-b border-bdr bg-white relative overflow-hidden opacity-0 animate-fadeUp" style={{ animationDelay: '100ms' }}>
+      <section className="pt-28 pb-16 lg:pt-[130px] lg:pb-20 px-6 border-b border-bdr bg-white relative overflow-hidden opacity-0 animate-fadeUp" style={{ animationDelay: '100ms' }}>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('/images/bg-pattern.webp')] opacity-5 mix-blend-multiply pointer-events-none" />
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="max-w-3xl">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-6 block">The Literarius Journal</span>
-            <h1 className="font-playfair text-[56px] md:text-[76px] lg:text-[96px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight">
+            <h1 className="font-playfair text-[38px] md:text-[52px] lg:text-[68px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-4xl mx-auto">
               Study Australia.<br />
               <span className="italic text-charcoal/80">Insights that move you forward.</span>
             </h1>

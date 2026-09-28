@@ -88,12 +88,12 @@ export default function Contact() {
     <div className="bg-[#FAF9F6] min-h-screen">
       
       {/* Minimal Header */}
-      <section className="relative pt-40 pb-20 lg:pt-56 lg:pb-32 px-6 overflow-hidden">
+      <section className="relative pt-32 pb-16 lg:pt-[120px] lg:pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('/images/hero-contact.webp')] bg-cover bg-center mix-blend-overlay" />
         <div className="max-w-[1400px] mx-auto relative z-10">
           <RevealItem delay={0} type="fade-up">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-4 block">Get in Touch</span>
-            <h1 className="font-playfair text-[60px] md:text-[80px] lg:text-[100px] leading-[1] text-[#064E3B] tracking-tight">
+            <h1 className="font-playfair text-[38px] md:text-[48px] lg:text-[64px] leading-[1] text-[#064E3B] tracking-tight max-w-3xl">
               Let's start the<br /><span className="italic text-charcoal/80">conversation.</span>
             </h1>
           </RevealItem>

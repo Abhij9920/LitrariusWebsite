@@ -114,12 +114,12 @@ export default function Australia() {
   return (
     <div className="bg-[#FAF9F6]">
       {/* Editorial Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="relative pt-28 pb-16 lg:pt-[140px] lg:pb-24 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
           <div className="lg:col-span-5 z-10 relative">
             <RevealItem delay={0} type="slide-left">
               <span className="font-poppins font-bold tracking-widest uppercase text-green-em text-xs mb-4 block">The Ultimate Destination</span>
-              <h1 className="font-playfair text-[56px] md:text-[76px] lg:text-[96px] leading-[1.05] text-[#064E3B] mb-6 tracking-tight">
+              <h1 className="font-playfair text-[38px] md:text-[52px] lg:text-[68px] leading-[1.05] text-[#064E3B] mb-6 tracking-tight">
                 Study in<br /><span className="italic text-green-em">Australia.</span>
               </h1>
               <p className="text-lg text-charcoal/80 mb-10 max-w-md leading-relaxed">

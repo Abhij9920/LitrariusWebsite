@@ -106,11 +106,11 @@ export default function Coaching() {
   return (
     <div className="bg-white">
       {/* Education Landing Hero */}
-      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 border-b border-bdr">
+      <section className="relative pt-28 pb-16 lg:pt-[130px] lg:pb-20 border-b border-bdr">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <RevealItem delay={0} type="fade-up">
             <span className="font-poppins uppercase tracking-widest text-coral text-xs lg:text-sm font-bold mb-6 block">Premium Test Preparation</span>
-            <h1 className="font-playfair text-[56px] md:text-[76px] lg:text-[96px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-4xl mx-auto">
+            <h1 className="font-playfair text-[38px] md:text-[52px] lg:text-[68px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-4xl mx-auto">
               Master IELTS & PTE.<br />
               <span className="italic text-charcoal/80">Unlock Your Future.</span>
             </h1>

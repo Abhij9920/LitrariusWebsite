@@ -28,18 +28,18 @@ export default function Header() {
       className={`bg-white sticky top-0 z-50 border-b border-bdr transition-shadow duration-300 ${scrolled ? 'shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-transparent' : ''
         }`}
     >
-      <nav className="max-w-content mx-auto px-6 flex items-center justify-between h-16">
+      <nav className="max-w-content mx-auto px-6 flex items-center justify-between h-20">
         {/* Logo */}
         <Link to="/" className="flex items-center shrink-0">
           <img
             src="/images/literarius-logo.png"
             alt="Literarius International"
-            className="h-12 w-auto object-contain"
+            className="h-[48px] lg:h-[72px] w-auto object-contain"
           />
         </Link>
 
         {/* Desktop nav links */}
-        <ul className="hidden lg:flex items-center gap-7">
+        <ul className="hidden lg:flex items-center gap-5">
           {navLinks.map(({ to, label }) => {
             const active = location.pathname === to;
             return (
