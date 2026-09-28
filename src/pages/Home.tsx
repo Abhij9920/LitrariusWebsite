@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Hero
-        imageSrc="/images/hero-home.webp"
+        imageSrc="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop"
         imageAlt="Beautiful Australian university campus"
         italicLine=""
         heading={<>Connecting Ambitious<br />Students with World-Class<br />Education Opportunities.</>}

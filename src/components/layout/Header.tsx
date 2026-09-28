@@ -58,13 +58,13 @@ export default function Header() {
             // Text color logic
             let textClass = '';
             if (isTransparent) {
-              textClass = active ? 'text-white' : 'text-white/90 hover:text-white';
+              textClass = active ? 'text-[#064E3B]' : 'text-[#064E3B]/90 hover:text-[#064E3B]';
             } else {
               textClass = active ? 'text-[#064E3B]' : 'text-[#334155] hover:text-[#064E3B]';
             }
 
             // Underline color logic
-            const underlineColor = isTransparent ? 'bg-white' : 'bg-emerald-500';
+            const underlineColor = isTransparent ? 'bg-[#064E3B]' : 'bg-emerald-500';
 
             return (
               <li key={to}>
@@ -102,9 +102,9 @@ export default function Header() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`block w-6 h-[2px] transition-all duration-300 origin-center ${isTransparent ? 'bg-white' : 'bg-[#064E3B]'} ${mobileOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
-            <span className={`block w-6 h-[2px] transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#064E3B]'} ${mobileOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-[2px] transition-all duration-300 origin-center ${isTransparent ? 'bg-white' : 'bg-[#064E3B]'} ${mobileOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
+            <span className={`block w-6 h-[2px] transition-all duration-300 origin-center bg-[#064E3B] ${mobileOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
+            <span className={`block w-6 h-[2px] transition-all duration-300 bg-[#064E3B] ${mobileOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-[2px] transition-all duration-300 origin-center bg-[#064E3B] ${mobileOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
           </button>
         </div>
       </nav>
