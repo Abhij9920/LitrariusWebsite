@@ -47,7 +47,7 @@ export default function Hero({
 
       {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col justify-end">
-        <div className={`pt-32 pb-24 lg:pb-32 px-6 md:px-20 max-w-[800px] ${short ? 'pb-16' : ''}`}>
+        <div className={`pt-32 pb-6 lg:pb-10 px-6 md:px-20 max-w-[800px] ${short ? 'pb-4' : ''}`}>
           <p className="font-playfair italic text-xl md:text-2xl text-white/90 mb-4">{italicLine}</p>
           <h1 className="font-playfair text-[32px] md:text-[42px] lg:text-[52px] xl:text-[54px] text-white leading-[1.1] mb-6 tracking-tight drop-shadow-sm">{heading}</h1>
           {subText && (
