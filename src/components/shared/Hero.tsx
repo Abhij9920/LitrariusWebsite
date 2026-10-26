@@ -72,7 +72,7 @@ export default function Hero({
       {trustedBy && (
         <div className="relative z-10 bg-black/28 backdrop-blur-sm px-8 md:px-20 py-3.5 flex items-center gap-6 flex-wrap">
           <span className="text-[11px] text-white/80 tracking-widest uppercase whitespace-nowrap">
-            Trusted by students from
+            Students admitted to
           </span>
           <div className="flex gap-6 flex-wrap">
             {trustedBy.map((t) => (

@@ -17,12 +17,12 @@ export default function Home() {
         imageAlt="Beautiful Australian university campus"
         italicLine=""
         heading={<>Connecting Ambitious<br />Students with World-Class<br />Education Opportunities.</>}
-        subText="India's most trusted admissions partner — guiding 1,000+ students to Australia's best universities through expert counselling and IELTS/PTE coaching."
+        subText="Your trusted admissions partner — guiding students worldwide to Australia's best universities through expert counselling, personalised support, and real results."
         ctaLabel="Book Free Consultation"
         ctaTo="/contact"
         secondaryLabel="View Our Results"
         secondaryTo="#proof"
-        trustedBy={['IIT', 'IIM', 'Delhi University', 'Mumbai University', 'Pune University', 'Bangalore University']}
+        trustedBy={['University of Melbourne', 'UNSW Sydney', 'Monash University', 'ANU', 'University of Queensland', 'University of Sydney']}
       />
       <ProofSection />
       <Ticker />
@@ -31,9 +31,9 @@ export default function Home() {
       <TheyGotIn />
       <ArticlesSection />
       <FinalCTA
-        heading={<>Thousands of Australian Dreams.<br />Made Real.</>}
-        italic="Are You Next?"
-        btnLabel="Start Today"
+        heading={<>Your Australian University Journey<br />Starts Here.</>}
+        italic="Let's Make It Happen."
+        btnLabel="Book Free Consultation"
         btnTo="/contact"
       />
       <MiniCTABar />

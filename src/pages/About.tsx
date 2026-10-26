@@ -19,7 +19,7 @@ const teamStudents = [
 const milestones = [
   { year: '2008', text: 'Founded with a single mission: make Australia accessible to ambitious students worldwide.', img: '/images/campus-uwa.webp' },
   { year: '2012', text: 'Reached 100+ successful student placements across Group of Eight universities.' },
-  { year: '2016', text: 'Expanded IELTS and PTE coaching programmes to provide end-to-end academic preparation.', img: '/images/coaching-intensive.webp' },
+  { year: '2016', text: 'Expanded our services to provide end-to-end academic support, from profile building to final admission offers.', img: '/images/campus-melbourne.webp' },
   { year: '2019', text: '500+ students placed at Australian universities, opening our second branch.' },
   { year: '2022', text: 'Launched dedicated student support services in partnership with leading Australian universities.' },
   { year: '2024', text: '1,000+ placements milestone achieved — guiding students to Australia\'s top universities.', img: '/images/student-group.webp' },
@@ -126,11 +126,11 @@ export default function About() {
           <RevealItem delay={0} type="fade-up">
             <span className="font-poppins uppercase tracking-widest text-green-em text-xs font-bold mb-6 block">Who We Are</span>
             <h1 className="font-playfair text-[38px] md:text-[52px] lg:text-[68px] leading-[1.05] text-[#064E3B] mb-8 tracking-tight max-w-4xl mx-auto">
-              India's Most Trusted<br />
-              <span className="italic text-charcoal/80">Australian Partner.</span>
+              Your Trusted Partner for<br />
+              <span className="italic text-charcoal/80">Australian Education.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-16 leading-relaxed">
-              For over 15 years, we have been quietly turning Australian dreams into reality through genuine support, certified expertise, and real results.
+              For over 15 years, we have been helping ambitious students from around the world access Australia's finest universities through genuine support, certified expertise, and real results.
             </p>
           </RevealItem>
           
@@ -223,21 +223,12 @@ export default function About() {
             <div className="relative h-[400px] md:h-[500px] w-full py-4">
               <RevealItem delay={200} type="slide-left" className="absolute top-4 right-0 w-[55%] h-[45%] z-10 shadow-2xl rounded-2xl group overflow-hidden">
                 <img src={teamStudents[0].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
-                <div className="absolute top-4 right-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold z-20">
-                  {teamStudents[0].name}
-                </div>
               </RevealItem>
               <RevealItem delay={400} type="fade-in" className="absolute bottom-4 left-0 w-[50%] h-[55%] z-30 shadow-2xl rounded-2xl group overflow-hidden">
                 <img src={teamStudents[1].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
-                <div className="absolute bottom-4 left-4 bg-white text-charcoal px-3 py-1.5 text-xs font-poppins font-bold z-20">
-                  {teamStudents[1].name}
-                </div>
               </RevealItem>
               <RevealItem delay={600} type="slide-left" className="absolute bottom-12 right-8 w-[45%] h-[45%] z-20 shadow-2xl rounded-2xl group overflow-hidden">
                 <img src={teamStudents[2].img} alt="Student" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
-                <div className="absolute bottom-4 right-4 bg-emerald-500 text-white px-3 py-1.5 text-xs font-poppins font-bold z-20">
-                  Scholarship
-                </div>
               </RevealItem>
             </div>
             
@@ -255,7 +246,7 @@ export default function About() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <div className="rounded-2xl overflow-hidden shadow-2xl h-[400px] lg:h-[700px] w-full lg:sticky lg:top-32">
-              <img src="/images/coaching-foundation.webp" alt="Why Literarius" className="w-full h-full object-cover" />
+              <img src="/images/student-group.webp" alt="Why Literarius" className="w-full h-full object-cover" />
             </div>
             
             <div className="flex flex-col gap-12">

@@ -6,8 +6,8 @@ const cols = [
     title: 'Services',
     links: [
       { label: 'Study in Australia', to: '/australia' },
-      { label: 'IELTS Coaching', to: '/coaching' },
-      { label: 'PTE Coaching', to: '/coaching' },
+      { label: 'University Admissions', to: '/contact' },
+      { label: 'Scholarship Guidance', to: '/contact' },
     ],
   },
   {
@@ -41,7 +41,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm text-muted leading-relaxed max-w-[240px]">
-              Your Gateway to World-Class Australian Education. Expert counselling for university admissions and IELTS/PTE coaching.
+              Your Gateway to World-Class Australian Education. Expert counselling for university admissions and scholarship applications worldwide.
             </p>
           </div>
           {cols.map(({ title, links }) => (

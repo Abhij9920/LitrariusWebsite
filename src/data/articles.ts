@@ -1,30 +1,30 @@
 export const articles = [
   {
-    slug: 'top-australian-universities-indian-students',
-    title: 'Top Australian Universities for Indian Students in 2026',
-    excerpt: 'A comprehensive breakdown of the Group of Eight and emerging institutions that offer the best ROI and student experience for Indian applicants.',
+    slug: 'top-australian-universities-international-students',
+    title: 'Top Australian Universities for International Students in 2026',
+    excerpt: 'A comprehensive breakdown of the Group of Eight and emerging institutions that offer the best ROI and student experience for international applicants.',
     category: 'Universities',
     date: 'Sep 24, 2026',
     readTime: '6 min read',
     img: '/images/campus-monash.webp',
     featured: true,
     content: `
-      <p>Australia has cemented its position as the third most popular study destination in the world, and for Indian students, the appeal is stronger than ever. Beyond the famous sunny lifestyle and stunning landscapes, Australia offers an educational infrastructure that prioritizes practical outcomes, high employability, and world-class research facilities.</p>
+      <p>Australia has cemented its position as the third most popular study destination in the world, and for international students, the appeal is stronger than ever. Beyond the famous sunny lifestyle and stunning landscapes, Australia offers an educational infrastructure that prioritizes practical outcomes, high employability, and world-class research facilities.</p>
       
       <h2>The Group of Eight (Go8) Advantage</h2>
-      <p>The Group of Eight represents Australia's leading research-intensive universities. For Indian students aiming for degrees in STEM, Business, or Healthcare, these institutions provide unparalleled ROI. They consistently rank in the global top 100 and boast the highest employment rates in the country.</p>
+      <p>The Group of Eight represents Australia's leading research-intensive universities. For international students aiming for degrees in STEM, Business, or Healthcare, these institutions provide unparalleled ROI. They consistently rank in the global top 100 and boast the highest employment rates in the country.</p>
       <p>When you graduate from a Go8 university, you carry a brand that is instantly recognized by employers from Silicon Valley to Bangalore.</p>
       
       <h2>Cost vs. Value</h2>
-      <p>While Go8 universities carry a premium tuition fee (typically ranging from AUD 45,000 to AUD 55,000 annually), the practical industry exposure and the sheer quality of the alumni network often offset the initial investment. Furthermore, institutions like the University of Melbourne and UNSW Sydney offer substantial merit-based scholarships specifically designed for high-achieving South Asian applicants.</p>
+      <p>While Go8 universities carry a premium tuition fee (typically ranging from AUD 45,000 to AUD 55,000 annually), the practical industry exposure and the sheer quality of the alumni network often offset the initial investment. Furthermore, institutions like the University of Melbourne and UNSW Sydney offer substantial merit-based scholarships for high-achieving international applicants.</p>
       
       <h2>Emerging Tech Hubs</h2>
-      <p>Beyond the Go8, universities like RMIT, UTS, and Macquarie University are gaining massive popularity among Indian students. Why? Their deep integration with industry. These universities often co-design their curriculums with tech giants, ensuring that graduates possess exactly the skills required by the current market.</p>
+      <p>Beyond the Go8, universities like RMIT, UTS, and Macquarie University are gaining massive popularity among international students. Why? Their deep integration with industry. These universities often co-design their curriculums with tech giants, ensuring that graduates possess exactly the skills required by the current market.</p>
       
       <blockquote>"The best university isn't always the highest-ranked one; it's the one that aligns perfectly with your career trajectory and budget."</blockquote>
       
       <h2>Making the Right Choice</h2>
-      <p>When selecting your university, look beyond the overall QS ranking. Analyze the subject-specific rankings, the availability of industry placements (internships), the cost of living in that specific city, and the strength of the Indian student community on campus.</p>
+      <p>When selecting your university, look beyond the overall QS ranking. Analyze the subject-specific rankings, the availability of industry placements (internships), the cost of living in that specific city, and the campus culture and student support services on offer.</p>
     `,
     author: 'Literarius Editorial Team'
   },
@@ -35,7 +35,7 @@ export const articles = [
     category: 'IELTS & PTE',
     date: 'Sep 18, 2026',
     readTime: '5 min read',
-    img: '/images/coaching-mock.webp',
+    img: '/images/campus-unsw.webp',
     featured: false,
     content: `
       <p>One of the most common questions we get from students is whether they should take the IELTS or PTE Academic. Both are universally accepted by Australian universities, but their formats and scoring systems cater to different types of test-takers.</p>
@@ -49,9 +49,9 @@ export const articles = [
       <blockquote>"Choose the test that matches your natural communication style. Your comfort level on test day directly impacts your score."</blockquote>
       
       <h2>Scoring Alignment</h2>
-      <p>An IELTS Band 7.0 is generally considered equivalent to a PTE score of 65. For competitive courses like Nursing or Education, you may need a higher score (IELTS 7.5 or PTE 73). At Literarius, our diagnostic tests help identify which exam format will yield the highest score for your specific skill set before you begin intensive preparation.</p>
+      <p>An IELTS Band 7.0 is generally considered equivalent to a PTE score of 65. For competitive courses like Nursing or Education, you may need a higher score (IELTS 7.5 or PTE 73). At Literarius, we guide students through understanding the English proficiency requirements for their target university and course.</p>
     `,
-    author: 'Literarius Coaching Division'
+    author: 'Literarius Editorial Team'
   },
   {
     slug: 'australian-scholarships-guide',
@@ -69,7 +69,7 @@ export const articles = [
       <p>The most prestigious government offerings include the Australia Awards and the Destination Australia program. The Destination Australia program is particularly lucrative, offering up to AUD 15,000 per year for students who choose to study at regional campuses—which also provides a more integrated community experience.</p>
       
       <h2>University Merit Awards</h2>
-      <p>Almost every major Australian university offers Vice-Chancellor's International Scholarships. These are highly competitive and are based purely on your academic history. For Indian students, a high percentage in Class 12 (CBSE/ICSE) or a strong undergraduate GPA can automatically qualify you for tuition fee reductions ranging from 10% to 50%.</p>
+      <p>Almost every major Australian university offers Vice-Chancellor's International Scholarships. These are highly competitive and are based purely on your academic history. For international students, a strong academic record from their prior qualifications or undergraduate degree can automatically qualify you for tuition fee reductions ranging from 10% to 50%.</p>
       
       <blockquote>"Don't wait until you receive an offer to start looking for scholarships. The search should begin the moment you decide to apply."</blockquote>
       
@@ -117,7 +117,7 @@ export const articles = [
       <p>Begin by identifying the right course and institution for your career goals. Consider QS rankings in your specific subject area, industry connections, campus location, and scholarship opportunities. Don't apply to the highest-ranked university simply because of its name — apply to the one that fits your profile and goals best.</p>
       
       <h2>Step 2: Check Eligibility Requirements</h2>
-      <p>Each university sets its own academic entry requirements. For undergraduate entry, your Class 12 percentage or equivalent qualification is evaluated. For postgraduate programs, your undergraduate GPA, work experience, and any relevant professional qualifications will be assessed. Always check the specific course entry requirements on the university website.</p>
+      <p>Each university sets its own academic entry requirements. For undergraduate entry, your prior qualifications or secondary school results are evaluated. For postgraduate programs, your undergraduate GPA, work experience, and any relevant professional qualifications will be assessed. Always check the specific course entry requirements on the university website.</p>
       
       <blockquote>"A meticulous, well-documented application is processed faster and has a significantly higher chance of success."</blockquote>
       
@@ -142,7 +142,7 @@ export const articles = [
       <p>The Australia Awards and the Destination Australia program are the most prominent government-funded options. The Destination Australia program offers up to AUD 15,000 per year for students who choose to study at regional campuses — which also tends to offer lower living costs and a more integrated community experience.</p>
       
       <h2>University Merit Scholarships</h2>
-      <p>Almost every major Australian university offers Vice-Chancellor's International Scholarships. These are based purely on your academic history. For students with strong Class 12 or undergraduate results, automatic tuition fee reductions of 10% to 50% are often available. The key is applying before the scholarship deadline, which is typically months before the standard course deadline.</p>
+      <p>Almost every major Australian university offers Vice-Chancellor's International Scholarships. These are based purely on your academic history. For students with strong prior academic results, automatic tuition fee reductions of 10% to 50% are often available. The key is applying before the scholarship deadline, which is typically months before the standard course deadline.</p>
       
       <blockquote>"Don't wait until you receive an offer to start looking for scholarships. The search should begin the moment you decide to apply."</blockquote>
       

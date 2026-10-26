@@ -15,10 +15,6 @@ const subs = [
     body: "Our expert counsellors match your academic profile to Australia's best programs, craft a personalised roadmap, and guide you through a flawless application.",
   },
   {
-    h3: 'Achieve Your IELTS / PTE Target Score',
-    body: 'With personalised coaching, mock tests, and expert feedback — our students consistently achieve Band 7+ in IELTS and 65+ in PTE on their first attempt.',
-  },
-  {
     h3: 'From Application to Admission',
     body: 'We support you from your first enquiry through university selection, course planning, scholarship applications, and your final admission offer.',
   },
@@ -89,7 +85,6 @@ export default function AllInOnePlace() {
                     <img src="/images/student-3.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
-                    <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Priya Sharma</h4>
                     <p className="text-xs uppercase tracking-widest text-muted font-semibold">University of Melbourne</p>
                   </div>
                 </div>
@@ -101,7 +96,6 @@ export default function AllInOnePlace() {
                     <img src="/images/student-5.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
-                    <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Rohit Verma</h4>
                     <p className="text-xs uppercase tracking-widest text-muted font-semibold">University of Queensland</p>
                   </div>
                 </div>
@@ -115,7 +109,6 @@ export default function AllInOnePlace() {
                     <img src="/images/student-2.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
-                    <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Arjun Patel</h4>
                     <p className="text-xs uppercase tracking-widest text-muted font-semibold">UNSW Sydney</p>
                   </div>
                 </div>
@@ -127,10 +120,9 @@ export default function AllInOnePlace() {
                     Scholarship
                   </div>
                   <div className="relative overflow-hidden aspect-[4/5]">
-                    <img src="/images/student-1.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
+                    <img src="/images/student-4.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
-                    <h4 className="font-playfair text-xl text-[#064E3B] mb-1">Meera Iyer</h4>
                     <p className="text-xs uppercase tracking-widest text-muted font-semibold">Monash University</p>
                   </div>
                 </div>

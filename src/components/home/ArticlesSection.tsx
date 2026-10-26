@@ -25,7 +25,7 @@ export default function ArticlesSection() {
                 Scholarship Guide
               </span>
               <div className="font-poppins font-semibold text-[19px] text-white leading-snug mb-2">
-                Complete Guide to Australian University Scholarships for Indian Students
+                Complete Guide to Australian University Scholarships for International Students
               </div>
               <div className="text-xs text-white/45">Updated September 2026</div>
             </div>

@@ -30,16 +30,16 @@ function ContactForm() {
           <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Service Needed *</label>
           <select className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal focus:outline-none focus:border-[#064E3B] transition-colors appearance-none" required>
             <option value="">Select a service</option>
-            <option>Study in Australia</option>
-            <option>IELTS Coaching</option>
-            <option>PTE Coaching</option>
-            <option>Both Coaching + Admission</option>
+            <option>University Admissions Counselling</option>
+            <option>Course & University Selection</option>
+            <option>Scholarship Guidance</option>
+            <option>Application Support</option>
           </select>
         </div>
       </div>
       <div className="mb-8">
         <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Country of Residence *</label>
-        <input className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors" placeholder="India" required />
+        <input className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal placeholder-charcoal/30 focus:outline-none focus:border-[#064E3B] transition-colors" placeholder="Your country" required />
       </div>
       <div className="mb-12">
         <label className="block font-poppins font-bold text-xs uppercase tracking-widest text-charcoal/80 mb-3">Your Message *</label>
@@ -48,8 +48,7 @@ function ContactForm() {
       <button type="submit" className="bg-[#064E3B] text-white font-poppins font-bold uppercase tracking-widest text-sm px-12 py-5 hover:bg-[#043326] transition-colors w-full md:w-auto">
         Send Message
       </button>
-      <p className="mt-4 text-xs text-charcoal/40 font-inter italic">Note: This is a static demo environment. Form submission is simulated.</p>
-      {success && <div className="mt-6 font-medium text-sm text-green-em bg-emerald-50 px-4 py-3 rounded-md border border-emerald-100">✓ Simulated Success: In a production environment, this message would be delivered to the Literarius team. We will get back to you within 24 hours.</div>}
+      {success && <div className="mt-6 font-medium text-sm text-green-em bg-emerald-50 px-4 py-3 rounded-md border border-emerald-100">✓ Thank you for reaching out. A member of our team will be in touch within 24 hours.</div>}
     </form>
   );
 }

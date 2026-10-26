@@ -37,7 +37,7 @@ const courses = [
 
 const faqs = [
   { q: 'What are the popular courses to study in Australia?', a: 'Australia offers engineering, IT, business, health sciences, and arts. Business Management, Computer Science, Engineering, Law, Finance, and Architecture are most popular for international students.' },
-  { q: 'What are the English language requirements?', a: 'Most universities require IELTS (Band 6.0–7.5) or PTE Academic. Literarius provides expert IELTS and PTE coaching to help you reach your target score.' },
+  { q: 'What are the English language requirements?', a: 'Most universities require IELTS (Band 6.0–7.5) or PTE Academic as proof of English proficiency. Literarius can guide you through understanding the specific requirements for your chosen course and university.' },
   { q: 'Can I work while studying in Australia?', a: 'Yes. International students can work up to 20 hours per week during studies and full-time during semester breaks.' },
   { q: 'What is the cost of living in Australia?', a: 'Average AUD 20,000–30,000 per year depending on lifestyle and location, including accommodation (AUD 800–1,500/month), food, and transport.' },
   { q: 'How do I apply to an Australian university?', a: 'You apply directly to the university or through an authorised representative. Literarius guides you through profile assessment, university selection, course shortlisting, document preparation, and the full application process.' },
