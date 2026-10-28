@@ -6,7 +6,7 @@ export const articles = [
     category: 'Universities',
     date: 'Sep 24, 2026',
     readTime: '6 min read',
-    img: '/images/campus-monash.webp',
+    img: '/images/academic-excellence.webp',
     featured: true,
     content: `
       <p>Australia has cemented its position as the third most popular study destination in the world, and for international students, the appeal is stronger than ever. Beyond the famous sunny lifestyle and stunning landscapes, Australia offers an educational infrastructure that prioritizes practical outcomes, high employability, and world-class research facilities.</p>
@@ -35,7 +35,7 @@ export const articles = [
     category: 'IELTS & PTE',
     date: 'Sep 18, 2026',
     readTime: '5 min read',
-    img: '/images/campus-unsw.webp',
+    img: '/images/article-ielts-pte.webp',
     featured: false,
     content: `
       <p>One of the most common questions we get from students is whether they should take the IELTS or PTE Academic. Both are universally accepted by Australian universities, but their formats and scoring systems cater to different types of test-takers.</p>
@@ -133,7 +133,7 @@ export const articles = [
     category: 'Scholarships',
     date: 'Aug 15, 2026',
     readTime: '7 min read',
-    img: '/images/campus-unsw.webp',
+    img: '/images/article-cost-of-living.webp',
     featured: false,
     content: `
       <p>Securing scholarship funding can dramatically reduce the financial burden of an Australian education. The good news: there is more funding available for international students than most people realise. The challenge is knowing where to look and how to apply strategically.</p>

@@ -1,15 +1,40 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 const cards = [
-  { uni: 'University of Melbourne',       label: 'Masters in Business Administration', img: '/images/campus-melbourne.webp' },
-  { uni: 'UNSW Sydney',                   label: 'Computer Science',                   img: '/images/campus-unsw.webp' },
-  { uni: 'Monash University',             label: 'Business Management',                img: '/images/campus-monash.webp' },
-  { uni: 'University of Queensland',      label: 'Engineering',                        img: '/images/campus-uq.webp' },
-  { uni: 'Australian National University',label: 'International Relations',            img: '/images/campus-anu.webp' },
+  {
+    uni: 'University of Melbourne',
+    label: 'Masters in Business Administration',
+    img: '/images/campus-unimelb.webp',
+    alt: 'Old Arts Building, University of Melbourne'
+  },
+  {
+    uni: 'UNSW Sydney',
+    label: 'Computer Science',
+    img: '/images/campus-unsw.webp',
+    alt: 'John Niland Scientia Building, UNSW Sydney'
+  },
+  {
+    uni: 'Monash University',
+    label: 'Business Management',
+    img: '/images/campus-monash.webp',
+    alt: 'Robert Menzies Building, Monash University Clayton Campus'
+  },
+  {
+    uni: 'University of Queensland',
+    label: 'Engineering',
+    img: '/images/campus-uq.webp',
+    alt: 'Forgan Smith Building and Great Court, University of Queensland'
+  },
+  {
+    uni: 'Australian National University',
+    label: 'International Relations',
+    img: '/images/campus-anu.webp',
+    alt: 'Kambri Cultural Precinct, Australian National University Acton Campus'
+  },
 ];
 
 export default function TheyGotIn() {
@@ -30,10 +55,14 @@ export default function TheyGotIn() {
           breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
           className="pb-16"
         >
-          {cards.map(({ uni, label, img }) => (
+          {cards.map(({ uni, label, img, alt }) => (
             <SwiperSlide key={uni}>
               <div className="relative rounded-2xl overflow-hidden h-[450px] group cursor-pointer shadow-md">
-                <img src={img} alt={uni} className="w-full h-full object-cover transition-transform duration-[1400ms] ease-cinematic-slow group-hover:scale-105" />
+                <img
+                  src={img}
+                  alt={alt || uni}
+                  className="w-full h-full object-cover transition-transform duration-[1400ms] ease-cinematic-slow group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,30,20,0.95)] via-[rgba(6,30,20,0.4)] to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
                   <div className="translate-y-6 group-hover:translate-y-0 transition-transform duration-700 ease-cinematic">

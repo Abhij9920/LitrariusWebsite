@@ -1,0 +1,141 @@
+{
+  "notice": "DO NOT RUN AUTOMATED UNCHECKED SCRIPTS ON THIS REPOSITORY. All images here are curated, provenance-checked, visually-verified, and license-compliant.",
+  "lastVerified": "2026-10-28",
+  "institutions": [
+    {
+      "institution": "The University of Melbourne",
+      "landmark": "Old Arts Building and Clock Tower, Parkville Campus",
+      "filename": "campus-unimelb.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Arts_Building,_University_of_Melbourne_(2650386749).jpg",
+      "author": "cogdogblog",
+      "license": "CC0 1.0 Universal",
+      "provenanceVerified": true,
+      "visualVerified": true,
+      "qualityVerified": true,
+      "licenseVerified": true
+    },
+    {
+      "institution": "The University of Sydney",
+      "landmark": "Main Quadrangle, Camperdown Campus",
+      "filename": "campus-usyd.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:The_University_of_Sydney's_Main_Quadrangle.jpg",
+      "author": "Jason Tong",
+      "license": "CC BY-SA 3.0",
+      "provenanceVerified": true,
+      "visualVerified": true,
+      "qualityVerified": true,
+      "licenseVerified": true
+    },
+    {
+      "institution": "UNSW Sydney",
+      "landmark": "John Niland Scientia Building, Kensington Campus",
+      "filename": "campus-unsw.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:John_Niland_Scientia_Building_UNSW.jpg",
+      "author": "unsw.flickr",
+      "license": "CC BY 2.0",
+      "provenanceVerified": true,
+      "visualVerified": true,
+      "qualityVerified": true,
+      "licenseVerified": true
+    },
+    {
+      "institution": "Australian National University",
+      "landmark": "Kambri Cultural & Student Precinct, Acton Campus",
+      "filename": "campus-anu.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Kambri_at_ANU.jpg",
+      "author": "Alvinz",
+      "license": "CC BY-SA 4.0",
+      "provenanceVerified": true,
+      "visualVerified": true,
+      "qualityVerified": true,
+      "licenseVerified": true
+    },
+    {
+      "institution": "Monash University",
+      "landmark": "Robert Menzies Building, Clayton Campus",
+      "filename": "campus-monash.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Monash_University_Menzies_Building.jpg",
+      "author": "Melburnian",
+      "license": "CC BY 2.5",
+      "provenanceVerified": true,
+      "visualVerified": true,
+      "qualityVerified": true,
+      "licenseVerified": true
+    },
+    {
+      "institution": "University of Queensland",
+      "landmark": "Forgan Smith Building / Great Court, St Lucia Campus",
+      "filename": "campus-uq.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:AUS_Brisbane,_St_Lucia,_University_of_Queensland_0010.jpg",
+      "author": "-wuppertaler",
+      "license": "CC BY 4.0",
+      "provenanceVerified": true,
+      "visualVerified": true,
+      "qualityVerified": true,
+      "licenseVerified": true
+    },
+    {
+      "institution": "University of Western Australia",
+      "landmark": "Winthrop Hall and Reflection Pond, Crawley Campus",
+      "filename": "campus-uwa.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Winthrop_Hall,_UWA,_September_2020_02.jpg",
+      "author": "Calistemon",
+      "license": "CC BY-SA 4.0",
+      "provenanceVerified": true,
+      "visualVerified": true,
+      "qualityVerified": true,
+      "licenseVerified": true
+    }
+  ],
+  "topics": [
+    {
+      "slot": "Global Academic Excellence",
+      "filename": "academic-excellence.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Square_academic_cap_(graduation_hats).JPG",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "slot": "Innovation & Research Hub",
+      "filename": "research-innovation.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Barbara_McClintock_(1902-1992)_shown_in_her_laboratory_in_1947.jpg",
+      "license": "Public domain"
+    },
+    {
+      "slot": "Campus Life",
+      "filename": "campus-life.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Stanford_Oval_May_2011_panorama.jpg",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "slot": "Milestone 2008 Founded",
+      "filename": "about-founded.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Library_and_reading_room_of_Oxford_College_ca._1899_(3195489874).jpg",
+      "license": "Public domain"
+    },
+    {
+      "slot": "Milestone 2016 Expanded",
+      "filename": "about-expansion.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Mathematics_lecture_at_the_Helsinki_University_of_Technology.jpg",
+      "license": "Public domain"
+    },
+    {
+      "slot": "Article 1 Cost of Living",
+      "filename": "article-cost-of-living.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:AUS-3b-Commonwealth_of_Australia-10_Shillings_(1918).jpg",
+      "license": "Public domain"
+    },
+    {
+      "slot": "Article 2 Post-Study Work Rights",
+      "filename": "article-work-rights.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:SydneyHarbour.jpg",
+      "license": "Public domain"
+    },
+    {
+      "slot": "Article 6 IELTS vs PTE",
+      "filename": "article-ielts-pte.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:HK_Aberdeen_Public_Library_n_%E8%87%AA%E4%BF%AE%E5%AE%A4_Student_Self-Study_Room.JPG",
+      "license": "CC BY-SA 3.0"
+    }
+  ]
+}
+

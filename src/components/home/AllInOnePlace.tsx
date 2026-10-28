@@ -120,7 +120,7 @@ export default function AllInOnePlace() {
                     Scholarship
                   </div>
                   <div className="relative overflow-hidden aspect-[4/5]">
-                    <img src="/images/student-4.webp" alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
+                    <img src="/images/student-1.webp" alt="Student admitted to Monash University" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-cinematic-slow" />
                   </div>
                   <div className="p-5 md:p-6 border-t border-bdr">
                     <p className="text-xs uppercase tracking-widest text-muted font-semibold">Monash University</p>

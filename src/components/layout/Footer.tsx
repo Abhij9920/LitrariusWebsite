@@ -68,7 +68,11 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between py-5 gap-4 text-xs text-muted">
-          <span>© 2026 Literarius. All rights reserved.</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <span>© 2026 Literarius. All rights reserved.</span>
+            <span className="hidden sm:inline text-muted/40">•</span>
+            <span className="text-muted/80">Campus imagery verified via Wikimedia Commons (CC BY / CC0).</span>
+          </div>
           <div className="flex gap-3">
             <a href="#" className="w-8 h-8 rounded-full bg-green-logo/10 text-green-logo flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity" aria-label="Facebook">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>

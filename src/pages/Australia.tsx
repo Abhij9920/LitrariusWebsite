@@ -10,21 +10,21 @@ import 'swiper/css/navigation';
 import 'swiper/css/free-mode';
 
 const whyCards = [
-  { title: 'Global Academic Excellence',     body: '9 universities in the global top 100. Rigorous standards, cutting-edge research, and internationally recognised qualifications.', img: '/images/campus-monash.webp' },
-  { title: 'Diverse Academic Landscape',     body: '4,000+ accredited institutions offering specialised programs in marine biology, renewable energy, and indigenous studies.', img: '/images/campus-uq.webp' },
-  { title: 'Work While You Study',           body: 'Work up to 48 hours per fortnight during term and full-time during breaks. Gain real-world experience while covering living costs.', img: '/images/student-3.webp' },
-  { title: 'Innovation & Research Hub',      body: 'Global leader in climate science, AI, medical research, and sustainable technologies with world-class facilities.', img: '/images/campus-anu.webp' },
-  { title: 'Scholarship Opportunities',      body: 'Millions of dollars in scholarships and grants available for international students through government and university programs.', img: '/images/student-2.webp' },
+  { title: 'Global Academic Excellence',     body: '9 universities in the global top 100. Rigorous standards, cutting-edge research, and internationally recognised qualifications.', img: '/images/academic-excellence.webp', alt: 'Academic excellence and graduation honors' },
+  { title: 'Diverse Academic Landscape',     body: '4,000+ accredited institutions offering specialised programs in marine biology, renewable energy, and indigenous studies.', img: '/images/course-business.webp', alt: 'Diverse academic landscape' },
+  { title: 'Work While You Study',           body: 'Work up to 48 hours per fortnight during term and full-time during breaks. Gain real-world experience while covering living costs.', img: '/images/student-3.webp', alt: 'International student studying' },
+  { title: 'Innovation & Research Hub',      body: 'Global leader in climate science, AI, medical research, and sustainable technologies with world-class facilities.', img: '/images/research-innovation.webp', alt: 'Scientific research and modern lab innovation' },
+  { title: 'Scholarship Opportunities',      body: 'Millions of dollars in scholarships and grants available for international students through government and university programs.', img: '/images/student-2.webp', alt: 'Student celebrating scholarship award' },
 ];
 
 const universities = [
-  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: '/images/campus-uwa.webp', location: 'Melbourne, Victoria' },
-  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: '/images/campus-monash.webp', location: 'Sydney, NSW' },
-  { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.', img: '/images/campus-unsw.webp', location: 'Sydney, NSW' },
-  { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.', img: '/images/campus-anu.webp', location: 'Canberra, ACT' },
-  { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.', img: '/images/campus-monash.webp', location: 'Melbourne, Victoria' },
-  { rank: 'QS #40',  name: 'University of Queensland',     body: 'Leader in research commercialisation and health sciences — beautiful Brisbane campus.', img: '/images/campus-uq.webp', location: 'Brisbane, Queensland' },
-  { rank: 'QS #82',  name: 'University of Western Australia', body: 'Perth-based research university known for mining, agriculture, and medical sciences.', img: '/images/campus-uwa.webp', location: 'Perth, WA' },
+  { rank: 'QS #13',  name: 'The University of Melbourne',  body: "Victoria's leading research university with world-class faculty and innovative programs.", img: '/images/campus-unimelb.webp', location: 'Melbourne, Victoria', alt: 'Old Arts Building and Clock Tower, University of Melbourne' },
+  { rank: 'QS #18',  name: 'The University of Sydney',     body: "Australia's first university with exceptional programs across all disciplines.", img: '/images/campus-usyd.webp', location: 'Sydney, NSW', alt: 'Main Quadrangle, University of Sydney' },
+  { rank: 'QS #19',  name: 'UNSW Sydney',                  body: 'Excels in engineering, technology, and business with strong global employer recognition.', img: '/images/campus-unsw.webp', location: 'Sydney, NSW', alt: 'John Niland Scientia Building, UNSW Sydney' },
+  { rank: 'QS #22',  name: 'Australian National University',body: 'Home to Nobel laureates and leading researchers in science, law, and policy.', img: '/images/campus-anu.webp', location: 'Canberra, ACT', alt: 'Kambri Precinct, Australian National University Acton' },
+  { rank: 'QS #28',  name: 'Monash University',            body: 'Global top-30 university renowned for pharmacy, engineering, and business.', img: '/images/campus-monash.webp', location: 'Melbourne, Victoria', alt: 'Robert Menzies Building, Monash University Clayton Campus' },
+  { rank: 'QS #40',  name: 'University of Queensland',     body: 'Leader in research commercialisation and health sciences — beautiful Brisbane campus.', img: '/images/campus-uq.webp', location: 'Brisbane, Queensland', alt: 'Forgan Smith Building and Great Court, University of Queensland' },
+  { rank: 'QS #82',  name: 'University of Western Australia', body: 'Perth-based research university known for mining, agriculture, and medical sciences.', img: '/images/campus-uwa.webp', location: 'Perth, WA', alt: 'Winthrop Hall and Reflection Pond, University of Western Australia' },
 ];
 
 const courses = [
@@ -216,11 +216,11 @@ export default function Australia() {
             grabCursor={true}
             className="!overflow-visible"
           >
-            {universities.map(({ rank, name, body, img, location }, i) => (
+            {universities.map(({ rank, name, body, img, location, alt }, i) => (
               <SwiperSlide key={name} className="!w-[300px] md:!w-[500px]">
                 <RevealItem delay={i * 200} type="slide-left" className="group cursor-pointer">
                   <div className="relative h-[400px] md:h-[600px] rounded-xl overflow-hidden mb-6">
-                    <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
+                    <img src={img} alt={alt || name} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-cinematic-slow group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700 ease-cinematic" />
                     <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 text-white font-poppins font-bold text-xs px-4 py-2 rounded-full">
                       {rank}
@@ -272,7 +272,7 @@ export default function Australia() {
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           <div className="lg:col-span-5 w-full h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl">
-            <img src="/images/campus-uwa.webp" alt="Campus Life" className="w-full h-full object-cover" />
+            <img src="/images/campus-life.webp" alt="Australian university campus life" className="w-full h-full object-cover" />
           </div>
 
           <div className="lg:col-span-7 flex flex-col justify-center">

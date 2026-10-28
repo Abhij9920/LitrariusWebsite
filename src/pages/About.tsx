@@ -17,9 +17,9 @@ const teamStudents = [
 ];
 
 const milestones = [
-  { year: '2008', text: 'Founded with a single mission: make Australia accessible to ambitious students worldwide.', img: '/images/campus-uwa.webp' },
+  { year: '2008', text: 'Founded with a single mission: make Australia accessible to ambitious students worldwide.', img: '/images/about-founded.webp' },
   { year: '2012', text: 'Reached 100+ successful student placements across Group of Eight universities.' },
-  { year: '2016', text: 'Expanded our services to provide end-to-end academic support, from profile building to final admission offers.', img: '/images/campus-melbourne.webp' },
+  { year: '2016', text: 'Expanded our services to provide end-to-end academic support, from profile building to final admission offers.', img: '/images/about-expansion.webp' },
   { year: '2019', text: '500+ students placed at Australian universities, opening our second branch.' },
   { year: '2022', text: 'Launched dedicated student support services in partnership with leading Australian universities.' },
   { year: '2024', text: '1,000+ placements milestone achieved — guiding students to Australia\'s top universities.', img: '/images/student-group.webp' },

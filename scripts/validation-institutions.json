@@ -1,0 +1,86 @@
+[
+  {
+    "institution": "The University of Melbourne",
+    "landmark": "Old Arts Building and Clock Tower, Parkville Campus",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File%3AOld%20Arts%20Building%2C%20University%20of%20Melbourne%20(2650386749).jpg",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Old_Arts_Building%2C_University_of_Melbourne_%282650386749%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licenseAuthor": "CC0 by cogdogblog",
+    "provenancePass": "PASS",
+    "visualPass": "PASS",
+    "qualityPass": "PASS (1800x1350px)",
+    "licensePass": "PASS (CC0)",
+    "localFilename": "campus-unimelb.webp"
+  },
+  {
+    "institution": "The University of Sydney",
+    "landmark": "Main Quadrangle, Camperdown Campus",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20University%20of%20Sydney's%20Main%20Quadrangle.jpg",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/The_University_of_Sydney%27s_Main_Quadrangle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licenseAuthor": "CC BY-SA 3.0 by Jason Tong",
+    "provenancePass": "PASS",
+    "visualPass": "PASS",
+    "qualityPass": "PASS (3872x2592px)",
+    "licensePass": "PASS (CC BY-SA 3.0)",
+    "localFilename": "campus-usyd.webp"
+  },
+  {
+    "institution": "UNSW Sydney",
+    "landmark": "John Niland Scientia Building, Kensington Campus",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File%3AJohn%20Niland%20Scientia%20Building%20UNSW.jpg",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/John_Niland_Scientia_Building_UNSW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licenseAuthor": "CC BY 2.0 by unsw.flickr",
+    "provenancePass": "PASS",
+    "visualPass": "PASS",
+    "qualityPass": "PASS (4368x2912px)",
+    "licensePass": "PASS (CC BY 2.0)",
+    "localFilename": "campus-unsw.webp"
+  },
+  {
+    "institution": "Australian National University",
+    "landmark": "Kambri Cultural & Student Precinct, Acton Campus",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File%3AKambri%20at%20ANU.jpg",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Kambri_at_ANU.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licenseAuthor": "CC BY-SA 4.0 by Alvinz",
+    "provenancePass": "PASS",
+    "visualPass": "PASS",
+    "qualityPass": "PASS (4000x1800px)",
+    "licensePass": "PASS (CC BY-SA 4.0)",
+    "localFilename": "campus-anu.webp"
+  },
+  {
+    "institution": "Monash University",
+    "landmark": "Robert Menzies Building, Clayton Campus",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File%3AMonash%20University%20Menzies%20Building.jpg",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Monash_University_Menzies_Building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licenseAuthor": "CC BY 2.5 by Melburnian",
+    "provenancePass": "PASS",
+    "visualPass": "PASS",
+    "qualityPass": "PASS (1333x1000px)",
+    "licensePass": "PASS (CC BY 2.5)",
+    "localFilename": "campus-monash.webp"
+  },
+  {
+    "institution": "University of Queensland",
+    "landmark": "Forgan Smith Building / Great Court, St Lucia Campus",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File%3AAUS%20Brisbane%2C%20St%20Lucia%2C%20University%20of%20Queensland%200010.jpg",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/AUS_Brisbane%2C_St_Lucia%2C_University_of_Queensland_0010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licenseAuthor": "CC BY 4.0 by -wuppertaler",
+    "provenancePass": "PASS",
+    "visualPass": "PASS",
+    "qualityPass": "PASS (3936x3024px)",
+    "licensePass": "PASS (CC BY 4.0)",
+    "localFilename": "campus-uq.webp"
+  },
+  {
+    "institution": "University of Western Australia",
+    "landmark": "Winthrop Hall and Reflection Pond, Crawley Campus",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File%3AWinthrop%20Hall%2C%20UWA%2C%20September%202020%2002.jpg",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Winthrop_Hall%2C_UWA%2C_September_2020_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licenseAuthor": "CC BY-SA 4.0 by Calistemon",
+    "provenancePass": "PASS",
+    "visualPass": "PASS",
+    "qualityPass": "PASS (4608x3456px, Full Color)",
+    "licensePass": "PASS (CC BY-SA 4.0)",
+    "localFilename": "campus-uwa.webp"
+  }
+]
